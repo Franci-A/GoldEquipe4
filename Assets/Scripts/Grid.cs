@@ -20,7 +20,10 @@ public class Grid : MonoBehaviour
             foreach (Tile tile in line.line)
             {
                 GameObject obj = Instantiate(tilePrefab, transform);
-                obj.transform.localPosition = new Vector3(j * 1, i * 1, 0) - drawOffset;
+                obj.transform.localPosition = new Vector3(j , i , 0) - drawOffset;
+                obj.GetComponent<TileInfo>().lineNum = i;
+                obj.GetComponent<TileInfo>().tileNum = j;
+
                 switch (tile.tileType)
                 {
                     case TileType.Ground:
