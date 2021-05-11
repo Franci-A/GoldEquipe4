@@ -163,8 +163,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470857441}
-  - component: {fileID: 470857444}
   - component: {fileID: 470857442}
+  - component: {fileID: 470857443}
   m_Layer: 0
   m_Name: House (1)
   m_TagString: Untagged
@@ -241,57 +241,19 @@ MonoBehaviour:
       houseColor: 
   tilePrefab: {fileID: 5354745377920125117, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
   drawOffset: {x: 1, y: -1, z: 0}
---- !u!212 &470857444
-SpriteRenderer:
+--- !u!114 &470857443
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470857440}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 3625043607559282579, guid: d779e72469a4e0f4ea31d0aff67dd462, type: 3}
-  m_Color: {r: 1, g: 0.4009434, b: 0.8302673, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 0.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: fe8f6e05c5c95dc4d8317a0ffa21d567, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573509822}
   - component: {fileID: 1573509823}
+  - component: {fileID: 1573509824}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -603,6 +566,27 @@ MonoBehaviour:
       OnTile: 0
       houseUpgrade: 0
       houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+  - line:
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
     - tileType: 0
       OnTile: 0
       houseUpgrade: 0
@@ -662,7 +646,7 @@ MonoBehaviour:
       houseUpgrade: 0
       houseColor: 
   - line:
-    - tileType: 0
+    - tileType: 1
       OnTile: 0
       houseUpgrade: 0
       houseColor: 
@@ -678,7 +662,7 @@ MonoBehaviour:
       OnTile: 0
       houseUpgrade: 0
       houseColor: 
-    - tileType: 0
+    - tileType: 1
       OnTile: 0
       houseUpgrade: 0
       houseColor: 
@@ -696,6 +680,27 @@ MonoBehaviour:
       houseUpgrade: 0
       houseColor: 
     - tileType: 0
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+  - line:
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
+      OnTile: 0
+      houseUpgrade: 0
+      houseColor: 
+    - tileType: 1
       OnTile: 0
       houseUpgrade: 0
       houseColor: 
@@ -705,3 +710,16 @@ MonoBehaviour:
       houseColor: 
   tilePrefab: {fileID: 8697326908566153922, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
   drawOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1573509824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573509821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: fe8f6e05c5c95dc4d8317a0ffa21d567, type: 2}

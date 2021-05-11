@@ -48,14 +48,11 @@ public class PIckUpAndPlace : MonoBehaviour
         
         if(canBePlaced && haspos)
         {
-            transform.position = snapPos;
-            snapImage.transform.position = transform.position;
+            PlaceTiles();
         }
-        else
-        {
-            transform.position = startPos;
-            snapImage.transform.position = transform.position;
-        }
+
+        transform.position = startPos;
+        snapImage.transform.position = transform.position;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -98,12 +95,11 @@ public class PIckUpAndPlace : MonoBehaviour
                             case OnTile.House:
                                 if (currentGrid.grid[y].line[x].tileType == TileType.Water || currentGrid.grid[y].line[x].OnTile == OnTile.House)
                                 {
-                                    //Debug.Log("nope");
                                     canBePlaced = false;
                                 }
                                 else if (currentGrid.grid[y].line[x].tileType == TileType.Ground && currentGrid.grid[y].line[x].OnTile == OnTile.Empty)
                                 {
-                                    //Debug.Log("is cool :)");
+                                    //Debug.Log("can be placed");
                                 }
                                 break;
                             case OnTile.X:
@@ -113,6 +109,49 @@ public class PIckUpAndPlace : MonoBehaviour
                                 }
                                 break;
 
+                        }
+                    }
+                    x++;
+
+                }
+            }
+            x = currentCenterTile.GetComponent<TileInfo>().tileNum - 1;
+            y++;
+        }
+    }
+
+    public void PlaceTiles()
+    {
+        int x = currentCenterTile.GetComponent<TileInfo>().tileNum - 1;
+        int y = currentCenterTile.GetComponent<TileInfo>().lineNum - 1;
+        foreach (GridLine line in playerHand.grid)
+        {
+            if (y >= 0 && y < currentGrid.grid.Count)
+            {
+                foreach (Tile tile in line.line)
+                {
+                    if (x >= 0 && x < currentGrid.grid[y].line.Count)
+                    {
+
+                        switch (tile.OnTile)
+                        {
+                            case OnTile.House:
+                                currentGrid.grid[y].line[x].OnTile = OnTile.House;
+                                currentGrid.grid[y].line[x].houseUpgrade++;
+                                currentGrid.UpdateTile(y, x);
+                                break;
+                            case OnTile.X:
+                                if (currentGrid.grid[y].line[x].OnTile == OnTile.House)
+                                {
+                                    currentGrid.grid[y].line[x].houseUpgrade--;
+                                    currentGrid.UpdateTile(y, x);
+                                    if (currentGrid.grid[y].line[x].houseUpgrade == 0)
+                                    {
+                                        currentGrid.grid[y].line[x].OnTile = OnTile.Empty;
+                                        currentGrid.UpdateTile(y, x);
+                                    }
+                                }
+                                break;
                         }
                     }
                     x++;
