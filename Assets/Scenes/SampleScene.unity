@@ -236,10 +236,11 @@ MonoBehaviour:
       houseUpgrade: 0
       houseColor: 
     - tileType: 2
-      OnTile: 0
+      OnTile: 2
       houseUpgrade: 0
       houseColor: 
   tilePrefab: {fileID: 5354745377920125117, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+  cellSize: 0.7
   drawOffset: {x: 1, y: -1, z: 0}
 --- !u!114 &470857443
 MonoBehaviour:
@@ -709,6 +710,7 @@ MonoBehaviour:
       houseUpgrade: 0
       houseColor: 
   tilePrefab: {fileID: 8697326908566153922, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+  cellSize: 1
   drawOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1573509824
 MonoBehaviour:

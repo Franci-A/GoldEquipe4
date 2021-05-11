@@ -7,6 +7,7 @@ public class Grid : MonoBehaviour
 {
     public List<GridLine> grid;
     [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private float cellSize;
     public Vector3 drawOffset;
     private SpriteLibrary sprites;
     private List<GameObject> tiles;
@@ -24,7 +25,7 @@ public class Grid : MonoBehaviour
             {
                 GameObject obj = Instantiate(tilePrefab, transform);
                 tiles.Add(obj);
-                obj.transform.localPosition = new Vector3(x , y *-1 , 0) - drawOffset;
+                obj.transform.localPosition = new Vector3(x * cellSize, y * -1  * cellSize, 0) - drawOffset;
                 obj.GetComponent<TileInfo>().lineNum = y;
                 obj.GetComponent<TileInfo>().tileNum = x;
                 
@@ -65,14 +66,15 @@ public class Grid : MonoBehaviour
 
     public void UpdateTile(int line, int tile)
     {
-        tiles[grid[0].line.Count * line + tile].GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "level" + grid[line].line[tile].houseUpgrade.ToString());
+        SpriteRenderer obj = tiles[grid[0].line.Count * line + tile].transform.GetChild(0).GetComponent<SpriteRenderer>();
+        obj.sprite = sprites.GetSprite("House", "level" + grid[line].line[tile].houseUpgrade.ToString());
         if(grid[line].line[tile].houseUpgrade == 0)
         {
-            tiles[grid[0].line.Count * line + tile].GetComponentInChildren<SpriteRenderer>().color = Color.clear;
+            obj.color = Color.clear;
         }
         else
         {
-            tiles[grid[0].line.Count * line + tile].GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            obj.color = Color.white;
         }
     }
 }
