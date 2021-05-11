@@ -10,19 +10,20 @@ public class Grid : MonoBehaviour
     public Vector3 drawOffset;
 
 
+
     private void Start()
     {
         
-        int i = 0;
-        int j = 0;
+        int x = 0;
+        int y = 0;
         foreach (GridLine line in grid)
         {
             foreach (Tile tile in line.line)
             {
                 GameObject obj = Instantiate(tilePrefab, transform);
-                obj.transform.localPosition = new Vector3(j , i , 0) - drawOffset;
-                obj.GetComponent<TileInfo>().lineNum = i;
-                obj.GetComponent<TileInfo>().tileNum = j;
+                obj.transform.localPosition = new Vector3(x , y *-1 , 0) - drawOffset;
+                obj.GetComponent<TileInfo>().lineNum = y;
+                obj.GetComponent<TileInfo>().tileNum = x;
 
                 switch (tile.tileType)
                 {
@@ -38,10 +39,10 @@ public class Grid : MonoBehaviour
                         obj.GetComponent<SpriteRenderer>().color = Color.clear;
                         break;
                 }
-                j++;
+                x++;
             }
-            j = 0;
-            i--;
+            x = 0;
+            y++;
         }
     }
 }

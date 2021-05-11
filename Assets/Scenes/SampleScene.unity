@@ -387,7 +387,6 @@ GameObject:
   - component: {fileID: 595124799}
   - component: {fileID: 595124802}
   - component: {fileID: 595124803}
-  - component: {fileID: 595124800}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -409,60 +408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapImage: {fileID: 470857440}
   snapPos: {x: 0, y: 0, z: 0}
---- !u!114 &595124800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595124798}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28a794d7a8f47040a1b5c310bc345ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid:
-  - line:
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-  - line:
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-    - tileType: 0
-      OnTile: 1
-      houseUpgrade: 1
-      houseColor: 
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-  - line:
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-    - tileType: 2
-      OnTile: 0
-      houseUpgrade: 0
-      houseColor: 
-  tilePrefab: {fileID: 5354745377920125117, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
-  drawOffset: {x: 0, y: 0, z: 0}
+  playerHand: {fileID: 470857442}
+  currentGrid: {fileID: 1573509823}
 --- !u!4 &595124801
 Transform:
   m_ObjectHideFlags: 0
@@ -632,7 +579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573509821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 3, z: 0}
+  m_LocalPosition: {x: -2, y: 3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
