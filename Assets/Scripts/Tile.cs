@@ -27,12 +27,10 @@ public class Tile
     public OnTile OnTile;
     public int houseUpgrade;
     public string houseColor;
-    public int tileNum;
 }
 
 [Serializable]
 public class GridLine
 {
     public List<Tile> line;
-    public int lineNum;
 }
