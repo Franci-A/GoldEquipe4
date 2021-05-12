@@ -14,11 +14,19 @@ public enum TileType
     X
 }
 
+public enum HouseColor
+{
+    Red,
+    Green,
+    Blue,
+    Yollow
+}
+
 public class Tile : MonoBehaviour
 {
     public TileType tileType;
     public int houseUpgrade;
-    public string houseColor;
+    public HouseColor houseColor;
     public int tileNum;
     public int lineNum;
 }
