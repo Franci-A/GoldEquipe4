@@ -5,6 +5,7 @@ using UnityEngine;
 public class Merge : MonoBehaviour
 {
     private Grid grid;
+    private Score score;
     private Tile tileInfo;
     Tile rightTile;
     Tile leftTile;
@@ -13,6 +14,7 @@ public class Merge : MonoBehaviour
 
     void Start()
     {
+        score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
         grid = GetComponentInParent<Grid>();
         tileInfo = GetComponent<Tile>();
         if (tileInfo.tileType != TileType.Empty) {
@@ -75,6 +77,7 @@ public class Merge : MonoBehaviour
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
+            score.AddScore(25);
         }
     }
 }
