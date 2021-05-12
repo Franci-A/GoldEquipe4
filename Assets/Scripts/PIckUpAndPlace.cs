@@ -153,6 +153,7 @@ public class PIckUpAndPlace : MonoBehaviour
                         currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
                         currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
                         currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Merge>().merging();
                         currentGrid.UpdateTile(y, x);
                         break;
                     case TileType.X:
