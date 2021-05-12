@@ -117,7 +117,22 @@ public class PlayerPieceManager : MonoBehaviour
             else if (grid[i].tileType == TileType.House)
             {
                 obj.sprite = sprites.GetSprite("House", "level" + grid[i].houseUpgrade.ToString());
-                obj.color = Color.white;
+                switch (grid[i].houseColor)
+                {
+                    case HouseColor.Blue:
+                        obj.color = Color.blue;
+                        break;
+                    case HouseColor.Red:
+                        obj.color = Color.red;
+                        break;
+                    case HouseColor.Green:
+                        obj.color = Color.green;
+                        break;
+                    case HouseColor.Yollow:
+                        obj.color = Color.yellow;
+                        break;
+                }
+                
             }
             else
             {
