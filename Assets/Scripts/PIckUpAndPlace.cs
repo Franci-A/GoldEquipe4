@@ -47,7 +47,8 @@ public class PIckUpAndPlace : MonoBehaviour
         
         if(canBePlaced && haspos)
         {
-           PlaceTiles();
+            PlaceTiles();
+            GetComponent<PlayerPieceManager>().NextTurn();
         }
 
         transform.position = startPos;

@@ -60,6 +60,7 @@ public class Grid : MonoBehaviour
     {
         int x = 0;
         int y = 0;
+        int maxWaterTiles = 5;
         for (int i = 0; i < (gridHeight) * (gridWidth); i++)
         {
             Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();
@@ -67,10 +68,21 @@ public class Grid : MonoBehaviour
             obj.transform.localPosition = new Vector3(x * cellSize, y * -1 * cellSize, 0) - drawOffset;
             obj.lineNum = y;
             obj.tileNum = x;
-            if (y == 0 || y == gridHeight -1 || x == 0 || x == gridWidth -1)
+            if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1)
                 obj.tileType = TileType.Empty;
-            else if(randomGen)
-                obj.tileType = (TileType)Random.Range(0, 2);
+            else if (randomGen)
+            {
+                float k = Random.Range(0, 1f);
+                if (k > .9f && maxWaterTiles > 0)
+                {
+                    obj.tileType = TileType.Water;
+                    maxWaterTiles--;
+                }
+                else
+                {
+                    obj.tileType = TileType.Ground;
+                }
+            }
             switch (obj.tileType)
             {
                 case TileType.Ground:
