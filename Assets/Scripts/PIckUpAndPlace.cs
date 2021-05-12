@@ -152,16 +152,14 @@ public class PIckUpAndPlace : MonoBehaviour
                     case TileType.House:
                         currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
                         currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
                         currentGrid.UpdateTile(y, x);
                         break;
                     case TileType.X:
                         if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
                         {
-                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade--;
-                            if (currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade == 0)
-                            {
-                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                            }
+                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                             currentGrid.UpdateTile(y, x);
                         }
                         break;

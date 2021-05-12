@@ -584,6 +584,10 @@ PrefabInstance:
       propertyPath: tileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -920,6 +924,10 @@ PrefabInstance:
       propertyPath: tileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1163,6 +1171,10 @@ PrefabInstance:
       propertyPath: tileType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1365,6 +1377,10 @@ PrefabInstance:
       propertyPath: tileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1426,6 +1442,10 @@ PrefabInstance:
       propertyPath: tileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1486,6 +1506,10 @@ PrefabInstance:
     - target: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: tileType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
@@ -1607,7 +1631,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 1ac1243cefa03674e9085a64083c162f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.18431373}
   m_FlipX: 0
@@ -1880,6 +1904,10 @@ PrefabInstance:
       propertyPath: tileType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2033,6 +2061,10 @@ PrefabInstance:
     - target: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: tileType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
@@ -2219,6 +2251,10 @@ PrefabInstance:
     - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_Color.r
       value: 0.6509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354745377920125112, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
       propertyPath: m_RootOrder
