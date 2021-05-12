@@ -23,6 +23,7 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         if (isInHand)
         {
+            //follow cursor
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
             if (haspos)
             {
@@ -43,8 +44,6 @@ public class PIckUpAndPlace : MonoBehaviour
     private void OnMouseUp()
     {
         isInHand = false;
-
-        Debug.Log(canBePlaced);
         
         if(canBePlaced && haspos)
         {
@@ -98,9 +97,10 @@ public class PIckUpAndPlace : MonoBehaviour
                     switch (tile.tileType)
                     {
                         case TileType.Empty:
+                            
                             break;
                         case TileType.House:
-                            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House)
+                            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
                             {
                                 canBePlaced = false;
                             }
@@ -135,7 +135,7 @@ public class PIckUpAndPlace : MonoBehaviour
         int y = currentCenterTile.GetComponent<Tile>().lineNum - 1;
         foreach (Tile tile in playerHand.grid)
         {
-            if (y < 0 || y > currentGrid.gridHeight)
+            if (y < 0 || y >= currentGrid.gridHeight)
             {
                 x++;
                 if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
