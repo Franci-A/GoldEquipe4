@@ -13,6 +13,7 @@ public class PIckUpAndPlace : MonoBehaviour
     public Grid playerHand;
     public Grid currentGrid;
     private bool canBePlaced;
+    private Vector2 offset;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class PIckUpAndPlace : MonoBehaviour
         if (isInHand)
         {
             //follow cursor
-            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)) + (Vector3)offset;
             if (haspos)
             {
                 snapImage.transform.position = snapPos;
@@ -39,6 +40,7 @@ public class PIckUpAndPlace : MonoBehaviour
     private void OnMouseDown()
     {
         isInHand = true;
+        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
     }
 
     private void OnMouseUp()
