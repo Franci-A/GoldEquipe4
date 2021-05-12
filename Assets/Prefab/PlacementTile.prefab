@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7161226108901401041, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161226108901401041, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161226108901401041, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8697326908566153922, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
       propertyPath: m_Name
       value: PlacementTile
@@ -53,10 +65,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697326908566153925, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697326908566153927, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
-      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

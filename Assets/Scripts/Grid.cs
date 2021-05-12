@@ -18,9 +18,28 @@ public class Grid : MonoBehaviour
     private void Start()
     {
         sprites = GetComponent<SpriteLibrary>();
-        
+        gridHeight += 2;
+        gridWidth += 2;
         if(grid.Count ==0)
             InstanciateGrid();
+        else
+        {
+            int x = 0;
+            int y = 0;
+            foreach (Tile tile in grid)
+            {
+                tile.gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
+                tile.lineNum = y;
+                tile.tileNum = x;
+                UpdateTile(tile.lineNum, tile.tileNum);
+                x++;
+                if(x == gridWidth)
+                {
+                    x = 0;
+                    y++;
+                }
+            }
+        }
     }
 
     public void UpdateTile(int line, int tile)
@@ -41,16 +60,16 @@ public class Grid : MonoBehaviour
     {
         int x = 0;
         int y = 0;
-        for (int i = 0; i < (gridHeight+2) * (gridWidth+2); i++)
+        for (int i = 0; i < (gridHeight) * (gridWidth); i++)
         {
             Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();
             grid.Add(obj);
             obj.transform.localPosition = new Vector3(x * cellSize, y * -1 * cellSize, 0) - drawOffset;
             obj.lineNum = y;
             obj.tileNum = x;
-            if (y == 0 || y == gridHeight + 1 || x == 0 || x == gridWidth + 1)
+            if (y == 0 || y == gridHeight -1 || x == 0 || x == gridWidth -1)
                 obj.tileType = TileType.Empty;
-            if(randomGen)
+            else if(randomGen)
                 obj.tileType = (TileType)Random.Range(0, 2);
             switch (obj.tileType)
             {

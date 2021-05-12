@@ -79,9 +79,9 @@ public class PIckUpAndPlace : MonoBehaviour
         canBePlaced = true;
         int x = currentCenterTile.GetComponent<Tile>().tileNum -1;
         int y = currentCenterTile.GetComponent<Tile>().lineNum -1;
-        foreach (Tile tile in currentGrid.grid)
+        foreach (Tile tile in playerHand.grid)
         {
-            if (y < 0 || y > currentGrid.gridHeight)
+            if (y < 0 || y >= currentGrid.gridHeight)
             {
                 x++;
                 if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
@@ -95,7 +95,7 @@ public class PIckUpAndPlace : MonoBehaviour
                 if (x >= 0 && x < currentGrid.gridWidth)
                 {
 
-                    switch (currentGrid.grid[currentGrid.gridWidth * y + x].tileType)
+                    switch (tile.tileType)
                     {
                         case TileType.Empty:
                             break;
@@ -104,7 +104,7 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 canBePlaced = false;
                             }
-                            else if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground && currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
+                            else if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)
                             {
                                 //Debug.Log("can be placed");
                             }
@@ -133,39 +133,46 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         int x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
         int y = currentCenterTile.GetComponent<Tile>().lineNum - 1;
-        foreach (Tile line in playerHand.grid)
+        foreach (Tile tile in playerHand.grid)
         {
-            if (y >= 0 && y < currentGrid.gridHeight)
+            if (y < 0 || y > currentGrid.gridHeight)
             {
-                    if (x >= 0 && x < currentGrid.gridWidth)
-                    {
-                        switch (currentGrid.grid[y * currentGrid.gridWidth+ x].tileType)
-                        {
-                            case TileType.House:
-                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
-                                currentGrid.UpdateTile(y, x);
-                                break;
-                            case TileType.X:
-                                if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
-                                {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade--;
-                                    currentGrid.UpdateTile(y, x);
-                                    if (currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade == 0)
-                                    {
-                                        currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Empty;
-                                        currentGrid.UpdateTile(y, x);
-                                    }
-                                }
-                                break;
-                        }
-                    }
-                    x++;
-
+                x++;
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+                {
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
                 }
-            
-            x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
-            y++;
+            }
+            else if (x >= 0 && x < currentGrid.gridWidth)
+            {
+                switch (tile.tileType)
+                {
+                    case TileType.House:
+                        currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
+                        currentGrid.UpdateTile(y, x);
+                        break;
+                    case TileType.X:
+                        if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
+                        {
+                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade--;
+                            if (currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade == 0)
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                            }
+                            currentGrid.UpdateTile(y, x);
+                        }
+                        break;
+                }
+            }
+            x++;
+
+            if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+            {
+                x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                y++;
+            }
         }
     }
 }
