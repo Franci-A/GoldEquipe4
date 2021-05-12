@@ -7,7 +7,10 @@ public class PlayerPieceManager : MonoBehaviour
     public List<Tile> grid;
     private int currentTurn;
     private List<Tile> nextHand;
-    //[SerializeField] private 
+    [SerializeField] private List<int> turnToLevelUp;
+    private int numOfX;
+    private int numOfHouses;
+    private int numOfColors;
 
     public void NextTurn()
     {
