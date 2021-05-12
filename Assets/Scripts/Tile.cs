@@ -9,28 +9,16 @@ public enum TileType
 {
     Ground,
     Water,
-    Empty
-}
-
-[Serializable]
-public enum OnTile
-{
     Empty,
     House,
     X
 }
 
-[Serializable]
-public class Tile 
+public class Tile : MonoBehaviour
 {
     public TileType tileType;
-    public OnTile OnTile;
     public int houseUpgrade;
     public string houseColor;
-}
-
-[Serializable]
-public class GridLine
-{
-    public List<Tile> line;
+    public int tileNum;
+    public int lineNum;
 }

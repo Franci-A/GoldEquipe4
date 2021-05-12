@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8697326908566153927}
   - component: {fileID: 8697326908566153924}
   - component: {fileID: 8697326908566153926}
-  - component: {fileID: -6838500166282645122}
+  - component: {fileID: -940998034818739919}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Tile
@@ -215,7 +215,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6838500166282645122
+--- !u!114 &-940998034818739919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,8 +224,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8697326908566153922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d6808a8ce551a4e94e858bbfe640bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c5c39564e4ad534980f9afbd12f10b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileType: 0
+  houseUpgrade: 0
+  houseColor: 
   tileNum: 0
   lineNum: 0

@@ -5,70 +5,29 @@ using UnityEngine.Experimental.U2D.Animation;
 
 public class Grid : MonoBehaviour
 {
-    public List<GridLine> grid;
+    public List<Tile> grid;
+    public int gridHeight;
+    public int gridWidth;
+    public bool randomGen;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private float cellSize;
     public Vector3 drawOffset;
     private SpriteLibrary sprites;
-    private List<GameObject> tiles;
 
 
     private void Start()
     {
-        tiles = new List<GameObject>(grid.Count * grid[0].line.Count);
         sprites = GetComponent<SpriteLibrary>();
-        int x = 0;
-        int y = 0;
-        foreach (GridLine line in grid)
-        {
-            foreach (Tile tile in line.line)
-            {
-                GameObject obj = Instantiate(tilePrefab, transform);
-                tiles.Add(obj);
-                obj.transform.localPosition = new Vector3(x * cellSize, y * -1  * cellSize, 0) - drawOffset;
-                obj.GetComponent<TileInfo>().lineNum = y;
-                obj.GetComponent<TileInfo>().tileNum = x;
-                
-                switch (tile.tileType)
-                {
-                    case TileType.Ground:
-                        obj.GetComponent<SpriteRenderer>().color = Color.green;
-                        break;
-
-                    case TileType.Water:
-                        obj.GetComponent<SpriteRenderer>().color = Color.blue;
-                        break;
-
-                    case TileType.Empty:
-                        obj.GetComponent<SpriteRenderer>().color = Color.clear;
-                        break;
-                }
-                switch (tile.OnTile)
-                {
-                    case OnTile.Empty:
-                        //obj.GetComponentInChildren<SpriteRenderer>().color = Color.clear;
-                        break;
-                    case OnTile.House:
-                        obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                        obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "level" + tile.houseUpgrade.ToString());
-                        break;
-                    case OnTile.X:
-                        obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                        obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "X");
-                        break;
-                }
-                x++;
-            }
-            x = 0;
-            y++;
-        }
+        
+        if(grid.Count ==0)
+            InstanciateGrid();
     }
 
     public void UpdateTile(int line, int tile)
     {
-        SpriteRenderer obj = tiles[grid[0].line.Count * line + tile].transform.GetChild(0).GetComponent<SpriteRenderer>();
-        obj.sprite = sprites.GetSprite("House", "level" + grid[line].line[tile].houseUpgrade.ToString());
-        if(grid[line].line[tile].houseUpgrade == 0)
+        SpriteRenderer obj = grid[gridWidth * line + tile].transform.GetChild(0).GetComponent<SpriteRenderer>();
+        obj.sprite = sprites.GetSprite("House", "level" + grid[gridWidth * line + tile].houseUpgrade.ToString());
+        if (grid[gridWidth * line + tile].houseUpgrade == 0)
         {
             obj.color = Color.clear;
         }
@@ -77,4 +36,51 @@ public class Grid : MonoBehaviour
             obj.color = Color.white;
         }
     }
+
+    public void InstanciateGrid()
+    {
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < (gridHeight+2) * (gridWidth+2); i++)
+        {
+            Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();
+            grid.Add(obj);
+            obj.transform.localPosition = new Vector3(x * cellSize, y * -1 * cellSize, 0) - drawOffset;
+            obj.lineNum = y;
+            obj.tileNum = x;
+            if (y == 0 || y == gridHeight + 1 || x == 0 || x == gridWidth + 1)
+                obj.tileType = TileType.Empty;
+            if(randomGen)
+                obj.tileType = (TileType)Random.Range(0, 2);
+            switch (obj.tileType)
+            {
+                case TileType.Ground:
+                    obj.GetComponent<SpriteRenderer>().color = Color.green;
+                    break;
+
+                case TileType.Water:
+                    obj.GetComponent<SpriteRenderer>().color = Color.blue;
+                    break;
+
+                case TileType.Empty:
+                    obj.GetComponent<SpriteRenderer>().color = Color.clear;
+                    break;
+                case TileType.House:
+                    obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "level" + obj.houseUpgrade.ToString());
+                    break;
+                case TileType.X:
+                    obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "X");
+                    break;
+            }
+            x++;
+            if (x >= gridWidth)
+            {
+                y++;
+                x = 0;
+            }
+        }
+    }
+    
 }
