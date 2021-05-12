@@ -69,5 +69,12 @@ public class Merge : MonoBehaviour
         if(merged) {
             merging();
         }
+
+        if(tileInfo.houseUpgrade >= 5)
+        {
+            tileInfo.tileType = TileType.Ground;
+            tileInfo.houseUpgrade = 0;
+            grid.UpdateTile(downTile.lineNum, downTile.tileNum);
+        }
     }
 }
