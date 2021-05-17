@@ -55,7 +55,7 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
-            if(!CheckPosibilities())
+            if(!CheckPosibilities() || score.currentScore< 0)
             {
                 Debug.Log("Defeat");
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
@@ -232,7 +232,7 @@ public class PIckUpAndPlace : MonoBehaviour
                     {
                         int temp = j - index;
                         int currentPos = currentGrid.gridWidth * (y + temp / 3) + (x + temp % 3);
-                        if ((currentPos < 0 || currentPos > currentGrid.grid.Count) || currentGrid.grid[currentGrid.gridWidth * (y + temp / 3) + (x + temp % 3)].tileType != TileType.Ground)
+                        if (currentPos < 0 || currentPos >= currentGrid.grid.Count || currentGrid.grid[currentPos].tileType != TileType.Ground)
                         {
                             canBePlaced = false;
                             break;
