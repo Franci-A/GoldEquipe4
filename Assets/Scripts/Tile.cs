@@ -18,7 +18,7 @@ public enum HouseColor
 {
     Blue,
     Green,
-    Yollow,
+    Yellow,
     Red    
 }
 
