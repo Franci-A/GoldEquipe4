@@ -53,7 +53,10 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
-            CheckPosibilities();
+            if(!CheckPosibilities())
+            {
+                Debug.Log("Defeat");
+            }
         }
 
         transform.position = startPos;
@@ -182,8 +185,54 @@ public class PIckUpAndPlace : MonoBehaviour
         }
     }
 
-    public void CheckPosibilities()
+    public bool CheckPosibilities()
     {
+        int index =0;
+        for (int i = 0; i < 9; i++)
+        {
+            if (playerHand.grid[i].tileType == TileType.House)
+            {
+                index = i;
+                break;
+            }
+        }
+        
+        int x = 1;
+        int y = 1;
+        for (int i = 0; i < (currentGrid.gridHeight -2) * (currentGrid.gridWidth -2); i++)
+        {
+            if(currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)
+            {
+                bool canBePlaced = true ;
+                for (int j = index + 1; j < 9 - index; j++)
+                {
+                    if (playerHand.grid[j].tileType == TileType.House)
+                    {
+                        int temp = j - index;
+                        int currentPos = currentGrid.gridWidth * (y + temp / 3) + (x + temp % 3);
+                        if ((currentPos < 0 || currentPos > currentGrid.grid.Count) || currentGrid.grid[currentGrid.gridWidth * (y + temp / 3) + (x + temp % 3)].tileType != TileType.Ground)
+                        {
+                            canBePlaced = false;
+                            break;
+                        }
+                    }
 
+                }
+                if (canBePlaced)
+                {
+                    return canBePlaced;
+                }
+
+            }
+
+            x++;
+            if(x >= currentGrid.gridWidth)
+            {
+                x = 1;
+                y++;
+            }
+        }
+
+        return false;
     }
 }

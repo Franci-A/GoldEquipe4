@@ -1657,7 +1657,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00806725, y: 0.0040336847}
+  m_Offset: {x: -0.0013765693, y: 0.0040336847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1668,7 +1668,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4840431, y: 1.5082452}
+  m_Size: {x: 1.7115239, y: 1.7223446}
   m_EdgeRadius: 0
 --- !u!1001 &1045281430
 PrefabInstance:
@@ -2113,8 +2113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: []
-  gridHeight: 9
-  gridWidth: 9
+  gridHeight: 4
+  gridWidth: 4
   randomGen: 1
   tilePrefab: {fileID: 8697326908566153922, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
   cellSize: 0.576
@@ -2263,7 +2263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.89843756}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.9999695}
+  m_AnchoredPosition: {x: 0, y: 0.9998779}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1751089159
