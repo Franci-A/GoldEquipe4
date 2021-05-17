@@ -16,10 +16,10 @@ public enum TileType
 
 public enum HouseColor
 {
-    Red,
-    Green,
     Blue,
-    Yollow
+    Green,
+    Yellow,
+    Red    
 }
 
 public class Tile : MonoBehaviour

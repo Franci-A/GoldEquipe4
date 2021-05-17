@@ -6,7 +6,7 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreDisplay;
-    int currentScore = 0;
+    public int currentScore = 0;
     void Start()
     {
         PlayerPrefs.SetInt("Player Score", currentScore);
