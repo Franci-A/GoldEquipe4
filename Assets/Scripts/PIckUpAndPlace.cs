@@ -13,6 +13,7 @@ public class PIckUpAndPlace : MonoBehaviour
     public Grid playerHand;
     public Grid currentGrid;
     private bool canBePlaced;
+    private Vector2 offset;
 
     private void Start()
     {
@@ -23,7 +24,8 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         if (isInHand)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+            //follow cursor
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)) + (Vector3)offset;
             if (haspos)
             {
                 snapImage.transform.position = snapPos;
@@ -38,24 +40,21 @@ public class PIckUpAndPlace : MonoBehaviour
     private void OnMouseDown()
     {
         isInHand = true;
+        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
     }
 
     private void OnMouseUp()
     {
         isInHand = false;
-
-        Debug.Log(canBePlaced);
         
         if(canBePlaced && haspos)
         {
-            transform.position = snapPos;
-            snapImage.transform.position = transform.position;
+            PlaceTiles();
+            GetComponent<PlayerPieceManager>().NextTurn();
         }
-        else
-        {
-            transform.position = startPos;
-            snapImage.transform.position = transform.position;
-        }
+
+        transform.position = startPos;
+        snapImage.transform.position = transform.position;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -80,47 +79,102 @@ public class PIckUpAndPlace : MonoBehaviour
     private void CheckPlacement()
     {
         canBePlaced = true;
-        int x = currentCenterTile.GetComponent<TileInfo>().tileNum -1;
-        int y = currentCenterTile.GetComponent<TileInfo>().lineNum -1;
-        foreach (GridLine line in playerHand.grid)
+        int x = currentCenterTile.GetComponent<Tile>().tileNum -1;
+        int y = currentCenterTile.GetComponent<Tile>().lineNum -1;
+        foreach (Tile tile in playerHand.grid)
         {
-            if (y >= 0 && y < currentGrid.grid.Count)
+            if (y < 0 || y >= currentGrid.gridHeight)
             {
-                foreach (Tile tile in line.line)
+                x++;
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
                 {
-                    if (x >= 0 && x < currentGrid.grid[y].line.Count)
-                    {
-
-                        switch (tile.OnTile)
-                        {
-                            case OnTile.Empty:
-                                break;
-                            case OnTile.House:
-                                if (currentGrid.grid[y].line[x].tileType == TileType.Water || currentGrid.grid[y].line[x].OnTile == OnTile.House)
-                                {
-                                    //Debug.Log("nope");
-                                    canBePlaced = false;
-                                }
-                                else if (currentGrid.grid[y].line[x].tileType == TileType.Ground && currentGrid.grid[y].line[x].OnTile == OnTile.Empty)
-                                {
-                                    //Debug.Log("is cool :)");
-                                }
-                                break;
-                            case OnTile.X:
-                                if (currentGrid.grid[y].line[x].OnTile == OnTile.House)
-                                {
-                                    //Debug.Log("downgrade");
-                                }
-                                break;
-
-                        }
-                    }
-                    x++;
-
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
                 }
             }
-            x = currentCenterTile.GetComponent<TileInfo>().tileNum - 1;
-            y++;
+            else
+            {
+                if (x >= 0 && x < currentGrid.gridWidth)
+                {
+
+                    switch (tile.tileType)
+                    {
+                        case TileType.Empty:
+                            
+                            break;
+                        case TileType.House:
+                            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
+                            {
+                                canBePlaced = false;
+                            }
+                            else if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)
+                            {
+                                //Debug.Log("can be placed");
+                            }
+                            break;
+                        case TileType.X:
+                            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House)
+                            {
+                                //Debug.Log("downgrade");
+                            }
+                            break;
+
+                    }
+                }
+                x++;
+
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+                {
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
+                }
+            }
+        }
+    }
+
+    public void PlaceTiles()
+    {
+        int x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+        int y = currentCenterTile.GetComponent<Tile>().lineNum - 1;
+        foreach (Tile tile in playerHand.grid)
+        {
+            if (y < 0 || y >= currentGrid.gridHeight)
+            {
+                x++;
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+                {
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
+                }
+            }
+            else if (x >= 0 && x < currentGrid.gridWidth)
+            {
+                switch (tile.tileType)
+                {
+                    case TileType.House:
+                        currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Merge>().merging();
+                        currentGrid.UpdateTile(y, x);
+                        break;
+                    case TileType.X:
+                        if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
+                        {
+                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                            currentGrid.UpdateTile(y, x);
+                        }
+                        break;
+                }
+            }
+            x++;
+
+            if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+            {
+                x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                y++;
+            }
         }
     }
 }
