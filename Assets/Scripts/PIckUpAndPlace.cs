@@ -53,6 +53,7 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
+            CheckPosibilities();
         }
 
         transform.position = startPos;
@@ -179,5 +180,10 @@ public class PIckUpAndPlace : MonoBehaviour
                 y++;
             }
         }
+    }
+
+    public void CheckPosibilities()
+    {
+
     }
 }

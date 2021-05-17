@@ -57,21 +57,6 @@ public class Grid : MonoBehaviour
         {
             obj.color = Color.white;
             obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
-            switch (objTile.houseColor)
-            {
-                case HouseColor.Blue:
-                    obj.color = Color.blue;
-                    break;
-                case HouseColor.Red:
-                    obj.color = Color.red;
-                    break;
-                case HouseColor.Green:
-                    obj.color = Color.green;
-                    break;
-                case HouseColor.Yollow:
-                    obj.color = Color.yellow;
-                    break;
-            }
         }
     }
 
@@ -87,6 +72,8 @@ public class Grid : MonoBehaviour
             obj.transform.localPosition = new Vector3(x * cellSize, y * -1 * cellSize, 0) - drawOffset;
             obj.lineNum = y;
             obj.tileNum = x;
+            obj.GetComponent<SpriteRenderer>().sortingOrder = y;
+            obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = y + 9;
             if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1)
                 obj.tileType = TileType.Empty;
             else if (randomGen)
@@ -106,7 +93,6 @@ public class Grid : MonoBehaviour
             {
                 case TileType.Ground:
                     obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
-                    obj.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case TileType.Water:
