@@ -29,11 +29,13 @@ public class Merge : MonoBehaviour
     {
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
+        int combo = 0;
 
         if (rightTile.tileType == TileType.House && rightTile.houseColor == tileInfo.houseColor && rightTile.houseUpgrade == tileInfo.houseUpgrade)
         {
             rightTile.houseUpgrade = 0;
             tempHouseUpgrade++;
+            combo++;
             rightTile.tileType = TileType.Ground;
             grid.UpdateTile(rightTile.lineNum, rightTile.tileNum);
             merged = true;
@@ -43,6 +45,7 @@ public class Merge : MonoBehaviour
         {
             leftTile.houseUpgrade = 0;
             tempHouseUpgrade++;
+            combo++;
             leftTile.tileType = TileType.Ground;
             grid.UpdateTile(leftTile.lineNum, leftTile.tileNum);
             merged = true;
@@ -52,6 +55,7 @@ public class Merge : MonoBehaviour
         {
             upTile.houseUpgrade = 0;
             tempHouseUpgrade++;
+            combo++;
             upTile.tileType = TileType.Ground;
             grid.UpdateTile(upTile.lineNum, upTile.tileNum);
             merged = true;
@@ -61,6 +65,7 @@ public class Merge : MonoBehaviour
         {
             downTile.houseUpgrade = 0;
             tempHouseUpgrade++;
+            combo++;
             downTile.tileType = TileType.Ground;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
             merged = true;
@@ -77,7 +82,27 @@ public class Merge : MonoBehaviour
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
-            score.AddScore(25);
+            score.AddScore(100);
         }
+
+        if(combo == 2)
+        {
+            score.AddScore(10);
+            Debug.Log("Doublé!");
+        }
+
+        if (combo == 3)
+        {
+            score.AddScore(20);
+            Debug.Log("Triplé!");
+        }
+
+        if (combo == 4)
+        {
+            score.AddScore(30);
+            Debug.Log("Quadruplé!");
+        }
+
+        combo = 0;
     }
 }

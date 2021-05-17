@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 774fb0fbb7b418d41a7a95ea17b2085d
+guid: b7dff90cd82ff6e4fb4a79ae6ced6ce4
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixel-Art
+  - 8-bit HUD
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

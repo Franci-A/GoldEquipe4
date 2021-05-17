@@ -5,6 +5,7 @@ using UnityEngine;
 public class PIckUpAndPlace : MonoBehaviour
 {
     private bool isInHand;
+    private Score score;
     private Vector3 startPos;
     [SerializeField] private GameObject snapImage;
     [SerializeField] private Vector3 snapPos;
@@ -17,6 +18,7 @@ public class PIckUpAndPlace : MonoBehaviour
 
     private void Start()
     {
+        score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
         startPos = transform.position;
     }
 
@@ -164,6 +166,7 @@ public class PIckUpAndPlace : MonoBehaviour
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
                             currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                             currentGrid.UpdateTile(y, x);
+                            score.AddScore(-10);
                         }
                         break;
                 }
