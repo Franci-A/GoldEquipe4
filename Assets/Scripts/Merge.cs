@@ -11,6 +11,7 @@ public class Merge : MonoBehaviour
     Tile leftTile;
     Tile upTile;
     Tile downTile;
+    int combo;
 
     void Start()
     {
@@ -29,80 +30,84 @@ public class Merge : MonoBehaviour
     {
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
-        int combo = 0;
+        combo = 0;
 
-        if (rightTile.tileType == TileType.House && rightTile.houseColor == tileInfo.houseColor && rightTile.houseUpgrade == tileInfo.houseUpgrade)
+        if (rightTile.tileType == TileType.House && rightTile.houseColor == tileInfo.houseColor && rightTile.houseUpgrade == tempHouseUpgrade)
         {
             rightTile.houseUpgrade = 0;
-            tempHouseUpgrade++;
+            tileInfo.houseUpgrade++;
             combo++;
             rightTile.tileType = TileType.Ground;
             grid.UpdateTile(rightTile.lineNum, rightTile.tileNum);
             merged = true;
         }
 
-        if (leftTile.tileType == TileType.House && leftTile.houseColor == tileInfo.houseColor && leftTile.houseUpgrade == tileInfo.houseUpgrade)
+        if (leftTile.tileType == TileType.House && leftTile.houseColor == tileInfo.houseColor && leftTile.houseUpgrade == tempHouseUpgrade)
         {
             leftTile.houseUpgrade = 0;
-            tempHouseUpgrade++;
+            tileInfo.houseUpgrade++;
             combo++;
             leftTile.tileType = TileType.Ground;
             grid.UpdateTile(leftTile.lineNum, leftTile.tileNum);
             merged = true;
         }
 
-        if (upTile.tileType == TileType.House && upTile.houseColor == tileInfo.houseColor && upTile.houseUpgrade == tileInfo.houseUpgrade)
+        if (upTile.tileType == TileType.House && upTile.houseColor == tileInfo.houseColor && upTile.houseUpgrade == tempHouseUpgrade)
         {
             upTile.houseUpgrade = 0;
-            tempHouseUpgrade++;
+            tileInfo.houseUpgrade++;
             combo++;
             upTile.tileType = TileType.Ground;
             grid.UpdateTile(upTile.lineNum, upTile.tileNum);
             merged = true;
         }
 
-        if (downTile.tileType == TileType.House && downTile.houseColor == tileInfo.houseColor && downTile.houseUpgrade == tileInfo.houseUpgrade)
+        if (downTile.tileType == TileType.House && downTile.houseColor == tileInfo.houseColor && downTile.houseUpgrade == tempHouseUpgrade)
         {
             downTile.houseUpgrade = 0;
-            tempHouseUpgrade++;
+            tileInfo.houseUpgrade++;
             combo++;
             downTile.tileType = TileType.Ground;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
             merged = true;
         }
 
-        if (combo == 2 && tileInfo.houseUpgrade == 1)
-        {
-            score.AddScore(10);
-            Debug.Log("Doublé!");
-        }
-
-        tileInfo.houseUpgrade = tempHouseUpgrade;
-
-        if(merged) {
+        if (merged  && tileInfo.houseUpgrade < 4) {
             merging();
         }
 
-        if (tileInfo.houseUpgrade >= 4)
+        if (combo >= 2) {
+            comboValue();
+        }
+
+        if (tileInfo.houseUpgrade >= 4 &&  combo < 2)
         {
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
-            score.AddScore(100);
+            score.AddScore(25);
         }
 
-        if (combo == 3)
+        void comboValue()
         {
-            score.AddScore(20);
-            Debug.Log("Triplé!");
-        }
-
-        if (combo == 4)
-        {
-            score.AddScore(30);
-            Debug.Log("Quadruplé!");
-        }
-
-        combo = 0;
+            int bonusScore;
+            int comboPenalty = 0;
+            if(tempHouseUpgrade == 1) {
+                comboPenalty = 10;
+            }
+            if (tempHouseUpgrade == 2)
+            {
+                comboPenalty = 5;
+            }
+            if (tempHouseUpgrade == 3)
+            {
+                comboPenalty = 0;
+            }
+            bonusScore = combo * 5 - comboPenalty;
+            score.AddScore(bonusScore);
+            tileInfo.tileType = TileType.Ground;
+            tileInfo.houseUpgrade = 0;
+            grid.UpdateTile(downTile.lineNum, downTile.tileNum);
+        } 
     }
 }
