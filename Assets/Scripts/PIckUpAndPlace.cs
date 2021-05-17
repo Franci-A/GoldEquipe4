@@ -8,6 +8,7 @@ public class PIckUpAndPlace : MonoBehaviour
     private Score score;
     private Vector3 startPos;
     [SerializeField] private GameObject snapImage;
+    [SerializeField] private GameObject outline;
     [SerializeField] private Vector3 snapPos;
     private bool haspos;
     private GameObject currentCenterTile;
@@ -15,6 +16,7 @@ public class PIckUpAndPlace : MonoBehaviour
     public Grid currentGrid;
     private bool canBePlaced;
     private Vector2 offset;
+
 
     private void Start()
     {
@@ -72,6 +74,14 @@ public class PIckUpAndPlace : MonoBehaviour
             snapPos = collision.transform.position;
             currentCenterTile = collision.gameObject;
             CheckPlacement();
+            if (canBePlaced)
+            {
+                outline.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                outline.GetComponent<SpriteRenderer>().color = Color.red;
+            }
         }
     }
 
@@ -154,35 +164,39 @@ public class PIckUpAndPlace : MonoBehaviour
                     y++;
                 }
             }
-            else if (x >= 0 && x < currentGrid.gridWidth)
+            else 
             {
-                switch (tile.tileType)
+                if (x >= 0 && x < currentGrid.gridWidth)
                 {
-                    case TileType.House:
-                        currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
-                        currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
-                        currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
-                        currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Merge>().merging();
-                        currentGrid.UpdateTile(y, x);
-                        break;
-                    case TileType.X:
-                        if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
-                        {
-                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                    switch (tile.tileType)
+                    {
+                        case TileType.House:
+                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Merge>().merging();
                             currentGrid.UpdateTile(y, x);
-                            score.AddScore(-10);
-                        }
-                        break;
+                            break;
+                        case TileType.X:
+                            if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
+                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                                currentGrid.UpdateTile(y, x);
+                                score.AddScore(-10);
+                            }
+                            break;
+                    }
+                }
+                x++;
+
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+                {
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
                 }
             }
-            x++;
-
-            if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
-            {
-                x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
-                y++;
-            }
+            
         }
     }
 
