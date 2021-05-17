@@ -71,24 +71,24 @@ public class Merge : MonoBehaviour
             merged = true;
         }
 
+        if (combo == 2 && tileInfo.houseUpgrade == 1)
+        {
+            score.AddScore(10);
+            Debug.Log("Doublé!");
+        }
+
         tileInfo.houseUpgrade = tempHouseUpgrade;
 
         if(merged) {
             merging();
         }
 
-        if(tileInfo.houseUpgrade >= 5)
+        if (tileInfo.houseUpgrade >= 4)
         {
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
             score.AddScore(100);
-        }
-
-        if(combo == 2)
-        {
-            score.AddScore(10);
-            Debug.Log("Doublé!");
         }
 
         if (combo == 3)
