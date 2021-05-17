@@ -20,8 +20,10 @@ public class Grid : MonoBehaviour
         sprites = GetComponent<SpriteLibrary>();
         gridHeight += 2;
         gridWidth += 2;
-        if(grid.Count ==0)
+        if (grid.Count == 0)
+        {
             InstanciateGrid();
+        }
         else
         {
             int x = 0;
@@ -33,7 +35,7 @@ public class Grid : MonoBehaviour
                 tile.tileNum = x;
                 UpdateTile(tile.lineNum, tile.tileNum);
                 x++;
-                if(x == gridWidth)
+                if (x == gridWidth)
                 {
                     x = 0;
                     y++;
@@ -45,6 +47,7 @@ public class Grid : MonoBehaviour
     public void UpdateTile(int line, int tile)
     {
         SpriteRenderer obj = grid[gridWidth * line + tile].transform.GetChild(0).GetComponent<SpriteRenderer>();
+        Tile objTile = obj.gameObject.GetComponentInParent<Tile>();
         obj.sprite = sprites.GetSprite("House", "level" + grid[gridWidth * line + tile].houseUpgrade.ToString());
         if (grid[gridWidth * line + tile].houseUpgrade == 0)
         {
@@ -52,7 +55,9 @@ public class Grid : MonoBehaviour
         }
         else
         {
-            switch (grid[gridWidth * line + tile].houseColor)
+            obj.color = Color.white;
+            obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
+            switch (objTile.houseColor)
             {
                 case HouseColor.Blue:
                     obj.color = Color.blue;
@@ -87,7 +92,7 @@ public class Grid : MonoBehaviour
             else if (randomGen)
             {
                 float k = Random.Range(0, 1f);
-                if (k > .9f && maxWaterTiles > 0)
+                if (k > .95f && maxWaterTiles > 0)
                 {
                     obj.tileType = TileType.Water;
                     maxWaterTiles--;
@@ -100,11 +105,13 @@ public class Grid : MonoBehaviour
             switch (obj.tileType)
             {
                 case TileType.Ground:
+                    obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
                     obj.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case TileType.Water:
-                    obj.GetComponent<SpriteRenderer>().color = Color.blue;
+                    obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water");
+                    obj.GetComponent<SpriteRenderer>().color = Color.cyan;
                     break;
 
                 case TileType.Empty:
@@ -112,11 +119,11 @@ public class Grid : MonoBehaviour
                     break;
                 case TileType.House:
                     obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "level" + obj.houseUpgrade.ToString());
+                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite(obj.houseColor.ToString(), "level" + obj.houseUpgrade.ToString());
                     break;
                 case TileType.X:
                     obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite("House", "X");
+                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite(obj.houseColor.ToString(), "X");
                     break;
             }
             x++;
