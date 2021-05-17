@@ -64,7 +64,7 @@ public class Grid : MonoBehaviour
     {
         int x = 0;
         int y = 0;
-        int maxWaterTiles = 5;
+        int maxWaterTiles = 2;
         for (int i = 0; i < (gridHeight) * (gridWidth); i++)
         {
             Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();

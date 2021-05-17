@@ -56,6 +56,7 @@ public class PIckUpAndPlace : MonoBehaviour
             if(!CheckPosibilities())
             {
                 Debug.Log("Defeat");
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
             }
         }
 
