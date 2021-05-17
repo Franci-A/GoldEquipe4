@@ -102,6 +102,8 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             if (y < 0 || y >= currentGrid.gridHeight)
             {
+                if (tile.tileType == TileType.House)
+                    canBePlaced = false;
                 x++;
                 if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
                 {
@@ -138,6 +140,10 @@ public class PIckUpAndPlace : MonoBehaviour
 
                     }
                 }
+                else if (tile.tileType == TileType.House)
+                {
+                    canBePlaced = false;
+                }
                 x++;
 
                 if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
@@ -157,6 +163,7 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             if (y < 0 || y >= currentGrid.gridHeight)
             {
+                
                 x++;
                 if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
                 {
