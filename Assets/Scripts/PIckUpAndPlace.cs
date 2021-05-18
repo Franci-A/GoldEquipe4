@@ -45,6 +45,11 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         isInHand = true;
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+        foreach (Tile tile in playerHand.grid)
+        {
+            if(tile.tileType == TileType.House)
+                tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
+        }
     }
 
     private void OnMouseUp()
@@ -64,6 +69,11 @@ public class PIckUpAndPlace : MonoBehaviour
 
         transform.position = startPos;
         snapImage.transform.position = transform.position;
+        foreach (Tile tile in playerHand.grid)
+        {
+            if (tile.tileType == TileType.House)
+                tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -159,6 +169,7 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         int x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
         int y = currentCenterTile.GetComponent<Tile>().lineNum - 1;
+        List<int> tileWithHouse = new List<int>();
         foreach (Tile tile in playerHand.grid)
         {
             if (y < 0 || y >= currentGrid.gridHeight)
@@ -181,8 +192,8 @@ public class PIckUpAndPlace : MonoBehaviour
                             currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Merge>().merging();
-                            currentGrid.UpdateTile(y, x);
+                            tileWithHouse.Add(y * currentGrid.gridWidth + x);
+                            
                             break;
                         case TileType.X:
                             if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
@@ -204,6 +215,11 @@ public class PIckUpAndPlace : MonoBehaviour
                 }
             }
             
+        }
+        foreach (int position in tileWithHouse)
+        {
+            currentGrid.grid[position].GetComponent<Merge>().merging();
+            currentGrid.UpdateTile(position/currentGrid.gridWidth, position%currentGrid.gridWidth);
         }
     }
 

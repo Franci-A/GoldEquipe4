@@ -96,8 +96,9 @@ public class Grid : MonoBehaviour
                     break;
 
                 case TileType.Water:
-                    obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water");
-                    obj.GetComponent<SpriteRenderer>().color = Color.cyan;
+                    obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
+                    obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water");
+                    obj.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
                     break;
 
                 case TileType.Empty:
