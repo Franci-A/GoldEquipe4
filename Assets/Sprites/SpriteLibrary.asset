@@ -102,7 +102,7 @@ MonoBehaviour:
     m_CategoryList:
     - m_Name: Water
       m_Hash: 988953566
-      m_Sprite: {fileID: 7482667652216324306, guid: 1ac1243cefa03674e9085a64083c162f, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 78050e6b76d29334780007f7847e2102, type: 3}
     - m_Name: Ground
       m_Hash: -1605138850
-      m_Sprite: {fileID: 21300000, guid: 8dbe10072debae54cac464a305df18d3, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 2ede679efcdc1404a95caefd3fa4f61f, type: 3}

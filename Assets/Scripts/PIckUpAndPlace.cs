@@ -58,6 +58,7 @@ public class PIckUpAndPlace : MonoBehaviour
         
         if(canBePlaced && haspos)
         {
+            //Handheld.Vibrate();
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
             if(!CheckPosibilities() || score.currentScore< 0)
