@@ -146,4 +146,9 @@ public class Merge : MonoBehaviour
         tileInfo.tileType = TileType.Ground;
         tileInfo.houseUpgrade = 0;
     }
+
+    public void PLayParticles()
+    {
+        GetComponentInChildren<ParticleSystem>().Play();
+    }
 }

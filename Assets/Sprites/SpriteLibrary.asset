@@ -33,7 +33,7 @@ MonoBehaviour:
       m_Sprite: {fileID: 0}
     - m_Name: X
       m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: aad0184b7b955d749b3e00fde85ef09c, type: 3}
+      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
   - m_Name: Green
     m_Hash: 291225893
     m_CategoryList:
@@ -54,7 +54,7 @@ MonoBehaviour:
       m_Sprite: {fileID: 0}
     - m_Name: X
       m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: aad0184b7b955d749b3e00fde85ef09c, type: 3}
+      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
   - m_Name: Red
     m_Hash: -1037297297
     m_CategoryList:
@@ -75,7 +75,7 @@ MonoBehaviour:
       m_Sprite: {fileID: 0}
     - m_Name: X
       m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: aad0184b7b955d749b3e00fde85ef09c, type: 3}
+      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
   - m_Name: Yellow
     m_Hash: -676795991
     m_CategoryList:
@@ -96,7 +96,7 @@ MonoBehaviour:
       m_Sprite: {fileID: 0}
     - m_Name: X
       m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: aad0184b7b955d749b3e00fde85ef09c, type: 3}
+      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
   - m_Name: Tiles
     m_Hash: -573264961
     m_CategoryList:
