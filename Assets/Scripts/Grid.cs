@@ -9,6 +9,8 @@ public class Grid : MonoBehaviour
     public int gridHeight;
     public int gridWidth;
     public bool randomGen;
+    [SerializeField] private float waterTileSpawnChance;
+    [SerializeField] private int maxWaterTiles;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private float cellSize;
     public Vector3 drawOffset;
@@ -17,6 +19,7 @@ public class Grid : MonoBehaviour
 
     private void Start()
     {
+        drawOffset = new Vector3(tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x * gridWidth / 2 + tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x / 2, drawOffset.y, 0);
         sprites = GetComponent<SpriteLibrary>();
         gridHeight += 2;
         gridWidth += 2;
@@ -60,11 +63,11 @@ public class Grid : MonoBehaviour
         }
     }
 
+    //Create grid 
     public void InstanciateGrid()
     {
         int x = 0;
         int y = 0;
-        int maxWaterTiles = 2;
         for (int i = 0; i < (gridHeight) * (gridWidth); i++)
         {
             Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();
@@ -79,7 +82,7 @@ public class Grid : MonoBehaviour
             else if (randomGen)
             {
                 float k = Random.Range(0, 1f);
-                if (k > .95f && maxWaterTiles > 0)
+                if (k < waterTileSpawnChance && maxWaterTiles > 0)
                 {
                     obj.tileType = TileType.Water;
                     maxWaterTiles--;

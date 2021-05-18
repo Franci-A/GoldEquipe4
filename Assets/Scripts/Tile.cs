@@ -33,25 +33,27 @@ public class Tile : MonoBehaviour
 
     public void UpdateVisual()
     {
-        List<Tile> grid = GetComponentInParent<Grid>().grid;
-        for (int i = 0; i < grid.Count; i++)
-        {
             SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
-            if (tileType == TileType.X)
-            {
-                obj.sprite = sprites.GetSprite("Red", "X");
-                obj.color = Color.white;
-            }
-            else if (tileType == TileType.House)
-            {
-                obj.color = Color.white;
-                obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
-            }
-            else
-            {
-                obj.color = Color.clear;
-            }
+        if (tileType == TileType.X)
+        {
+            obj.sprite = sprites.GetSprite("Red", "X");
+            obj.color = Color.white;
         }
+        else if (tileType == TileType.House)
+        {
+            obj.color = Color.white;
+            obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
+        }
+        else
+        {
+            obj.color = Color.clear;
+        }
+        
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
     }
 }

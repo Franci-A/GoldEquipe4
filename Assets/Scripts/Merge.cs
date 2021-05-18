@@ -72,16 +72,22 @@ public class Merge : MonoBehaviour
             merged = true;
         }
 
+        if (tileInfo.houseUpgrade >= 4)
+        {
+            tileInfo.houseUpgrade = 4;
+            tileInfo.UpdateVisual();
+            this.GetComponent<Animator>().SetTrigger("FullUpgrade");
+
+            tileInfo.tileType = TileType.Ground;
+            tileInfo.houseUpgrade = 0;
+        }
+
         if (combo >= 2) {
             comboValue(tempHouseUpgrade);
         }
 
         if (tileInfo.houseUpgrade >= 4 &&  combo < 2)
         {
-            tileInfo.tileType = TileType.House;
-            tileInfo.houseUpgrade = 4;
-            tileInfo.UpdateVisual();
-            this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             score.AddScore(50);
@@ -92,6 +98,7 @@ public class Merge : MonoBehaviour
             merging();
             this.GetComponent<Animator>().SetTrigger("Upgrade");
         }
+        Debug.Log("Merged");
     }
     void comboValue(int tempHouseUpgrade)
     {
@@ -137,11 +144,7 @@ public class Merge : MonoBehaviour
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL3)._value;
                 }
                 break;
-        }        
-        tileInfo.tileType = TileType.House;
-        tileInfo.houseUpgrade = 4;
-        tileInfo.UpdateVisual();
-        this.GetComponent<Animator>().SetTrigger("FullUpgrade");
+        }
         score.AddScore(bonusScore);
         tileInfo.tileType = TileType.Ground;
         tileInfo.houseUpgrade = 0;

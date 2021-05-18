@@ -1241,6 +1241,8 @@ MonoBehaviour:
   gridHeight: 3
   gridWidth: 3
   randomGen: 0
+  waterTileSpawnChance: 0
+  maxWaterTiles: 0
   tilePrefab: {fileID: 5354745377920125117, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
   cellSize: 0.576
   drawOffset: {x: 1, y: -1, z: 0}
@@ -1583,7 +1585,7 @@ MonoBehaviour:
   - {fileID: 1348582373}
   - {fileID: 1823536432}
   - {fileID: 545282283}
-  turnToLevelUpColors: 140000003c00000078000000
+  turnToLevelUpColors: 050000000a0000000f000000
   turnToLevelUpX: 05000000
   maxNumOfX: 0
   maxNumOfHouses: 1
@@ -2889,6 +2891,8 @@ MonoBehaviour:
   gridHeight: 6
   gridWidth: 6
   randomGen: 1
+  waterTileSpawnChance: 0.05
+  maxWaterTiles: 2
   tilePrefab: {fileID: 8697326908566153922, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
   cellSize: 0.686
   drawOffset: {x: 2.405, y: -3.98, z: 0}

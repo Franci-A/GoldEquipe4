@@ -10,7 +10,7 @@ public class PIckUpAndPlace : MonoBehaviour
     [SerializeField] private GameObject snapImage;
     [SerializeField] private GameObject outline;
     [SerializeField] private Vector3 snapPos;
-    private bool haspos;
+    private bool hasPos;
     private GameObject currentCenterTile;
     public Grid playerHand;
     public Grid currentGrid;
@@ -30,7 +30,7 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             //follow cursor
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)) + (Vector3)offset;
-            if (haspos)
+            if (hasPos)
             {
                 snapImage.transform.position = snapPos;
             }
@@ -56,11 +56,12 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         isInHand = false;
         
-        if(canBePlaced && haspos)
+        if(canBePlaced && hasPos)
         {
             //Handheld.Vibrate();
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
+            Debug.Log("check posibilities");
             if(!CheckPosibilities() || score.currentScore< 0)
             {
                 Debug.Log("Defeat");
@@ -81,7 +82,7 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         if (collision.CompareTag("Tile"))
         {
-            haspos = true;
+            hasPos = true;
             snapPos = collision.transform.position;
             currentCenterTile = collision.gameObject;
             CheckPlacement();
@@ -100,7 +101,7 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         if (collision.gameObject == currentCenterTile)
         {
-            haspos = false;
+            hasPos = false;
         }
     }
 
@@ -219,8 +220,9 @@ public class PIckUpAndPlace : MonoBehaviour
         }
         foreach (int position in tileWithHouse)
         {
+            currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
             currentGrid.grid[position].GetComponent<Merge>().merging();
-            currentGrid.UpdateTile(position/currentGrid.gridWidth, position%currentGrid.gridWidth);
+            
         }
     }
 
@@ -247,8 +249,9 @@ public class PIckUpAndPlace : MonoBehaviour
                 {
                     if (playerHand.grid[j].tileType == TileType.House)
                     {
-                        int temp = j - index;
-                        int currentPos = currentGrid.gridWidth * (y + temp / 3) + (x + temp % 3);
+                        int tempY = j/3 - index/3;
+                        int tempX = j%3 - index%3;
+                        int currentPos = currentGrid.gridWidth * (y + tempY) + (x +tempX);
                         if (currentPos < 0 || currentPos >= currentGrid.grid.Count || currentGrid.grid[currentPos].tileType != TileType.Ground)
                         {
                             canBePlaced = false;
