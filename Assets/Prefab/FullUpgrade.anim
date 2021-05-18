@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Upgrade
+  m_Name: FullUpgrade
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -43,6 +43,8 @@ AnimationClip:
       value: {fileID: 1408698685432731496, guid: 019bc32f019e7644a8639afa6dda01f1, type: 3}
     - time: 1.1666666
       value: {fileID: -218816328363794218, guid: 019bc32f019e7644a8639afa6dda01f1, type: 3}
+    - time: 1.25
+      value: {fileID: 0}
     attribute: m_Sprite
     path: Upgrade
     classID: 212
@@ -74,17 +76,18 @@ AnimationClip:
     - {fileID: -4573321196548892676, guid: 019bc32f019e7644a8639afa6dda01f1, type: 3}
     - {fileID: 1408698685432731496, guid: 019bc32f019e7644a8639afa6dda01f1, type: 3}
     - {fileID: -218816328363794218, guid: 019bc32f019e7644a8639afa6dda01f1, type: 3}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1833333
+    m_StopTime: 1.8333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -98,4 +101,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.8333334
+    functionName: UpdateVisual
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

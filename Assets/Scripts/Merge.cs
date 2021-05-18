@@ -34,41 +34,41 @@ public class Merge : MonoBehaviour
 
         if (rightTile.tileType == TileType.House && rightTile.houseColor == tileInfo.houseColor && rightTile.houseUpgrade == tempHouseUpgrade)
         {
+            rightTile.GetComponent<Animator>().SetTrigger("OnRight");
             rightTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
             rightTile.tileType = TileType.Ground;
-            grid.UpdateTile(rightTile.lineNum, rightTile.tileNum);
             merged = true;
         }
 
         if (leftTile.tileType == TileType.House && leftTile.houseColor == tileInfo.houseColor && leftTile.houseUpgrade == tempHouseUpgrade)
         {
+            leftTile.GetComponent<Animator>().SetTrigger("OnLeft");
             leftTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
             leftTile.tileType = TileType.Ground;
-            grid.UpdateTile(leftTile.lineNum, leftTile.tileNum);
             merged = true;
         }
 
         if (upTile.tileType == TileType.House && upTile.houseColor == tileInfo.houseColor && upTile.houseUpgrade == tempHouseUpgrade)
         {
+            upTile.GetComponent<Animator>().SetTrigger("OnTop");
             upTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
             upTile.tileType = TileType.Ground;
-            grid.UpdateTile(upTile.lineNum, upTile.tileNum);
             merged = true;
         }
 
         if (downTile.tileType == TileType.House && downTile.houseColor == tileInfo.houseColor && downTile.houseUpgrade == tempHouseUpgrade)
         {
+            downTile.GetComponent<Animator>().SetTrigger("OnBottom");
             downTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
             downTile.tileType = TileType.Ground;
-            grid.UpdateTile(downTile.lineNum, downTile.tileNum);
             merged = true;
         }
 
@@ -78,15 +78,19 @@ public class Merge : MonoBehaviour
 
         if (tileInfo.houseUpgrade >= 4 &&  combo < 2)
         {
+            tileInfo.tileType = TileType.House;
+            tileInfo.houseUpgrade = 4;
+            tileInfo.UpdateVisual();
+            this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
-            grid.UpdateTile(downTile.lineNum, downTile.tileNum);
             score.AddScore(50);
         }
 
         if (merged && tileInfo.houseUpgrade < 4)
         {
             merging();
+            this.GetComponent<Animator>().SetTrigger("Upgrade");
         }
     }
     void comboValue(int tempHouseUpgrade)
@@ -134,9 +138,12 @@ public class Merge : MonoBehaviour
                 }
                 break;
         }        
+        tileInfo.tileType = TileType.House;
+        tileInfo.houseUpgrade = 4;
+        tileInfo.UpdateVisual();
+        this.GetComponent<Animator>().SetTrigger("FullUpgrade");
         score.AddScore(bonusScore);
         tileInfo.tileType = TileType.Ground;
         tileInfo.houseUpgrade = 0;
-        grid.UpdateTile(downTile.lineNum, downTile.tileNum);
     }
 }
