@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Merge : MonoBehaviour
 {
+    [SerializeField] private Combo_DB comboData;
     private Grid grid;
     private Score score;
     private Tile tileInfo;
@@ -25,7 +26,6 @@ public class Merge : MonoBehaviour
             downTile = grid.grid[grid.gridWidth * (tileInfo.lineNum + 1) + tileInfo.tileNum].GetComponent<Tile>();
         }
     }
-
     public void merging()
     {
         int tempHouseUpgrade = tileInfo.houseUpgrade;
@@ -72,12 +72,8 @@ public class Merge : MonoBehaviour
             merged = true;
         }
 
-        if (merged  && tileInfo.houseUpgrade < 4) {
-            merging();
-        }
-
         if (combo >= 2) {
-            comboValue();
+            comboValue(tempHouseUpgrade);
         }
 
         if (tileInfo.houseUpgrade >= 4 &&  combo < 2)
@@ -85,29 +81,58 @@ public class Merge : MonoBehaviour
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             grid.UpdateTile(downTile.lineNum, downTile.tileNum);
-            score.AddScore(25);
+            score.AddScore(50);
         }
 
-        void comboValue()
+        if (merged && tileInfo.houseUpgrade < 4)
         {
-            int bonusScore;
-            int comboPenalty = 0;
-            if(tempHouseUpgrade == 1) {
-                comboPenalty = 10;
-            }
-            if (tempHouseUpgrade == 2)
-            {
-                comboPenalty = 5;
-            }
-            if (tempHouseUpgrade == 3)
-            {
-                comboPenalty = 0;
-            }
-            bonusScore = combo * 5 - comboPenalty;
-            score.AddScore(bonusScore);
-            tileInfo.tileType = TileType.Ground;
-            tileInfo.houseUpgrade = 0;
-            grid.UpdateTile(downTile.lineNum, downTile.tileNum);
-        } 
+            merging();
+        }
+    }
+    void comboValue(int tempHouseUpgrade)
+    {
+        int bonusScore = 0;
+        switch (tempHouseUpgrade) {
+            case 1:
+                if (combo == 3) {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL1)._value;
+                }
+                else if (combo == 4) {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL1)._value;
+                }
+                break;
+            case 2:
+                if (combo == 2)
+                {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.TRIPLE_LVL2)._value;
+                }
+                else if (combo == 3)
+                {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL2)._value;
+                }
+                else if (combo == 4)
+                {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL2)._value;
+                }
+                break;
+            case 3:
+                if (combo == 2)
+                {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.TRIPLE_LVL3)._value;
+                }
+                else if (combo == 3)
+                {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL3)._value;
+                }
+                else if (combo == 4)
+                {
+                    bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL3)._value;
+                }
+                break;
+        }        
+        score.AddScore(bonusScore);
+        tileInfo.tileType = TileType.Ground;
+        tileInfo.houseUpgrade = 0;
+        grid.UpdateTile(downTile.lineNum, downTile.tileNum);
     }
 }
