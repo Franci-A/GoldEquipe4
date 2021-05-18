@@ -11,7 +11,7 @@ public class SliderBar : MonoBehaviour
     {
         ScoreBar.value = GetComponent<Score>().currentScore;
 
-        if (ScoreBar.value >= 100){
+        if (ScoreBar.value >= ScoreBar.maxValue){
             ScoreBar.value = 0;
         }
     }
