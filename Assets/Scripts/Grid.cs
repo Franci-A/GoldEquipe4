@@ -69,7 +69,7 @@ public class Grid : MonoBehaviour
         {
             Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();
             grid.Add(obj);
-            obj.transform.localPosition = new Vector3(x * cellSize, y * -1 * cellSize, 0) - drawOffset;
+            obj.gameObject.transform.position = new Vector3(x * cellSize, y * -1 * cellSize, 0) - drawOffset;
             obj.lineNum = y;
             obj.tileNum = x;
             obj.GetComponent<SpriteRenderer>().sortingOrder = y;
