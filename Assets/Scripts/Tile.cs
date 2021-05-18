@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Experimental.U2D.Animation;
 
 [Serializable]
 public enum TileType
@@ -29,4 +29,29 @@ public class Tile : MonoBehaviour
     public HouseColor houseColor;
     public int tileNum;
     public int lineNum;
+    [SerializeField] SpriteLibrary sprites;
+
+    public void UpdateVisual()
+    {
+        List<Tile> grid = GetComponentInParent<Grid>().grid;
+        for (int i = 0; i < grid.Count; i++)
+        {
+            SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+            if (tileType == TileType.X)
+            {
+                obj.sprite = sprites.GetSprite("Red", "X");
+                obj.color = Color.white;
+            }
+            else if (tileType == TileType.House)
+            {
+                obj.color = Color.white;
+                obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
+            }
+            else
+            {
+                obj.color = Color.clear;
+            }
+        }
+    }
 }
