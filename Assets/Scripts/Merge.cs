@@ -94,6 +94,10 @@ public class Merge : MonoBehaviour
         int bonusScore = 0;
         switch (tempHouseUpgrade) {
             case 1:
+                if (combo == 2)
+                {
+                    return;
+                }
                 if (combo == 3) {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL1)._value;
                 }
