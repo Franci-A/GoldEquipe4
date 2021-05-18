@@ -6,13 +6,23 @@ using UnityEngine.UI;
 public class SliderBar : MonoBehaviour
 {
     public Slider ScoreBar;
-
+    public int backScore;
+    public int random;
+    public int i = 1;
     void Update()
     {
-        ScoreBar.value = GetComponent<Score>().currentScore;
+        backScore =(int)(GetComponent<Score>().currentScore % ScoreBar.maxValue);
+        ScoreBar.value = backScore;
 
-        if (ScoreBar.value >= ScoreBar.maxValue){
+        if (GetComponent<Score>().currentScore >= (i * ScoreBar.maxValue))
+        {
+            random = Random.Range(1, 5);
+            Debug.Log(random);
             ScoreBar.value = 0;
+            i++;
+            
         }
     }
+
 }
+
