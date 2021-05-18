@@ -226,7 +226,7 @@ public class PIckUpAndPlace : MonoBehaviour
             if(currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)
             {
                 bool canBePlaced = true ;
-                for (int j = index + 1; j < 9 - index; j++)
+                for (int j = index + 1; j < 9; j++)
                 {
                     if (playerHand.grid[j].tileType == TileType.House)
                     {
