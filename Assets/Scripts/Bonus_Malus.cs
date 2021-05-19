@@ -10,6 +10,8 @@ public class Bonus_Malus : MonoBehaviour
     private bool bonusHeld;
     private bool haspos;
     private bool canBePlaced;
+    private BonusTile bonusTile;
+    private Tile tileInfo;
 
     private float startPosX;
     private float startPosY;
@@ -50,6 +52,10 @@ public class Bonus_Malus : MonoBehaviour
     {
         bonusHeld = false;
         transform.position = resetPos;
+        if (haspos && tileInfo.tileType == TileType.House) {
+            snapImage.transform.position = snapPos;
+            hammer();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -59,6 +65,7 @@ public class Bonus_Malus : MonoBehaviour
             haspos = true;
             snapPos = collision.transform.position;
             currentCenterTile = collision.gameObject;
+            tileInfo = currentCenterTile.GetComponent<Tile>();
         }
     }
 
@@ -68,5 +75,25 @@ public class Bonus_Malus : MonoBehaviour
         {
             haspos = false;
         }
+    }
+
+    void hammer()
+    {
+        int hammerLvl = Random.Range(1, 3);
+
+        if (hammerLvl == 1) {
+            tileInfo.houseUpgrade++;
+        }
+        if (hammerLvl == 2)
+        {
+            tileInfo.houseUpgrade += 2;
+        }
+        if (hammerLvl == 3)
+        {
+            tileInfo.houseUpgrade += 3;
+        }
+
+        tileInfo.UpdateVisual();
+        snapImage.transform.position = resetPos;
     }
 }
