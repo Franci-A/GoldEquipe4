@@ -62,7 +62,7 @@ public class PIckUpAndPlace : MonoBehaviour
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
 
-            if(!CheckPosibilities() || score.currentScore< 0)
+            if(!CheckPosibilities())
             {
                 Debug.Log("Defeat");
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
