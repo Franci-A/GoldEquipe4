@@ -127,28 +127,12 @@ public class PIckUpAndPlace : MonoBehaviour
             {
                 if (x >= 0 && x < currentGrid.gridWidth)
                 {
+                    if (tile.tileType == TileType.House) {
 
-                    switch (tile.tileType)
-                    {
-                        case TileType.Empty:
-                            
-                            break;
-                        case TileType.House:
-                            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
-                            {
-                                canBePlaced = false;
-                            }
-                            else if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)
-                            {
-                                //Debug.Log("can be placed");
-                            }
-                            break;
-                        case TileType.X:
-                            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House)
-                            {
-                                //Debug.Log("downgrade");
-                            }
-                            break;
+                        if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
+                        {
+                            canBePlaced = false;
+                        }
 
                     }
                 }
@@ -195,8 +179,8 @@ public class PIckUpAndPlace : MonoBehaviour
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
                             tileWithHouse.Add(y * currentGrid.gridWidth + x);
-                            
                             break;
+
                         case TileType.X:
                             if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
                             {
@@ -211,6 +195,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
                             }
                             break;
+
                         case TileType.LevelUp:
                             if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
                             {

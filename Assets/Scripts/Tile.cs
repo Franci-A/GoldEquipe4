@@ -40,13 +40,19 @@ public class Tile : MonoBehaviour
         switch (tileType)
         {
             case TileType.House:
-                obj.color = Color.white;
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
                 break;
-
+            case TileType.LevelUp:
+                obj.sprite = sprites.GetSprite("Bonus", "Hammer1");
+                break;
+            case TileType.X:
+                obj.sprite = sprites.GetSprite("Bonus", "Thunder");
+                break;
+            case TileType.Water:
+                obj.sprite = sprites.GetSprite("Tiles", "Water");
+                break;
             default:
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");
-                obj.color = Color.clear;
                 break;
 
         }

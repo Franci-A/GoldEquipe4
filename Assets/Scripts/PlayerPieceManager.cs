@@ -39,7 +39,7 @@ public class PlayerPieceManager : MonoBehaviour
         }
         for (int i = 0; i < nextHand.Count; i++)
         {
-            grid[i].UpdateVisual();
+            nextHand[i].UpdateVisual();
         }
 
     }
@@ -125,7 +125,7 @@ public class PlayerPieceManager : MonoBehaviour
                     nextHand[i].houseUpgrade = 0;
                     break;
             }
-            grid[i].UpdateVisual();
+            nextHand[i].UpdateVisual();
         }
         //update currentTurn
         currentTurn++;

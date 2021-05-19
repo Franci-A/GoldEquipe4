@@ -54,12 +54,10 @@ public class Grid : MonoBehaviour
         obj.sprite = sprites.GetSprite("House", "level" + grid[gridWidth * line + tile].houseUpgrade.ToString());
         if (grid[gridWidth * line + tile].houseUpgrade == 0)
         {
-            obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
-            obj.color = Color.clear;
+            obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level0");
         }
         else
         {
-            obj.color = Color.white;
             obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
         }
     }
