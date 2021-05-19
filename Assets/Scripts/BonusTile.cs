@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum BonusType
 {
+    Chest,
     Hammer1,
     Hammer2,
     Hammer3,

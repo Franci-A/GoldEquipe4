@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SliderBar : MonoBehaviour
 {
+    public Bonus_Malus bonusM;
     public Slider ScoreBar;
     public int backScore;
     public int random;
@@ -16,11 +17,11 @@ public class SliderBar : MonoBehaviour
 
         if (GetComponent<Score>().currentScore >= (i * ScoreBar.maxValue))
         {
-            random = Random.Range(1, 5);
+            random = Random.Range(1, 7);
             Debug.Log(random);
             ScoreBar.value = 0;
             i++;
-            
+            bonusM.getBonus(random);
         }
     }
 
