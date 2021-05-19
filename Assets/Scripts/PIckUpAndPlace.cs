@@ -47,8 +47,7 @@ public class PIckUpAndPlace : MonoBehaviour
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
         foreach (Tile tile in playerHand.grid)
         {
-            if(tile.tileType == TileType.House)
-                tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
+            tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
         }
     }
 
@@ -64,7 +63,6 @@ public class PIckUpAndPlace : MonoBehaviour
 
             if(!CheckPosibilities())
             {
-                Debug.Log("Defeat");
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
             }
         }
@@ -73,8 +71,7 @@ public class PIckUpAndPlace : MonoBehaviour
         snapImage.transform.position = transform.position;
         foreach (Tile tile in playerHand.grid)
         {
-            if (tile.tileType == TileType.House)
-                tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
     }
 
