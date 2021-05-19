@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 177854002}
   - component: {fileID: 177854003}
   m_Layer: 0
-  m_Name: HouseSpawn
+  m_Name: PlayerHandManager
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1241,6 +1241,8 @@ MonoBehaviour:
   gridHeight: 3
   gridWidth: 3
   randomGen: 0
+  waterTileSpawnChance: 0
+  maxWaterTiles: 0
   tilePrefab: {fileID: 5354745377920125117, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
   cellSize: 0.576
   drawOffset: {x: 1, y: -1, z: 0}
@@ -1528,7 +1530,7 @@ GameObject:
   - component: {fileID: 595124803}
   - component: {fileID: 595124804}
   m_Layer: 6
-  m_Name: CurrentPieces
+  m_Name: CurrentPieceManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1584,10 +1586,14 @@ MonoBehaviour:
   - {fileID: 1823536432}
   - {fileID: 545282283}
   turnToLevelUpColors: 140000003c00000078000000
+  maxNumOfColors: 1
+  maxNumOfHouses: 1
   turnToLevelUpX: 05000000
   maxNumOfX: 0
-  maxNumOfHouses: 1
-  maxNumOfColors: 1
+  ChanceToGetX: 0.1
+  turnToLevelUpHammer: 05000000
+  ChanceToGetLevelUp: 0.1
+  maxNumOfLevelUp: 0
   sprites: {fileID: 595124804}
 --- !u!4 &595124801
 Transform:
@@ -2144,7 +2150,7 @@ GameObject:
   - component: {fileID: 1137480934}
   - component: {fileID: 1137480935}
   m_Layer: 0
-  m_Name: Left_Next
+  m_Name: NextHandBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2388,7 +2394,7 @@ GameObject:
   - component: {fileID: 1277325286}
   - component: {fileID: 1277325287}
   m_Layer: 0
-  m_Name: Hand_Tiles
+  m_Name: CurrentHandBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2889,6 +2895,8 @@ MonoBehaviour:
   gridHeight: 6
   gridWidth: 6
   randomGen: 1
+  waterTileSpawnChance: 0.05
+  maxWaterTiles: 2
   tilePrefab: {fileID: 8697326908566153922, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
   cellSize: 0.686
   drawOffset: {x: 2.405, y: -3.98, z: 0}
@@ -3578,10 +3586,10 @@ RectTransform:
   m_Father: {fileID: 144241513}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270, y: -650}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0.7175001, y: 0.023776814}
+  m_AnchorMax: {x: 0.95625, y: 0.0622575}
+  m_AnchoredPosition: {x: 0.5, y: -1}
+  m_SizeDelta: {x: -31, y: -34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106880035
 MonoBehaviour:

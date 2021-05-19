@@ -31,9 +31,6 @@ MonoBehaviour:
     - m_Name: level0
       m_Hash: 1895789619
       m_Sprite: {fileID: 0}
-    - m_Name: X
-      m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
   - m_Name: Green
     m_Hash: 291225893
     m_CategoryList:
@@ -52,9 +49,6 @@ MonoBehaviour:
     - m_Name: level0
       m_Hash: 1895789619
       m_Sprite: {fileID: 0}
-    - m_Name: X
-      m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
   - m_Name: Red
     m_Hash: -1037297297
     m_CategoryList:
@@ -73,11 +67,8 @@ MonoBehaviour:
     - m_Name: level5
       m_Hash: 9797820
       m_Sprite: {fileID: 0}
-    - m_Name: X
-      m_Hash: -1213057461
-      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
-  - m_Name: Yellow
-    m_Hash: -676795991
+  - m_Name: 5
+    m_Hash: -2068763730
     m_CategoryList:
     - m_Name: level1
       m_Hash: 133711013
@@ -106,3 +97,12 @@ MonoBehaviour:
     - m_Name: Ground
       m_Hash: -1605138850
       m_Sprite: {fileID: 21300000, guid: 2ede679efcdc1404a95caefd3fa4f61f, type: 3}
+  - m_Name: Bonus
+    m_Hash: 1582911614
+    m_CategoryList:
+    - m_Name: X
+      m_Hash: -1213057461
+      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}
+    - m_Name: LevelUp
+      m_Hash: -359618899
+      m_Sprite: {fileID: 21300000, guid: 5fa2150bff3f1a24a9f72226de34e639, type: 3}

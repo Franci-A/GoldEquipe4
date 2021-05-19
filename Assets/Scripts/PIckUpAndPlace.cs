@@ -61,7 +61,7 @@ public class PIckUpAndPlace : MonoBehaviour
             //Handheld.Vibrate();
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
-            Debug.Log("check posibilities");
+
             if(!CheckPosibilities() || score.currentScore< 0)
             {
                 Debug.Log("Defeat");
@@ -174,7 +174,7 @@ public class PIckUpAndPlace : MonoBehaviour
         List<int> tileWithHouse = new List<int>();
         foreach (Tile tile in playerHand.grid)
         {
-            if (y < 0 || y >= currentGrid.gridHeight)
+            if (y < 0 || y >= currentGrid.gridHeight) //tile being checked is outside the grid on y axis
             {
                 
                 x++;
@@ -186,7 +186,7 @@ public class PIckUpAndPlace : MonoBehaviour
             }
             else 
             {
-                if (x >= 0 && x < currentGrid.gridWidth)
+                if (x >= 0 && x < currentGrid.gridWidth) //tile being checked is inside the grid on x axis
                 {
                     switch (tile.tileType)
                     {
@@ -204,6 +204,22 @@ public class PIckUpAndPlace : MonoBehaviour
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
                                 score.AddScore(-10);
+                            }
+                            else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                            }
+                            break;
+                        case TileType.LevelUp:
+                            if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
+                                if (currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade < 4)
+                                {
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Upgrade");
+                                }
+                                tileWithHouse.Add(y * currentGrid.gridWidth + x);
                             }
                             break;
                     }
