@@ -12,6 +12,7 @@ public class Bonus_Malus : MonoBehaviour
     private BonusTile bonusTile;
     private Tile tileInfo;
     private SliderBar sliderBar;
+    private Score score;
 
     private float startPosX;
     private float startPosY;
@@ -24,9 +25,10 @@ public class Bonus_Malus : MonoBehaviour
 
     void Start()
     {
+        score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
         bonusTile = GetComponent<BonusTile>(); 
-        bonusTile.bonusType = BonusType.Hammer3;
-        snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer3");
+        bonusTile.bonusType = BonusType.Chest;
+        snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
         resetPos = transform.position;
     }
 
@@ -58,13 +60,38 @@ public class Bonus_Malus : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (haspos && bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3) {
+        bool isHouse = false;
+
+        if (haspos && (bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3)) {
             snapImage.transform.position = snapPos;
             hammer();
         }
 
+        if (haspos && bonusTile.bonusType == BonusType.Thunder && (tileInfo.tileType == TileType.House || tileInfo.tileType == TileType.Water))
+        {
+            if(tileInfo.tileType == TileType.House) {
+                isHouse = true;
+            }
+            else {
+                isHouse = false;
+            }
+
+            snapImage.transform.position = snapPos;
+            thunder();
+
+            if (isHouse) {
+                score.AddScore(-10);
+            }
+        }
+
+        if (haspos && bonusTile.bonusType == BonusType.Montain && tileInfo.tileType == TileType.Ground) {
+            snapImage.transform.position = snapPos;
+            montain();
+        } 
+
         bonusHeld = false;
         transform.position = resetPos;
+        snapImage.transform.position = resetPos;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -136,7 +163,32 @@ public class Bonus_Malus : MonoBehaviour
         {
             tileInfo.houseUpgrade += 3;
         }
-        tileInfo.UpdateVisual();
+        tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+        transform.position = resetPos;
         snapImage.transform.position = resetPos;
+        bonusTile.bonusType = BonusType.Chest;
+        snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     }
+    
+    void thunder()
+    {
+        tileInfo.GetComponent<Animator>().SetTrigger("Downgrade");
+        tileInfo.houseUpgrade = 0;
+        tileInfo.tileType = TileType.Ground;
+        transform.position = resetPos;
+        snapImage.transform.position = resetPos;
+        bonusTile.bonusType = BonusType.Chest;
+        snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
+    }
+
+    void montain()
+    {
+        tileInfo.houseUpgrade = 0;
+        tileInfo.tileType = TileType.Water;
+        tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+        transform.position = resetPos;
+        snapImage.transform.position = resetPos;
+        bonusTile.bonusType = BonusType.Chest;
+        snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
+    } 
 }
