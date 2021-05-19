@@ -72,6 +72,7 @@ public class Merge : MonoBehaviour
             merged = true;
         }
 
+
         if (combo >= 2) {
             comboValue(tempHouseUpgrade);
         }
@@ -79,8 +80,9 @@ public class Merge : MonoBehaviour
         if (tileInfo.houseUpgrade >= 4 &&  combo < 2)
         {
             tileInfo.houseUpgrade = 4;
-            tileInfo.UpdateVisual();
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = tileInfo.sprites.GetSprite(tileInfo.houseColor.ToString(), "level4");
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
+            StartCoroutine(UpdateVisuelAtFullUpgrade());
             tileInfo.tileType = TileType.Ground;
             tileInfo.houseUpgrade = 0;
             score.AddScore(50);
@@ -147,5 +149,11 @@ public class Merge : MonoBehaviour
     public void PLayParticles()
     {
         GetComponentInChildren<ParticleSystem>().Play();
+    }
+
+    IEnumerator UpdateVisuelAtFullUpgrade()
+    {
+        yield return new WaitForSeconds(1.3f);
+        tileInfo.UpdateVisual();
     }
 }

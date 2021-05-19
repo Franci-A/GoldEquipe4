@@ -30,28 +30,32 @@ public class Tile : MonoBehaviour
     public HouseColor houseColor;
     public int tileNum;
     public int lineNum;
-    [SerializeField] SpriteLibrary sprites;
+    public SpriteLibrary sprites;
 
     public void UpdateVisual()
     {
-         SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
 
-        if (tileType == TileType.X)
+        switch (tileType)
         {
-            obj.sprite = sprites.GetSprite("Red", "X");
-            obj.color = Color.white;
+            case TileType.House:
+                obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
+                break;
+            case TileType.LevelUp:
+                obj.sprite = sprites.GetSprite("Bonus", "Hammer1");
+                break;
+            case TileType.X:
+                obj.sprite = sprites.GetSprite("Bonus", "Thunder");
+                break;
+            case TileType.Water:
+                obj.sprite = sprites.GetSprite("Tiles", "Water");
+                break;
+            default:
+                obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");
+                break;
+
         }
-        else if (tileType == TileType.House)
-        {
-            obj.color = Color.white;
-            obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
-        }
-        else
-        {
-            obj.color = Color.clear;
-        }
-        
     }
 
     public override string ToString()

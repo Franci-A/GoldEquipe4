@@ -54,11 +54,10 @@ public class Grid : MonoBehaviour
         obj.sprite = sprites.GetSprite("House", "level" + grid[gridWidth * line + tile].houseUpgrade.ToString());
         if (grid[gridWidth * line + tile].houseUpgrade == 0)
         {
-            obj.color = Color.clear;
+            obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level0");
         }
         else
         {
-            obj.color = Color.white;
             obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
         }
     }
@@ -106,14 +105,6 @@ public class Grid : MonoBehaviour
 
                 case TileType.Empty:
                     obj.GetComponent<SpriteRenderer>().color = Color.clear;
-                    break;
-                case TileType.House:
-                    obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite(obj.houseColor.ToString(), "level" + obj.houseUpgrade.ToString());
-                    break;
-                case TileType.X:
-                    obj.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                    obj.GetComponentInChildren<SpriteRenderer>().sprite = sprites.GetSprite(obj.houseColor.ToString(), "X");
                     break;
             }
             x++;

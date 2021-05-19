@@ -16,6 +16,8 @@ public class Score : MonoBehaviour
     public void AddScore(int pointWon)
     {
         currentScore += pointWon;
+        if (currentScore < 0)
+            currentScore = 0;
         scoreDisplay.text = "Score: " + currentScore;
     }
 }
