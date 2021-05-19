@@ -33,8 +33,15 @@ public class PlayerPieceManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateVisual(grid);
-        UpdateVisual(nextHand);
+        for (int i = 0; i < grid.Count; i++)
+        {
+            grid[i].UpdateVisual();
+        }
+        for (int i = 0; i < nextHand.Count; i++)
+        {
+            grid[i].UpdateVisual();
+        }
+
     }
 
     public void NextTurn()
@@ -45,6 +52,7 @@ public class PlayerPieceManager : MonoBehaviour
             grid[i].tileType = nextHand[i].tileType;
             grid[i].houseUpgrade = nextHand[i].houseUpgrade;
             grid[i].houseColor = nextHand[i].houseColor;
+            grid[i].UpdateVisual();
         }
         //generate new next hand
 
@@ -113,14 +121,12 @@ public class PlayerPieceManager : MonoBehaviour
                     nextHand[i].houseUpgrade = 0;
                     break;
                 case 3:
-                    Debug.Log("Level up in hand");
                     nextHand[i].tileType = TileType.LevelUp;
                     nextHand[i].houseUpgrade = 0;
                     break;
             }
+            grid[i].UpdateVisual();
         }
-        UpdateVisual(grid);
-        UpdateVisual(nextHand);
         //update currentTurn
         currentTurn++;
 
@@ -141,35 +147,6 @@ public class PlayerPieceManager : MonoBehaviour
         {
             maxNumOfLevelUp++;
             currentLevelUp++;
-        }
-    }
-
-
-    public void UpdateVisual(List<Tile> grid)
-    {
-        for (int i = 0; i < grid.Count; i++)
-        {
-            SpriteRenderer obj = grid[i].transform.GetChild(0).GetComponent<SpriteRenderer>();
-
-            if (grid[i].tileType == TileType.X)
-            {
-                obj.sprite = sprites.GetSprite("Bonus", "X");
-                obj.color = Color.white;
-            }
-            else if(grid[i].tileType == TileType.LevelUp)
-            {
-                obj.sprite = sprites.GetSprite("Bonus", "LevelUp");
-                obj.color = Color.white;
-            }
-            else if (grid[i].tileType == TileType.House)
-            {
-                obj.color = Color.white;
-                obj.sprite = sprites.GetSprite(grid[i].houseColor.ToString(), "level" + grid[i].houseUpgrade.ToString()); 
-            }
-            else
-            {
-                obj.color = Color.clear;
-            }
         }
     }
 
