@@ -5,16 +5,30 @@ using UnityEngine.Experimental.U2D.Animation;
 
 public class PlayerPieceManager : MonoBehaviour
 {
-    public List<Tile> grid;
     private int currentTurn;
+    [Header("Grids")]
+    public List<Tile> grid;
     [SerializeField] private List<Tile> nextHand;
+
+    [Header("House colors")]
     [SerializeField] private List<int> turnToLevelUpColors;
-    [SerializeField] private List<int> turnToLevelUpX;
-    private int currentColorLevel = 0;
-    private int currentXLevel = 0;
-    [SerializeField] private int maxNumOfX;
-    [SerializeField] private int maxNumOfHouses =1;
     [SerializeField] private int maxNumOfColors = 1;
+    [SerializeField] private int maxNumOfHouses = 1;
+    private int currentColorLevel = 0;
+
+    [Header("Downgrade")]
+    [SerializeField] private List<int> turnToLevelUpX;
+    [SerializeField] private int maxNumOfX;
+    [SerializeField] private float ChanceToGetX;
+    private int currentXLevel = 0;
+
+    [Header("Level up")]
+    [SerializeField] private List<int> turnToLevelUpHammer;
+    [SerializeField] private float ChanceToGetLevelUp;
+    [SerializeField] private int maxNumOfLevelUp = 1;
+    private int currentLevelUp = 0;
+
+
     [SerializeField] private SpriteLibrary sprites;
 
     private void Start()
@@ -26,7 +40,7 @@ public class PlayerPieceManager : MonoBehaviour
     public void NextTurn()
     {
         //update hand
-        for (int i = 0; i < grid.Count; i++)
+        for (int i = 0; i < grid.Count; i++) // move "next hand" to player hand
         {
             grid[i].tileType = nextHand[i].tileType;
             grid[i].houseUpgrade = nextHand[i].houseUpgrade;
@@ -39,30 +53,48 @@ public class PlayerPieceManager : MonoBehaviour
         {
             type.Add(0);
         }
-        int numOfHouses = Random.Range(1, maxNumOfHouses + 1);
-        for (int j = 0; j < numOfHouses; j++)
+
+        List<int> maxValues = new List<int>();
+        maxValues.Add(maxNumOfHouses);
+        maxValues.Add(maxNumOfX);
+        maxValues.Add(maxNumOfLevelUp);
+
+
+        for (int b = 1; b < 4; b++) // get position for each object to be placed later on the new grid
         {
-            int k;
-            do
+            int numOfObj = 0;
+            if (b == 2)
             {
-                k = Random.Range(0, 9);
+                float l = Random.Range(0, 1f);
+                if( l < ChanceToGetX) { 
+                    numOfObj = Random.Range(0, maxValues[b - 1] + 1);
+                }
+            }else if (b == 3)
+            {
+                float l = Random.Range(0, 1f);
+                if (l < ChanceToGetLevelUp)
+                {
+                    numOfObj = Random.Range(0, maxValues[b - 1] + 1);
+                }
             }
-            while (type[k] != 0);
-            type[k] = 1;
+            else { 
+                numOfObj = Random.Range(1, maxValues[b - 1] + 1);
+            }
+
+            for (int j = 0; j < numOfObj; j++)
+            {
+                int k;
+                do
+                {
+                    k = Random.Range(0, 9);
+                }
+                while (type[k] != 0);
+                type[k] = b;
+            }
         }
 
-        int numOfX = Random.Range(0, maxNumOfX + 1);
-        for (int j = 0; j < numOfX; j++)
-        {
-            int k;
-            do
-            {
-                k = Random.Range(0, 9);
-            }
-            while (type[k] != 0);
-            type[k] = 2;
-        }
-        for (int i = 0; i < nextHand.Count; i++)
+
+        for (int i = 0; i < nextHand.Count; i++) // for each tile place the tile coresponding to the int that was given above
         {
             switch (type[i])
             {
@@ -80,9 +112,13 @@ public class PlayerPieceManager : MonoBehaviour
                     nextHand[i].tileType = TileType.X;
                     nextHand[i].houseUpgrade = 0;
                     break;
+                case 3:
+                    Debug.Log("Level up in hand");
+                    nextHand[i].tileType = TileType.LevelUp;
+                    nextHand[i].houseUpgrade = 0;
+                    break;
             }
         }
-        //update visual
         UpdateVisual(grid);
         UpdateVisual(nextHand);
         //update currentTurn
@@ -100,6 +136,12 @@ public class PlayerPieceManager : MonoBehaviour
             maxNumOfX++;
             currentXLevel++;
         }
+        
+        if(currentLevelUp < turnToLevelUpHammer.Count && currentTurn > turnToLevelUpX[currentLevelUp])
+        {
+            maxNumOfLevelUp++;
+            currentLevelUp++;
+        }
     }
 
 
@@ -111,7 +153,12 @@ public class PlayerPieceManager : MonoBehaviour
 
             if (grid[i].tileType == TileType.X)
             {
-                obj.sprite = sprites.GetSprite("Red", "X");
+                obj.sprite = sprites.GetSprite("Bonus", "X");
+                obj.color = Color.white;
+            }
+            else if(grid[i].tileType == TileType.LevelUp)
+            {
+                obj.sprite = sprites.GetSprite("Bonus", "LevelUp");
                 obj.color = Color.white;
             }
             else if (grid[i].tileType == TileType.House)

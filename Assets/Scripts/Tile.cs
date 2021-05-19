@@ -11,7 +11,8 @@ public enum TileType
     Water,
     Empty,
     House,
-    X
+    X,
+    LevelUp
 }
 
 public enum HouseColor
@@ -33,7 +34,8 @@ public class Tile : MonoBehaviour
 
     public void UpdateVisual()
     {
-            SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
+         SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
 
         if (tileType == TileType.X)
         {
