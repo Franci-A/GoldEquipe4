@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8281633403904a43a3357ab3d0dfe3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusM: {fileID: 180102952}
   ScoreBar: {fileID: 2106880035}
   backScore: 0
   random: 0
@@ -741,6 +742,8 @@ GameObject:
   - component: {fileID: 180102952}
   - component: {fileID: 180102951}
   - component: {fileID: 180102950}
+  - component: {fileID: 180102949}
+  - component: {fileID: 180102953}
   m_Layer: 6
   m_Name: Bonus
   m_TagString: Untagged
@@ -763,6 +766,19 @@ Transform:
   m_Father: {fileID: 177854001}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180102949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180102947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: fe8f6e05c5c95dc4d8317a0ffa21d567, type: 2}
 --- !u!50 &180102950
 Rigidbody2D:
   serializedVersion: 4
@@ -822,8 +838,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6b370d96165f24db35db5ac09c97f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonus: {fileID: 0}
   snapImage: {fileID: 350273453}
+  spriteLib: {fileID: 180102949}
+--- !u!114 &180102953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180102947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445fb1d0003b65e4e84f42f07b863077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusType: 0
 --- !u!114 &181420836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
@@ -3636,7 +3665,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 50
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
