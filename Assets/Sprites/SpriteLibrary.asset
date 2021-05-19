@@ -121,3 +121,6 @@ MonoBehaviour:
     - m_Name: Shield2
       m_Hash: 2074574345
       m_Sprite: {fileID: 21300000, guid: 71aa260a997f38a44b6c9a970ad146fb, type: 3}
+    - m_Name: Thunder
+      m_Hash: -1379558292
+      m_Sprite: {fileID: 21300000, guid: adfd6737ef9895444be7b93d84e8ff2a, type: 3}

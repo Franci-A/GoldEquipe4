@@ -9,7 +9,7 @@ public enum BonusType
     Hammer2,
     Hammer3,
     Thunder,
-    Montain,
+    Mountain,
     Shield1,
     Shield2
 }
