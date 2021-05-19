@@ -62,7 +62,7 @@ public class Bonus_Malus : MonoBehaviour
     {
         bool isHouse = false;
 
-        if (haspos && (bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3)) {
+        if (haspos && tileInfo.tileType == TileType.House && (bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3)) {
             snapImage.transform.position = snapPos;
             hammer();
         }
@@ -84,9 +84,9 @@ public class Bonus_Malus : MonoBehaviour
             }
         }
 
-        if (haspos && bonusTile.bonusType == BonusType.Montain && tileInfo.tileType == TileType.Ground) {
+        if (haspos && bonusTile.bonusType == BonusType.Mountain && tileInfo.tileType == TileType.Ground) {
             snapImage.transform.position = snapPos;
-            montain();
+            mountain();
         } 
 
         bonusHeld = false;
@@ -135,8 +135,8 @@ public class Bonus_Malus : MonoBehaviour
         }
         if (i == 5)
         {
-            bonusTile.bonusType = BonusType.Montain;
-            snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Montain");
+            bonusTile.bonusType = BonusType.Mountain;
+            snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Mountain");
         }
         if (i == 6)
         {
@@ -163,7 +163,17 @@ public class Bonus_Malus : MonoBehaviour
         {
             tileInfo.houseUpgrade += 3;
         }
-        tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+        if (tileInfo.houseUpgrade >= 4) {
+            tileInfo.houseUpgrade = 4;
+            tileInfo.GetComponent<Animator>().SetTrigger("FullUpgrade");
+            score.AddScore(50);
+            tileInfo.houseUpgrade = 0;
+            tileInfo.tileType = TileType.Ground;
+        }
+        else {
+            tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+        }
+
         transform.position = resetPos;
         snapImage.transform.position = resetPos;
         bonusTile.bonusType = BonusType.Chest;
@@ -181,7 +191,7 @@ public class Bonus_Malus : MonoBehaviour
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     }
 
-    void montain()
+    void mountain()
     {
         tileInfo.houseUpgrade = 0;
         tileInfo.tileType = TileType.Water;
