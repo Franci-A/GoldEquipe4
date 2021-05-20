@@ -175,6 +175,7 @@ public class PIckUpAndPlace : MonoBehaviour
                             currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Place");
                             tileWithHouse.Add(y * currentGrid.gridWidth + x);
                             break;
 
@@ -216,12 +217,7 @@ public class PIckUpAndPlace : MonoBehaviour
             }
             
         }
-        foreach (int position in tileWithHouse)
-        {
-            currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
-            currentGrid.grid[position].GetComponent<Merge>().merging();
-            
-        }
+        StartCoroutine(CallMergeAfterAnim(tileWithHouse));
     }
 
     public bool CheckPosibilities()
@@ -274,5 +270,16 @@ public class PIckUpAndPlace : MonoBehaviour
         }
 
         return false;
+    }
+
+    IEnumerator CallMergeAfterAnim(List<int> positions)
+    {
+        yield return new WaitForSeconds(.2f);
+        foreach (int position in positions)
+        {
+            currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
+            currentGrid.grid[position].GetComponent<Merge>().merging();
+        }
+
     }
 }

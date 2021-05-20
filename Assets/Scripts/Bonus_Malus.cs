@@ -165,10 +165,9 @@ public class Bonus_Malus : MonoBehaviour
         }
         if (tileInfo.houseUpgrade >= 4) {
             tileInfo.houseUpgrade = 4;
+            tileInfo.scorePopup.text = "+ " + 50;
             tileInfo.GetComponent<Animator>().SetTrigger("FullUpgrade");
             score.AddScore(50);
-            tileInfo.houseUpgrade = 0;
-            tileInfo.tileType = TileType.Ground;
         }
         else {
             tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");

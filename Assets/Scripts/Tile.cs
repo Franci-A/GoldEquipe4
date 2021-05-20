@@ -33,6 +33,7 @@ public class Tile : MonoBehaviour
     public int lineNum;
     public SpriteLibrary sprites;
     public TextMeshProUGUI scorePopup;
+    public ParticleSystem destroyParticles;
 
     public void UpdateVisual()
     {
@@ -43,6 +44,9 @@ public class Tile : MonoBehaviour
         {
             case TileType.House:
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
+                destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
+                destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
+                destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
                 break;
             case TileType.LevelUp:
                 obj.sprite = sprites.GetSprite("Bonus", "Hammer1");
