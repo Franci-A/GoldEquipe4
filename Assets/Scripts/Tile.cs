@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.U2D.Animation;
 
@@ -31,6 +32,7 @@ public class Tile : MonoBehaviour
     public int tileNum;
     public int lineNum;
     public SpriteLibrary sprites;
+    public TextMeshProUGUI scorePopup;
 
     public void UpdateVisual()
     {
@@ -56,10 +58,11 @@ public class Tile : MonoBehaviour
                 break;
 
         }
+        if(houseUpgrade >= 4)
+        {
+            houseUpgrade = 0;
+            tileType = TileType.Ground;
+        }
     }
 
-    public override string ToString()
-    {
-        return base.ToString();
-    }
 }

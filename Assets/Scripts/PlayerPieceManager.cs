@@ -68,7 +68,7 @@ public class PlayerPieceManager : MonoBehaviour
         maxValues.Add(maxNumOfLevelUp);
 
 
-        for (int b = 1; b < 4; b++) // get position for each object to be placed later on the new grid
+        for (int b = 1; b < 3; b++) // get position for each object to be placed later on the new grid
         {
             int numOfObj = 0;
             if (b == 2)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Merge : MonoBehaviour
@@ -13,6 +14,7 @@ public class Merge : MonoBehaviour
     Tile upTile;
     Tile downTile;
     int combo;
+    int bonusScore;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class Merge : MonoBehaviour
             downTile = grid.grid[grid.gridWidth * (tileInfo.lineNum + 1) + tileInfo.tileNum].GetComponent<Tile>();
         }
     }
-    public void merging()
+    public bool merging()
     {
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
@@ -76,28 +78,34 @@ public class Merge : MonoBehaviour
         if (combo >= 2) {
             comboValue(tempHouseUpgrade);
         }
+        else if(tileInfo.houseUpgrade >= 4 && combo < 2)
+        {
+            score.AddScore(50);
+            bonusScore = 50;
+        }
 
-        if (tileInfo.houseUpgrade >= 4 &&  combo < 2)
+        if (tileInfo.houseUpgrade >= 4)
         {
             tileInfo.houseUpgrade = 4;
-            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = tileInfo.sprites.GetSprite(tileInfo.houseColor.ToString(), "level4");
+            tileInfo.scorePopup.text = "+ " + bonusScore;
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
-            StartCoroutine(UpdateVisuelAtFullUpgrade());
-            tileInfo.tileType = TileType.Ground;
-            tileInfo.houseUpgrade = 0;
-            score.AddScore(50);
+            return true;
         }
 
         if (merged && tileInfo.houseUpgrade < 4)
         {
-            merging();
-            this.GetComponent<Animator>().SetTrigger("Upgrade");
+            if (!merging())
+            {
+                this.GetComponent<Animator>().SetTrigger("Upgrade");
+            }
+            return true;
         }
+        return false;
 
     }
     void comboValue(int tempHouseUpgrade)
     {
-        int bonusScore = 0;
+        bonusScore = 0;
         switch (tempHouseUpgrade) {
             case 1:
                 if (combo == 2)
@@ -141,9 +149,6 @@ public class Merge : MonoBehaviour
                 break;
         }
         score.AddScore(bonusScore);
-
-        tileInfo.tileType = TileType.Ground;
-        tileInfo.houseUpgrade = 0;
     }
 
     public void PLayParticles()
@@ -151,9 +156,4 @@ public class Merge : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Play();
     }
 
-    IEnumerator UpdateVisuelAtFullUpgrade()
-    {
-        yield return new WaitForSeconds(1.3f);
-        tileInfo.UpdateVisual();
-    }
 }
