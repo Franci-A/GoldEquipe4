@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
 
     public bool isConnectedToGooglePlayServices;
+    public bool gameOver;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SignInToGooglePlayServices();
+        gameOver = false;
     }
 
     public void SignInToGooglePlayServices()
@@ -41,7 +43,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOver = true;
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         Score.Instance.CheckHighScore();
+
     }
 }
