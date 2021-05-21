@@ -93,6 +93,7 @@ public class Merge : MonoBehaviour
             tileInfo.houseUpgrade = 4;
             tileInfo.scorePopup.text = "+ " + bonusScore;
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
+            FindObjectOfType<AudioManager>().Play("Merge");
             return true;
         }
 
@@ -103,6 +104,7 @@ public class Merge : MonoBehaviour
                 this.GetComponent<Animator>().SetFloat("MergeLevel",tempHouseUpgrade);
                 this.GetComponent<Animator>().SetFloat("MergeRace",(int)tileInfo.houseColor);
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
+                FindObjectOfType<AudioManager>().Play("Merge");
             }
             return true;
         }
