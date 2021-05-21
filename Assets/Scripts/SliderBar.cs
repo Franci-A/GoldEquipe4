@@ -29,9 +29,10 @@ public class SliderBar : MonoBehaviour
         }
         if (backScore >= (ScoreBar.maxValue) && haveBonus == false)
         {
-            random = Random.Range(1, 4);
+            random = Random.Range(4, 8);
             bonusM.getBonus(random);
             haveBonus = true;
+            FindObjectOfType<AudioManager>().Play("GetBonus");
         }
     }
 }
