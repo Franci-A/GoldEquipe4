@@ -66,6 +66,7 @@ public class Bonus_Malus : MonoBehaviour
         if (haspos && tileInfo.tileType == TileType.House && (bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3)) {
             snapImage.transform.position = snapPos;
             hammer();
+            FindObjectOfType<AudioManager>().Play("Hammer");
             sliderBar.haveBonus = false;
             sliderBar.tempScore = score.currentScore;
         }
