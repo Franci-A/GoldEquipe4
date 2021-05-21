@@ -60,11 +60,6 @@ public class PIckUpAndPlace : MonoBehaviour
             //Handheld.Vibrate();
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
-
-            if(!CheckPosibilities())
-            {
-                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
-            }
         }
 
         transform.position = startPos;
@@ -290,6 +285,11 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
             currentGrid.grid[position].GetComponent<Merge>().merging();
+            
+            if (!CheckPosibilities())
+            {
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
+            }
         }
 
     }
