@@ -35,6 +35,7 @@ public class Tile : MonoBehaviour
     public SpriteLibrary sprites;
     public TextMeshProUGUI scorePopup;
     public ParticleSystem destroyParticles;
+    public SpriteRenderer shieldSprite;
 
     public void UpdateVisual()
     {

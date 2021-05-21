@@ -191,6 +191,13 @@ public class Bonus_Malus : MonoBehaviour
         {
             tileInfo.shieldLvl -= 1;
             isProtected = true;
+            if (tileInfo.shieldLvl == 1) {
+                tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield1");
+            }
+            if (tileInfo.shieldLvl == 0)
+            {
+                tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield0");
+            }
         }
         else
         {
@@ -230,6 +237,14 @@ public class Bonus_Malus : MonoBehaviour
         if (tileInfo.shieldLvl > 2) 
         { 
             tileInfo.shieldLvl = 2; 
+        }
+        if (tileInfo.shieldLvl == 2)
+        {
+            tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield2");
+        }
+        if (tileInfo.shieldLvl == 1)
+        {
+            tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield1");
         }
 
         transform.position = resetPos;
