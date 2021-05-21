@@ -100,6 +100,8 @@ public class Merge : MonoBehaviour
         {
             if (!merging())
             {
+                this.GetComponent<Animator>().SetFloat("MergeLevel",tempHouseUpgrade);
+                this.GetComponent<Animator>().SetFloat("MergeRace",(int)tileInfo.houseColor);
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
             }
             return true;
