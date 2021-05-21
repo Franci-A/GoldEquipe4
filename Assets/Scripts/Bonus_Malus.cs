@@ -171,6 +171,7 @@ public class Bonus_Malus : MonoBehaviour
         }
         else {
             tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+            tileInfo.GetComponent<Merge>().merging();
         }
 
         transform.position = resetPos;
