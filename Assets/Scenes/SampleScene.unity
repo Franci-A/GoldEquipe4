@@ -2851,6 +2851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConnectedToGooglePlayServices: 0
+  gameOver: 0
 --- !u!114 &1414649364 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}

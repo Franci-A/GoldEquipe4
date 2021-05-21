@@ -13,6 +13,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         scoreDisplay.text = "" + currentScore;
     }
 

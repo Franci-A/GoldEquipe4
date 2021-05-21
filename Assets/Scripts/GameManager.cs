@@ -7,14 +7,15 @@ using GooglePlayGames.BasicApi;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get { return Instance; } }
+    public static GameManager Instance { get { return instance; } }
     private static GameManager instance;
 
     public bool isConnectedToGooglePlayServices;
-    public bool gameOver;
+    public bool gameOver = false;
 
     private void Awake()
     {
+        instance = this;
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
