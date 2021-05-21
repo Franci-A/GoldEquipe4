@@ -12,7 +12,7 @@ public class Bonus_Malus : MonoBehaviour
     bool isProtected;
     private BonusTile bonusTile;
     private Tile tileInfo;
-    private SliderBar sliderBar;
+    public SliderBar sliderBar;
     private Score score;
 
     private float startPosX;
@@ -66,6 +66,8 @@ public class Bonus_Malus : MonoBehaviour
         if (haspos && tileInfo.tileType == TileType.House && (bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3)) {
             snapImage.transform.position = snapPos;
             hammer();
+            sliderBar.haveBonus = false;
+            sliderBar.tempScore = score.currentScore;
         }
 
         if (haspos && bonusTile.bonusType == BonusType.Thunder && (tileInfo.tileType == TileType.House || tileInfo.tileType == TileType.Water))
@@ -79,6 +81,8 @@ public class Bonus_Malus : MonoBehaviour
 
             snapImage.transform.position = snapPos;
             thunder();
+            sliderBar.haveBonus = false;
+            sliderBar.tempScore = score.currentScore;
 
             if (isHouse && isProtected == false) {
                 score.AddScore(-10);
@@ -88,11 +92,15 @@ public class Bonus_Malus : MonoBehaviour
         if (haspos && bonusTile.bonusType == BonusType.Mountain && tileInfo.tileType == TileType.Ground) {
             snapImage.transform.position = snapPos;
             mountain();
+            sliderBar.haveBonus = false;
+            sliderBar.tempScore = score.currentScore;
         } 
 
         if (haspos && (bonusTile.bonusType == BonusType.Shield1 || bonusTile.bonusType == BonusType.Shield2) && tileInfo.tileType == TileType.House && tileInfo.shieldLvl < 2) {
             snapImage.transform.position = snapPos;
             shield();
+            sliderBar.haveBonus = false;
+            sliderBar.tempScore = score.currentScore;
         }
 
         bonusHeld = false;

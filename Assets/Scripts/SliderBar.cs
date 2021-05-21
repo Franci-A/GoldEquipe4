@@ -7,20 +7,31 @@ public class SliderBar : MonoBehaviour
 {
     public Bonus_Malus bonusM;
     public Slider ScoreBar;
+    public Score score;
     public int backScore;
     public int random;
     public int i = 1;
+    public int tempScore;
+    public bool haveBonus;
+
+    void Start()
+    {
+        score = GetComponent<Score>();
+        tempScore = 0;
+        haveBonus = false;
+    }
     void Update()
     {
-        backScore =(int)(GetComponent<Score>().currentScore % ScoreBar.maxValue);
-        ScoreBar.value = backScore;
-
-        if (GetComponent<Score>().currentScore >= (i * ScoreBar.maxValue))
+        if (!haveBonus)
         {
-            random = Random.Range(4, 8);
-            ScoreBar.value = 0;
-            i++;
+            backScore = score.currentScore - tempScore;
+            ScoreBar.value = backScore;
+        }
+        if (backScore >= (ScoreBar.maxValue) && haveBonus == false)
+        {
+            random = Random.Range(1, 8);
             bonusM.getBonus(random);
+            haveBonus = true;
         }
     }
 }
