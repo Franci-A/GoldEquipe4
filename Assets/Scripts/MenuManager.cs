@@ -15,7 +15,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("CreditScene");
     }
+    public void Leaderboard()
+    {
 
+    }
     public void BackCredits()
     {
         SceneManager.LoadScene("MainMenu");
