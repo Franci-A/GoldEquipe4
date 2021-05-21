@@ -37,6 +37,7 @@ public class Merge : MonoBehaviour
         if (rightTile.tileType == TileType.House && rightTile.houseColor == tileInfo.houseColor && rightTile.houseUpgrade == tempHouseUpgrade)
         {
             rightTile.GetComponent<Animator>().SetTrigger("OnRight");
+            rightTile.shieldLvl = 0;
             rightTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
@@ -47,6 +48,7 @@ public class Merge : MonoBehaviour
         if (leftTile.tileType == TileType.House && leftTile.houseColor == tileInfo.houseColor && leftTile.houseUpgrade == tempHouseUpgrade)
         {
             leftTile.GetComponent<Animator>().SetTrigger("OnLeft");
+            leftTile.shieldLvl = 0;
             leftTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
@@ -57,6 +59,7 @@ public class Merge : MonoBehaviour
         if (upTile.tileType == TileType.House && upTile.houseColor == tileInfo.houseColor && upTile.houseUpgrade == tempHouseUpgrade)
         {
             upTile.GetComponent<Animator>().SetTrigger("OnTop");
+            upTile.shieldLvl = 0;
             upTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
@@ -67,6 +70,7 @@ public class Merge : MonoBehaviour
         if (downTile.tileType == TileType.House && downTile.houseColor == tileInfo.houseColor && downTile.houseUpgrade == tempHouseUpgrade)
         {
             downTile.GetComponent<Animator>().SetTrigger("OnBottom");
+            downTile.shieldLvl = 0;
             downTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;

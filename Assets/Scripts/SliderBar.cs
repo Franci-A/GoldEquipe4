@@ -17,7 +17,7 @@ public class SliderBar : MonoBehaviour
 
         if (GetComponent<Score>().currentScore >= (i * ScoreBar.maxValue))
         {
-            random = Random.Range(1, 6);
+            random = Random.Range(4, 8);
             ScoreBar.value = 0;
             i++;
             bonusM.getBonus(random);

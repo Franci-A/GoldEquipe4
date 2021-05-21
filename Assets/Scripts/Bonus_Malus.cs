@@ -9,6 +9,7 @@ public class Bonus_Malus : MonoBehaviour
     [SerializeField] private GameObject snapImage;
     private bool bonusHeld;
     private bool haspos;
+    bool isProtected;
     private BonusTile bonusTile;
     private Tile tileInfo;
     private SliderBar sliderBar;
@@ -79,7 +80,7 @@ public class Bonus_Malus : MonoBehaviour
             snapImage.transform.position = snapPos;
             thunder();
 
-            if (isHouse) {
+            if (isHouse && isProtected == false) {
                 score.AddScore(-10);
             }
         }
@@ -88,6 +89,11 @@ public class Bonus_Malus : MonoBehaviour
             snapImage.transform.position = snapPos;
             mountain();
         } 
+
+        if (haspos && (bonusTile.bonusType == BonusType.Shield1 || bonusTile.bonusType == BonusType.Shield2) && tileInfo.tileType == TileType.House && tileInfo.shieldLvl < 2) {
+            snapImage.transform.position = snapPos;
+            shield();
+        }
 
         bonusHeld = false;
         transform.position = resetPos;
@@ -182,9 +188,26 @@ public class Bonus_Malus : MonoBehaviour
     
     void thunder()
     {
-        tileInfo.GetComponent<Animator>().SetTrigger("Downgrade");
-        tileInfo.houseUpgrade = 0;
-        tileInfo.tileType = TileType.Ground;
+        if (tileInfo.shieldLvl > 0)
+        {
+            tileInfo.shieldLvl -= 1;
+            isProtected = true;
+            if (tileInfo.shieldLvl == 1) {
+                tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield1");
+            }
+            if (tileInfo.shieldLvl == 0)
+            {
+                tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield0");
+            }
+        }
+        else
+        {
+            isProtected = false;
+            tileInfo.GetComponent<Animator>().SetTrigger("Downgrade");
+            tileInfo.houseUpgrade = 0;
+            tileInfo.tileType = TileType.Ground;
+        }
+
         transform.position = resetPos;
         snapImage.transform.position = resetPos;
         bonusTile.bonusType = BonusType.Chest;
@@ -201,4 +224,33 @@ public class Bonus_Malus : MonoBehaviour
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     } 
+
+    void shield()
+    {
+        if (bonusTile.bonusType == BonusType.Shield1)
+        {
+            tileInfo.shieldLvl += 1;
+        }
+        if (bonusTile.bonusType == BonusType.Shield2)
+        {
+            tileInfo.shieldLvl += 2;
+        }
+        if (tileInfo.shieldLvl > 2) 
+        { 
+            tileInfo.shieldLvl = 2; 
+        }
+        if (tileInfo.shieldLvl == 2)
+        {
+            tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield2");
+        }
+        if (tileInfo.shieldLvl == 1)
+        {
+            tileInfo.shieldSprite.sprite = spriteLib.GetSprite("Shield", "Shield1");
+        }
+
+        transform.position = resetPos;
+        snapImage.transform.position = resetPos;
+        bonusTile.bonusType = BonusType.Chest;
+        snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
+    }
 }

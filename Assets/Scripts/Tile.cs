@@ -28,12 +28,14 @@ public class Tile : MonoBehaviour
 {
     public TileType tileType;
     public int houseUpgrade;
+    public int shieldLvl;
     public HouseColor houseColor;
     public int tileNum;
     public int lineNum;
     public SpriteLibrary sprites;
     public TextMeshProUGUI scorePopup;
     public ParticleSystem destroyParticles;
+    public SpriteRenderer shieldSprite;
 
     public void UpdateVisual()
     {
