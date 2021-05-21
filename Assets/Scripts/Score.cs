@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Player Score", currentScore);
-        scoreDisplay.text = "Score: " + currentScore;
+        scoreDisplay.text = "" + currentScore;
     }
 
     public void AddScore(int pointWon)
@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
         currentScore += pointWon;
         if (currentScore < 0)
             currentScore = 0;
-        scoreDisplay.text = "Score: " + currentScore;
+        scoreDisplay.text = "" + currentScore;
     }
 }
 

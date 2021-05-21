@@ -58,6 +58,9 @@ public class Tile : MonoBehaviour
                 break;
             case TileType.Water:
                 obj.sprite = sprites.GetSprite("Tiles", "Water");
+                destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
+                destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
+                destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
                 break;
             default:
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");

@@ -67,6 +67,8 @@ public class Grid : MonoBehaviour
     {
         int x = 0;
         int y = 0;
+        int mountainX = Random.Range(1, 7);
+        int mountainY = Random.Range(1, 7);
         for (int i = 0; i < (gridHeight) * (gridWidth); i++)
         {
             Tile obj = Instantiate(tilePrefab, transform).GetComponent<Tile>();
@@ -81,7 +83,7 @@ public class Grid : MonoBehaviour
             else if (randomGen)
             {
                 float k = Random.Range(0, 1f);
-                if (k < waterTileSpawnChance && maxWaterTiles > 0)
+                if ( maxWaterTiles > 0 && ((x == mountainX && y == mountainY ) || k < waterTileSpawnChance ))
                 {
                     obj.tileType = TileType.Water;
                     maxWaterTiles--;

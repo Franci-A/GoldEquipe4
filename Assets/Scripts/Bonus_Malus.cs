@@ -227,7 +227,7 @@ public class Bonus_Malus : MonoBehaviour
     {
         tileInfo.houseUpgrade = 0;
         tileInfo.tileType = TileType.Water;
-        tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+        tileInfo.GetComponent<Animator>().SetTrigger("Mountain");
         transform.position = resetPos;
         snapImage.transform.position = resetPos;
         bonusTile.bonusType = BonusType.Chest;
