@@ -28,6 +28,7 @@ public class Tile : MonoBehaviour
 {
     public TileType tileType;
     public int houseUpgrade;
+    public int shieldLvl;
     public HouseColor houseColor;
     public int tileNum;
     public int lineNum;
