@@ -52,7 +52,7 @@ public class Bonus_Malus : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (bonusTile.bonusType != BonusType.Chest)
+        if (bonusTile.bonusType != BonusType.Chest && !GameManager.Instance.gameOver)
         {
             bonusHeld = true;
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));

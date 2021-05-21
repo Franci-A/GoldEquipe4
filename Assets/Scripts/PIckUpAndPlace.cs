@@ -43,11 +43,14 @@ public class PIckUpAndPlace : MonoBehaviour
 
     private void OnMouseDown()
     {
-        isInHand = true;
-        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-        foreach (Tile tile in playerHand.grid)
+        if (!GameManager.Instance.gameOver)
         {
-            tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
+            isInHand = true;
+            offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+            foreach (Tile tile in playerHand.grid)
+            {
+                tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
+            }
         }
     }
 
