@@ -77,4 +77,8 @@ public class Tile : MonoBehaviour
         }
     }
 
+    public void playSound(string name) {
+        FindObjectOfType<AudioManager>().Play(name);
+    }
+
 }
