@@ -180,12 +180,23 @@ public class PIckUpAndPlace : MonoBehaviour
                             break;
 
                         case TileType.X:
-                            if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
+                            if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 0)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
                                 score.AddScore(-10);
+                            }else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
+                            {
+                                if(currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
+                                {
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop1");
+                                }
+                                else
+                                {
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop2");
+                                }
+                                currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
                             {

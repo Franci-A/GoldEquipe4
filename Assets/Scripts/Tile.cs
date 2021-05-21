@@ -64,6 +64,9 @@ public class Tile : MonoBehaviour
                 break;
 
         }
+
+         shieldSprite.sprite = sprites.GetSprite("Shield", "Shield" + shieldLvl);
+
         if(houseUpgrade >= 4)
         {
             houseUpgrade = 0;
