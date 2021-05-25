@@ -159,7 +159,7 @@ public class Merge : MonoBehaviour
         score.AddScore(bonusScore);
     }
 
-    public void PLayParticles()
+    public void PlayParticles()
     {
         GetComponentInChildren<ParticleSystem>().Play();
     }

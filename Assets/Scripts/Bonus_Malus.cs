@@ -67,8 +67,8 @@ public class Bonus_Malus : MonoBehaviour
             snapImage.transform.position = snapPos;
             hammer();
             FindObjectOfType<AudioManager>().Play("Hammer");
-            sliderBar.haveBonus = false;
-            sliderBar.tempScore = score.currentScore;
+            sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
+            sliderBar.WaitToUpdateScore();
         }
 
         if (haspos && bonusTile.bonusType == BonusType.Thunder && (tileInfo.tileType == TileType.House || tileInfo.tileType == TileType.Water))
