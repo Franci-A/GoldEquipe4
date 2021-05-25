@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public static Score Instance { get { return Instance; } }
+    public static Score Instance { get { return instance; } }
     private static Score instance;
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     public int currentScore = 0;
@@ -44,6 +44,7 @@ public class Score : MonoBehaviour
             {
                 Debug.Log("Not signed in, unable to report score");
             }
+            PlayerPrefs.Save();
         }
     }
 }
