@@ -887,11 +887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusM: {fileID: 180102952}
-  ScoreBar: {fileID: 1719166470}
-  score: {fileID: 0}
-  backScore: 0
-  random: 0
-  i: 1
+  ChestImage: {fileID: 0}
+  getBonusValue: 0
   tempScore: 0
   haveBonus: 0
 --- !u!1 &180102947
@@ -1791,7 +1788,7 @@ MonoBehaviour:
   - {fileID: 1348582373}
   - {fileID: 1823536432}
   - {fileID: 545282283}
-  turnToLevelUpColors: 140000003c00000078000000
+  turnToLevelUpColors: 140000003c0000005a000000
   maxNumOfColors: 1
   maxNumOfHouses: 1
   turnToLevelUpX: 05000000
