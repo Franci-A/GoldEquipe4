@@ -82,8 +82,8 @@ public class Bonus_Malus : MonoBehaviour
 
             snapImage.transform.position = snapPos;
             thunder();
-            sliderBar.haveBonus = false;
-            sliderBar.tempScore = score.currentScore;
+            sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
+            sliderBar.WaitToUpdateScore();
 
             if (isHouse && isProtected == false) {
                 score.AddScore(-10);
@@ -93,15 +93,15 @@ public class Bonus_Malus : MonoBehaviour
         if (haspos && bonusTile.bonusType == BonusType.Mountain && tileInfo.tileType == TileType.Ground) {
             snapImage.transform.position = snapPos;
             mountain();
-            sliderBar.haveBonus = false;
-            sliderBar.tempScore = score.currentScore;
+            sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
+            sliderBar.WaitToUpdateScore();
         } 
 
         if (haspos && (bonusTile.bonusType == BonusType.Shield1 || bonusTile.bonusType == BonusType.Shield2) && tileInfo.tileType == TileType.House && tileInfo.shieldLvl < 2) {
             snapImage.transform.position = snapPos;
             shield();
-            sliderBar.haveBonus = false;
-            sliderBar.tempScore = score.currentScore;
+            sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
+            sliderBar.WaitToUpdateScore();
         }
 
         bonusHeld = false;
