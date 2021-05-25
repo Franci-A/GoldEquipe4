@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class SliderBar : MonoBehaviour
 {
     public Bonus_Malus bonusM;
-    public Slider ScoreBar;
-    public Score score;
-    public int backScore;
-    public int random;
-    public int i = 1;
+    public SpriteRenderer ChestImage;
+    public int getBonusValue;
+    private Score score;
+    private int backScore;
+    private int random;
+    private int i = 1;
     public int tempScore;
     public bool haveBonus;
 
@@ -25,9 +26,9 @@ public class SliderBar : MonoBehaviour
         if (!haveBonus)
         {
             backScore = score.currentScore - tempScore;
-            ScoreBar.value = backScore;
+            //ChestImage.
         }
-        if (backScore >= (ScoreBar.maxValue) && haveBonus == false)
+        if (backScore >= getBonusValue && haveBonus == false)
         {
             random = Random.Range(4, 8);
             bonusM.getBonus(random);

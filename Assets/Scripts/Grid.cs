@@ -23,9 +23,15 @@ public class Grid : MonoBehaviour
         sprites = GetComponent<SpriteLibrary>();
         gridHeight += 2;
         gridWidth += 2;
+
         if (grid.Count == 0)
         {
             InstanciateGrid();
+            Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x + "     -     " + (grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 2));
+            while (Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x > grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 2)
+            {
+                Camera.main.orthographicSize += .2f;
+            }
         }
         else
         {

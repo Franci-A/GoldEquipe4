@@ -172,3 +172,12 @@ MonoBehaviour:
     - m_Name: Shield0
       m_Hash: -1784078555
       m_Sprite: {fileID: 0}
+  - m_Name: Outline
+    m_Hash: -2000524423
+    m_CategoryList:
+    - m_Name: White
+      m_Hash: -2096176480
+      m_Sprite: {fileID: -6002339698913108338, guid: 314815862d5bf0044b44e10beb8ac3ca, type: 3}
+    - m_Name: Red
+      m_Hash: -1037297297
+      m_Sprite: {fileID: -8295039087824318379, guid: 314815862d5bf0044b44e10beb8ac3ca, type: 3}
