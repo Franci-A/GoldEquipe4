@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour
     public int tileNum;
     public int lineNum;
     public SpriteLibrary sprites;
-    public TextMeshProUGUI scorePopup;
+    public SpriteRenderer scorePopup;
     public ParticleSystem destroyParticles;
     public SpriteRenderer shieldSprite;
 

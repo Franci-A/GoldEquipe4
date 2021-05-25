@@ -180,7 +180,7 @@ public class Bonus_Malus : MonoBehaviour
         }
         if (tileInfo.houseUpgrade >= 4) {
             tileInfo.houseUpgrade = 4;
-            tileInfo.scorePopup.text = "+ " + 50;
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+50");
             tileInfo.GetComponent<Animator>().SetTrigger("FullUpgrade");
             score.AddScore(50);
         }

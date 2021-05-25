@@ -86,12 +86,13 @@ public class Merge : MonoBehaviour
         {
             score.AddScore(50);
             bonusScore = 50;
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+" + bonusScore);
         }
 
         if (tileInfo.houseUpgrade >= 4)
         {
             tileInfo.houseUpgrade = 4;
-            tileInfo.scorePopup.text = "+ " + bonusScore;
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+" + bonusScore);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
             return true;
