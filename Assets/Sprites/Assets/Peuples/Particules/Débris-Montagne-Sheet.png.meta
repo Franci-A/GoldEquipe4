@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: fe16ce797fd56434b88f9c4aea737eb1
+guid: 4dcc123c83269c84a8ebedc8186822ef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5907722976565419217
-    second: Placement Effet-Sheet_0
+      213: 1660922247311341491
+    second: "D\xE9bris-Montagne-Sheet_0"
   - first:
-      213: -7392583597021817732
-    second: Placement Effet-Sheet_1
+      213: 2390429394769066461
+    second: "D\xE9bris-Montagne-Sheet_1"
   - first:
-      213: 605495104430362654
-    second: Placement Effet-Sheet_2
+      213: 6723898242747589190
+    second: "D\xE9bris-Montagne-Sheet_2"
   - first:
-      213: 5377372292662649856
-    second: Placement Effet-Sheet_3
+      213: 3003148511492795789
+    second: "D\xE9bris-Montagne-Sheet_3"
   - first:
-      213: 2727644942778828755
-    second: Placement Effet-Sheet_4
-  - first:
-      213: 8080637215446083166
-    second: Placement Effet-Sheet_5
+      213: -1556902112122911731
+    second: "D\xE9bris-Montagne-Sheet_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -121,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Placement Effet-Sheet_0
+      name: "D\xE9bris-Montagne-Sheet_0"
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 288
-        height: 288
+        x: 22
+        y: 22
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f23a766d04d830ea0800000000000000
-      internalID: -5907722976565419217
+      spriteID: 3b73986ebf7cc0710800000000000000
+      internalID: 1660922247311341491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Placement Effet-Sheet_1
+      name: "D\xE9bris-Montagne-Sheet_1"
       rect:
         serializedVersion: 2
-        x: 576
-        y: 0
-        width: 288
-        height: 288
+        x: 82
+        y: 20
+        width: 22
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c749227d264486990800000000000000
-      internalID: -7392583597021817732
+      spriteID: dd9bcd79ed28c2120800000000000000
+      internalID: 2390429394769066461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Placement Effet-Sheet_2
+      name: "D\xE9bris-Montagne-Sheet_2"
       rect:
         serializedVersion: 2
-        x: 864
-        y: 0
-        width: 288
-        height: 288
+        x: 144
+        y: 20
+        width: 18
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e105fc4e696276800800000000000000
-      internalID: 605495104430362654
+      spriteID: 642e7d8b3d5105d50800000000000000
+      internalID: 6723898242747589190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Placement Effet-Sheet_3
+      name: "D\xE9bris-Montagne-Sheet_3"
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 288
-        height: 288
+        x: 202
+        y: 20
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0046f211c9340aa40800000000000000
-      internalID: 5377372292662649856
+      spriteID: d8d654be8a35da920800000000000000
+      internalID: 3003148511492795789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Placement Effet-Sheet_4
+      name: "D\xE9bris-Montagne-Sheet_4"
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 0
-        width: 288
-        height: 288
+        x: 260
+        y: 18
+        width: 28
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,29 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d709bfaf9a8ad520800000000000000
-      internalID: 2727644942778828755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Placement Effet-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1728
-        y: 0
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5627710cb0342070800000000000000
-      internalID: 8080637215446083166
+      spriteID: d04cbd027c5c46ae0800000000000000
+      internalID: -1556902112122911731
       vertices: []
       indices: 
       edges: []

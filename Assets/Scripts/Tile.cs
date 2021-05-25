@@ -49,6 +49,8 @@ public class Tile : MonoBehaviour
                 destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
                 destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
                 destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
+                destroyParticles.textureSheetAnimation.SetSprite(3, sprites.GetSprite("Particles", houseColor.ToString() + 4));
+                destroyParticles.textureSheetAnimation.SetSprite(4, sprites.GetSprite("Particles", houseColor.ToString() + 5));
                 break;
             case TileType.LevelUp:
                 obj.sprite = sprites.GetSprite("Bonus", "Hammer1");
@@ -58,9 +60,11 @@ public class Tile : MonoBehaviour
                 break;
             case TileType.Water:
                 obj.sprite = sprites.GetSprite("Tiles", "Water");
-                destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
-                destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
-                destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
+                destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", "Mountain1"));
+                destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", "Mountain2"));
+                destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", "Mountain3"));
+                destroyParticles.textureSheetAnimation.SetSprite(3, sprites.GetSprite("Particles", "Mountain4"));
+                destroyParticles.textureSheetAnimation.SetSprite(4, sprites.GetSprite("Particles", "Mountain5"));
                 break;
             default:
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");

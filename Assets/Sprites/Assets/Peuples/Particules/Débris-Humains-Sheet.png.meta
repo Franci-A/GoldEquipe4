@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0d5d3345f18289439576dc4bbdcd7af
+guid: 6a660a9a4f0b7e744b0bc721aa3445ec
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 5528926301071927678
     second: "D\xE9bris-Humains-Sheet_2"
+  - first:
+      213: -4865360905474962926
+    second: "D\xE9bris-Humains-Sheet_3"
+  - first:
+      213: 1902879358794311417
+    second: "D\xE9bris-Humains-Sheet_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,10 +121,10 @@ TextureImporter:
       name: "D\xE9bris-Humains-Sheet_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 60
+        x: 18
+        y: 8
+        width: 28
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,10 +142,10 @@ TextureImporter:
       name: "D\xE9bris-Humains-Sheet_1"
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 60
-        height: 60
+        x: 80
+        y: 18
+        width: 24
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +163,10 @@ TextureImporter:
       name: "D\xE9bris-Humains-Sheet_2"
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 60
-        height: 60
+        x: 140
+        y: 16
+        width: 24
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,6 +176,48 @@ TextureImporter:
       bones: []
       spriteID: e79e4b46d21babc40800000000000000
       internalID: 5528926301071927678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xE9bris-Humains-Sheet_3"
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 14
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a8715c804ca7cb0800000000000000
+      internalID: -4865360905474962926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xE9bris-Humains-Sheet_4"
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 18
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f6ab57e1b2686a10800000000000000
+      internalID: 1902879358794311417
       vertices: []
       indices: 
       edges: []

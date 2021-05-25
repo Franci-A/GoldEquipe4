@@ -1,97 +1,97 @@
 fileFormatVersion: 2
-guid: cbe2401926ddf23478ffb3fd1fcc07a1
+guid: 6205529bdb7de60469bb5ee17396fdd9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4012377480126359676
-    second: Chest-Idle-Open-Close-Sheet_0
+      213: -5616412824706807534
+    second: Chest-Sheet_0
   - first:
-      213: 2332051523008666376
-    second: Chest-Idle-Open-Close-Sheet_1
+      213: -3850153385385625024
+    second: Chest-Sheet_1
   - first:
-      213: -1786863248552410771
-    second: Chest-Idle-Open-Close-Sheet_2
+      213: -5831572265371910577
+    second: Chest-Sheet_2
   - first:
-      213: 7030367599564175057
-    second: Chest-Idle-Open-Close-Sheet_3
+      213: 8183787403125523719
+    second: Chest-Sheet_3
   - first:
-      213: -7054939834938230249
-    second: Chest-Idle-Open-Close-Sheet_4
+      213: -6891861756673345196
+    second: Chest-Sheet_4
   - first:
-      213: 8010226427169925172
-    second: Chest-Idle-Open-Close-Sheet_5
+      213: -5426488539145025482
+    second: Chest-Sheet_5
   - first:
-      213: 6919624247908326873
-    second: Chest-Idle-Open-Close-Sheet_6
+      213: 6910387555091106754
+    second: Chest-Sheet_6
   - first:
-      213: -2479238127236767269
-    second: Chest-Idle-Open-Close-Sheet_7
+      213: -3444945909984828731
+    second: Chest-Sheet_7
   - first:
-      213: -4806066813961936590
-    second: Chest-Idle-Open-Close-Sheet_8
+      213: 554018627590817543
+    second: Chest-Sheet_8
   - first:
-      213: -6415512415644709950
-    second: Chest-Idle-Open-Close-Sheet_9
+      213: -1854187440029018908
+    second: Chest-Sheet_9
   - first:
-      213: 5200574025781043932
-    second: Chest-Idle-Open-Close-Sheet_10
+      213: -4449847137272756902
+    second: Chest-Sheet_10
   - first:
-      213: -5147017652097068304
-    second: Chest-Idle-Open-Close-Sheet_11
+      213: -5171062192820410675
+    second: Chest-Sheet_11
   - first:
-      213: 26056728039791118
-    second: Chest-Idle-Open-Close-Sheet_12
+      213: 6689813742613805165
+    second: Chest-Sheet_12
   - first:
-      213: 6505808633278033875
-    second: Chest-Idle-Open-Close-Sheet_13
+      213: 5118264090153519928
+    second: Chest-Sheet_13
   - first:
-      213: -6666750387995331484
-    second: Chest-Idle-Open-Close-Sheet_14
+      213: -3980426107288392203
+    second: Chest-Sheet_14
   - first:
-      213: -1285255154553241057
-    second: Chest-Idle-Open-Close-Sheet_15
+      213: -6056226146557155520
+    second: Chest-Sheet_15
   - first:
-      213: -5866810888711328398
-    second: Chest-Idle-Open-Close-Sheet_16
+      213: 2232377202440259303
+    second: Chest-Sheet_16
   - first:
-      213: 8169079754409249
-    second: Chest-Idle-Open-Close-Sheet_17
+      213: 5643624286752301376
+    second: Chest-Sheet_17
   - first:
-      213: 198851736325897063
-    second: Chest-Idle-Open-Close-Sheet_18
+      213: 4383215277009542096
+    second: Chest-Sheet_18
   - first:
-      213: 8813206085672842613
-    second: Chest-Idle-Open-Close-Sheet_19
+      213: -1792642272682074031
+    second: Chest-Sheet_19
   - first:
-      213: -4086470252023545849
-    second: Chest-Idle-Open-Close-Sheet_20
+      213: 4017253170472024610
+    second: Chest-Sheet_20
   - first:
-      213: -1543504088416955266
-    second: Chest-Idle-Open-Close-Sheet_21
+      213: -8344833818084973634
+    second: Chest-Sheet_21
   - first:
-      213: -441737229119424959
-    second: Chest-Idle-Open-Close-Sheet_22
+      213: 1670993425496634021
+    second: Chest-Sheet_22
   - first:
-      213: 5498147526227457554
-    second: Chest-Idle-Open-Close-Sheet_23
+      213: -3760662637760327785
+    second: Chest-Sheet_23
   - first:
-      213: 5517016686462978626
-    second: Chest-Idle-Open-Close-Sheet_24
+      213: 2196592039553791503
+    second: Chest-Sheet_24
   - first:
-      213: 1456757466066160725
-    second: Chest-Idle-Open-Close-Sheet_25
+      213: 1110653663412117201
+    second: Chest-Sheet_25
   - first:
-      213: -2102884362408818675
-    second: Chest-Idle-Open-Close-Sheet_26
+      213: 1135651329397900513
+    second: Chest-Sheet_26
   - first:
-      213: -5859975096184321952
-    second: Chest-Idle-Open-Close-Sheet_27
+      213: -6649168995361152196
+    second: Chest-Sheet_27
   - first:
-      213: 4109242099872074695
-    second: Chest-Idle-Open-Close-Sheet_28
+      213: 2573191198995328909
+    second: Chest-Sheet_28
   - first:
-      213: -761068321864136726
-    second: Chest-Idle-Open-Close-Sheet_29
+      213: 148608621382937000
+    second: Chest-Sheet_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +136,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 140
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -158,7 +158,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -170,7 +170,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -182,7 +182,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -193,7 +193,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_0
+      name: Chest-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -207,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7865b74f04dea730800000000000000
-      internalID: 4012377480126359676
+      spriteID: 219076ffa4e7e02b0800000000000000
+      internalID: -5616412824706807534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_1
+      name: Chest-Sheet_1
       rect:
         serializedVersion: 2
         x: 192
@@ -228,14 +228,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80b17d2218c1d5020800000000000000
-      internalID: 2332051523008666376
+      spriteID: 04a725d15e1819ac0800000000000000
+      internalID: -3850153385385625024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_2
+      name: Chest-Sheet_2
       rect:
         serializedVersion: 2
         x: 384
@@ -249,14 +249,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6145d7b759c337e0800000000000000
-      internalID: -1786863248552410771
+      spriteID: f4ebc70fbe7121fa0800000000000000
+      internalID: -5831572265371910577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_3
+      name: Chest-Sheet_3
       rect:
         serializedVersion: 2
         x: 576
@@ -270,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d630745512e09160800000000000000
-      internalID: 7030367599564175057
+      spriteID: 7050d989847a29170800000000000000
+      internalID: 8183787403125523719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_4
+      name: Chest-Sheet_4
       rect:
         serializedVersion: 2
         x: 768
@@ -291,14 +291,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71af0ca4991d71e90800000000000000
-      internalID: -7054939834938230249
+      spriteID: 459b2683f303b50a0800000000000000
+      internalID: -6891861756673345196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_5
+      name: Chest-Sheet_5
       rect:
         serializedVersion: 2
         x: 960
@@ -312,14 +312,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 438e8e9de7a0a2f60800000000000000
-      internalID: 8010226427169925172
+      spriteID: 6384886ac6d31b4b0800000000000000
+      internalID: -5426488539145025482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_6
+      name: Chest-Sheet_6
       rect:
         serializedVersion: 2
         x: 1152
@@ -333,14 +333,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dd51cb7791770060800000000000000
-      internalID: 6919624247908326873
+      spriteID: 2cb4c795ed0a6ef50800000000000000
+      internalID: 6910387555091106754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_7
+      name: Chest-Sheet_7
       rect:
         serializedVersion: 2
         x: 1344
@@ -354,14 +354,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1a2701f0af79dd0800000000000000
-      internalID: -2479238127236767269
+      spriteID: 5c26bec62f71130d0800000000000000
+      internalID: -3444945909984828731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_8
+      name: Chest-Sheet_8
       rect:
         serializedVersion: 2
         x: 1536
@@ -375,14 +375,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 231610342bb6d4db0800000000000000
-      internalID: -4806066813961936590
+      spriteID: 7070088a10540b700800000000000000
+      internalID: 554018627590817543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_9
+      name: Chest-Sheet_9
       rect:
         serializedVersion: 2
         x: 1728
@@ -396,14 +396,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cb8365e27587f6a0800000000000000
-      internalID: -6415512415644709950
+      spriteID: 4e45412e85a9446e0800000000000000
+      internalID: -1854187440029018908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_10
+      name: Chest-Sheet_10
       rect:
         serializedVersion: 2
         x: 1920
@@ -417,14 +417,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd26dcac5862c2840800000000000000
-      internalID: 5200574025781043932
+      spriteID: a55811eda97fe32c0800000000000000
+      internalID: -4449847137272756902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_11
+      name: Chest-Sheet_11
       rect:
         serializedVersion: 2
         x: 2112
@@ -438,14 +438,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f2d61a27be1298b0800000000000000
-      internalID: -5147017652097068304
+      spriteID: dc6ac754552bc38b0800000000000000
+      internalID: -5171062192820410675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_12
+      name: Chest-Sheet_12
       rect:
         serializedVersion: 2
         x: 2304
@@ -459,14 +459,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0a12d2c4729c5000800000000000000
-      internalID: 26056728039791118
+      spriteID: d68b50e972ef6dc50800000000000000
+      internalID: 6689813742613805165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_13
+      name: Chest-Sheet_13
       rect:
         serializedVersion: 2
         x: 2496
@@ -480,14 +480,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dfe4339b76494a50800000000000000
-      internalID: 6505808633278033875
+      spriteID: 83b0d30821ab70740800000000000000
+      internalID: 5118264090153519928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_14
+      name: Chest-Sheet_14
       rect:
         serializedVersion: 2
         x: 2688
@@ -501,14 +501,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 464375518d1fa73a0800000000000000
-      internalID: -6666750387995331484
+      spriteID: 5fd626c6b8fa2c8c0800000000000000
+      internalID: -3980426107288392203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_15
+      name: Chest-Sheet_15
       rect:
         serializedVersion: 2
         x: 2880
@@ -522,14 +522,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f124d1b1f3bd92ee0800000000000000
-      internalID: -1285255154553241057
+      spriteID: 047270f2866f3fba0800000000000000
+      internalID: -6056226146557155520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_16
+      name: Chest-Sheet_16
       rect:
         serializedVersion: 2
         x: 3072
@@ -543,14 +543,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27da7f59496e49ea0800000000000000
-      internalID: -5866810888711328398
+      spriteID: 7e6c12cec3ffafe10800000000000000
+      internalID: 2232377202440259303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_17
+      name: Chest-Sheet_17
       rect:
         serializedVersion: 2
         x: 3264
@@ -564,14 +564,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12547e81cb50d1000800000000000000
-      internalID: 8169079754409249
+      spriteID: 04163a9336e225e40800000000000000
+      internalID: 5643624286752301376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_18
+      name: Chest-Sheet_18
       rect:
         serializedVersion: 2
         x: 3456
@@ -585,14 +585,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76bbca2c99672c200800000000000000
-      internalID: 198851736325897063
+      spriteID: 0db1838321f44dc30800000000000000
+      internalID: 4383215277009542096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_19
+      name: Chest-Sheet_19
       rect:
         serializedVersion: 2
         x: 3648
@@ -606,14 +606,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57537d49d3cce4a70800000000000000
-      internalID: 8813206085672842613
+      spriteID: 150af6fc9514f17e0800000000000000
+      internalID: -1792642272682074031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_20
+      name: Chest-Sheet_20
       rect:
         serializedVersion: 2
         x: 3840
@@ -627,14 +627,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7008fe2f4f0f947c0800000000000000
-      internalID: -4086470252023545849
+      spriteID: 22afbc6697620c730800000000000000
+      internalID: 4017253170472024610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_21
+      name: Chest-Sheet_21
       rect:
         serializedVersion: 2
         x: 4032
@@ -648,14 +648,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e745b8c953f549ae0800000000000000
-      internalID: -1543504088416955266
+      spriteID: eb3e063fad1313c80800000000000000
+      internalID: -8344833818084973634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_22
+      name: Chest-Sheet_22
       rect:
         serializedVersion: 2
         x: 4224
@@ -669,14 +669,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 146754e9452aed9f0800000000000000
-      internalID: -441737229119424959
+      spriteID: 5a27dbccaaf803710800000000000000
+      internalID: 1670993425496634021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_23
+      name: Chest-Sheet_23
       rect:
         serializedVersion: 2
         x: 4416
@@ -690,14 +690,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 216fa7f6b085d4c40800000000000000
-      internalID: 5498147526227457554
+      spriteID: 79f463c71417fcbc0800000000000000
+      internalID: -3760662637760327785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_24
+      name: Chest-Sheet_24
       rect:
         serializedVersion: 2
         x: 4608
@@ -711,14 +711,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24a47882271609c40800000000000000
-      internalID: 5517016686462978626
+      spriteID: f06fd0a62dcdb7e10800000000000000
+      internalID: 2196592039553791503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_25
+      name: Chest-Sheet_25
       rect:
         serializedVersion: 2
         x: 4800
@@ -732,14 +732,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c85c87231773410800000000000000
-      internalID: 1456757466066160725
+      spriteID: 1de5a245f95d96f00800000000000000
+      internalID: 1110653663412117201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_26
+      name: Chest-Sheet_26
       rect:
         serializedVersion: 2
         x: 4992
@@ -753,14 +753,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0806ee50dd01d2e0800000000000000
-      internalID: -2102884362408818675
+      spriteID: 1e4467dfdd4a2cf00800000000000000
+      internalID: 1135651329397900513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_27
+      name: Chest-Sheet_27
       rect:
         serializedVersion: 2
         x: 5184
@@ -774,14 +774,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0684c4f82bf2daea0800000000000000
-      internalID: -5859975096184321952
+      spriteID: c3325fb070869b3a0800000000000000
+      internalID: -6649168995361152196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_28
+      name: Chest-Sheet_28
       rect:
         serializedVersion: 2
         x: 5376
@@ -795,14 +795,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cb84fa0be5f60930800000000000000
-      internalID: 4109242099872074695
+      spriteID: d8f274b13cfc5b320800000000000000
+      internalID: 2573191198995328909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chest-Idle-Open-Close-Sheet_29
+      name: Chest-Sheet_29
       rect:
         serializedVersion: 2
         x: 5568
@@ -816,8 +816,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae74c71c4642075f0800000000000000
-      internalID: -761068321864136726
+      spriteID: 8a92718f0c6ff0200800000000000000
+      internalID: 148608621382937000
       vertices: []
       indices: 
       edges: []
