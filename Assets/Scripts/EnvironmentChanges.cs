@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.U2D.Animation;
 
 public class EnvironmentChanges : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnvironmentChanges : MonoBehaviour
     public int turnsEmpty;
     private Tile parentTile;
     private bool hasTrees;
+    private int randomTrees;
+    [SerializeField] private SpriteRenderer sprite;
 
     public UnityEvent NextTurnEvent;
 
@@ -18,6 +21,9 @@ public class EnvironmentChanges : MonoBehaviour
         parentTile = GetComponent<Tile>();
         turnsEmpty = 0;
         NextTurnEvent.AddListener(UpdateTurn);
+        randomTrees = Random.Range(0, 8);
+        animator.SetFloat("Vegetation", randomTrees);
+        EmptyTile();
     }
 
     private void UpdateTurn()
@@ -29,52 +35,59 @@ public class EnvironmentChanges : MonoBehaviour
             switch (turnsEmpty)
             {
                 case 5:
-                    if(i < .05f)
+                    if(i < .025f)
                     {
                         animator.SetTrigger("NextStage");
                         hasTrees = true;
                     }
                     break;
                 case 6: 
-                    if (i< .1f)
+                    if (i< .05f)
                     {
                         animator.SetTrigger("NextStage");
                         hasTrees = true;
                     }
                     break;
                 case 7: 
-                    if (i< .15f)
+                    if (i< .075f)
                     {
                         animator.SetTrigger("NextStage");
                         hasTrees = true;
                     }
                     break;
                 case 8: 
-                    if (i< .2f)
+                    if (i< .1f)
                     {
                         animator.SetTrigger("NextStage");
                         hasTrees = true;
                     }
                     break;
                 case 9:
-                    if (i < .25f)
+                    if (i < .125f)
                     {
                         animator.SetTrigger("NextStage");
                         hasTrees = true;
                     }
                     break;
                 case 10:
-                    turnsEmpty = 5;
+                    turnsEmpty = 0;
                     break;
 
             }
         }else if(parentTile.tileType == TileType.Ground && hasTrees)
         {
             float i = Random.Range(0f, 1f);
-            if ( i < .2f)
+            if ( i < .1f)
             {
                 animator.SetTrigger("NextStage");
             }
         }
+    }
+
+    public void EmptyTile()
+    {
+        turnsEmpty = 0;
+        int i = Random.Range(0, 5);
+        sprite.sprite = GetComponent<SpriteLibrary>().GetSprite("Grass", i.ToString());
     }
 }

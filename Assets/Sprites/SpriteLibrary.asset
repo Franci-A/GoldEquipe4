@@ -88,9 +88,15 @@ MonoBehaviour:
   - m_Name: Tiles
     m_Hash: -573264961
     m_CategoryList:
-    - m_Name: Water
-      m_Hash: 988953566
+    - m_Name: Water1
+      m_Hash: -494017953
       m_Sprite: {fileID: 21300000, guid: 78050e6b76d29334780007f7847e2102, type: 3}
+    - m_Name: Water2
+      m_Hash: 2072294373
+      m_Sprite: {fileID: 21300000, guid: bd17e07637691c84fb66fc63d6062bd6, type: 3}
+    - m_Name: Water3
+      m_Hash: 209945459
+      m_Sprite: {fileID: 21300000, guid: a993d068c4679644f96c9748aed014ad, type: 3}
     - m_Name: Ground
       m_Hash: -1605138850
       m_Sprite: {fileID: 21300000, guid: 2ede679efcdc1404a95caefd3fa4f61f, type: 3}
@@ -253,3 +259,21 @@ MonoBehaviour:
     - m_Name: -10
       m_Hash: 793787327
       m_Sprite: {fileID: 21300000, guid: 25732f3fa009c754aa0bcba2d23603ee, type: 3}
+  - m_Name: Grass
+    m_Hash: 1775022327
+    m_CategoryList:
+    - m_Name: 0
+      m_Hash: -186917087
+      m_Sprite: {fileID: 21300000, guid: 8e72d4f265076a94a9e22a785f3739d0, type: 3}
+    - m_Name: 1
+      m_Hash: -2082672713
+      m_Sprite: {fileID: 21300000, guid: 18913decbd205c54db5213856c3e0e81, type: 3}
+    - m_Name: 2
+      m_Hash: 450215437
+      m_Sprite: {fileID: 21300000, guid: b24d9cde36e0c9c459bce4233eee5fd4, type: 3}
+    - m_Name: 3
+      m_Hash: 1842515611
+      m_Sprite: {fileID: 21300000, guid: 509a3b8d3bbc01948b8c152751b75978, type: 3}
+    - m_Name: 4
+      m_Hash: -206169288
+      m_Sprite: {fileID: 21300000, guid: f9b97ac4bd95af7418c47c3898923f18, type: 3}

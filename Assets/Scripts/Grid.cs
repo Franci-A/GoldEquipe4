@@ -84,6 +84,7 @@ public class Grid : MonoBehaviour
             obj.tileNum = x;
             obj.GetComponent<SpriteRenderer>().sortingOrder = y;
             obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = y + 9;
+            obj.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = y + 1;
             if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1) // outer ring instantiate to empty tile
                 obj.tileType = TileType.Empty;
             else if (randomGen)
@@ -108,7 +109,8 @@ public class Grid : MonoBehaviour
 
                 case TileType.Water:
                     obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
-                    obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water");
+                    int j = Random.Range(1, 3);
+                    obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water" +j);
                     obj.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
                     break;
 

@@ -59,7 +59,8 @@ public class Tile : MonoBehaviour
                 obj.sprite = sprites.GetSprite("Bonus", "Thunder");
                 break;
             case TileType.Water:
-                obj.sprite = sprites.GetSprite("Tiles", "Water");
+                int i = UnityEngine.Random.Range(1, 4);
+                obj.sprite = sprites.GetSprite("Tiles", "Water" + i);
                 destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", "Mountain1"));
                 destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", "Mountain2"));
                 destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", "Mountain3"));
