@@ -202,10 +202,11 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                             }
                             break;
 
-                        case TileType.LevelUp:
+                       /* case TileType.LevelUp:
                             if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
@@ -215,7 +216,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 }
                                 tileWithHouse.Add(y * currentGrid.gridWidth + x);
                             }
-                            break;
+                            break;*/
                     }
                 }
                 x++;

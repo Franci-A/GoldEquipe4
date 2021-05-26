@@ -27,9 +27,9 @@ public class Grid : MonoBehaviour
         if (grid.Count == 0)
         {
             InstanciateGrid();
-            while (Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x > grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 2)
+            while (Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x > grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 4)
             {
-                Camera.main.orthographicSize += .2f;
+                Camera.main.orthographicSize += .1f;
             }
         }
         else
@@ -83,7 +83,7 @@ public class Grid : MonoBehaviour
             obj.tileNum = x;
             obj.GetComponent<SpriteRenderer>().sortingOrder = y;
             obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = y + 9;
-            if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1)
+            if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1) // outer ring instantiate to empty tile
                 obj.tileType = TileType.Empty;
             else if (randomGen)
             {

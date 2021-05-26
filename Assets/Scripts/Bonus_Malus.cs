@@ -86,6 +86,8 @@ public class Bonus_Malus : MonoBehaviour
             sliderBar.WaitToUpdateScore();
 
             if (isHouse && isProtected == false) {
+
+                tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "-10");
                 score.AddScore(-10);
             }
         }
@@ -133,32 +135,32 @@ public class Bonus_Malus : MonoBehaviour
             bonusTile.bonusType = BonusType.Hammer1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer1");
         }
-        if (i == 2)
+        else if (i == 2)
         {
             bonusTile.bonusType = BonusType.Hammer2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer2");
         }
-        if (i == 3)
+        else if (i == 3)
         {
             bonusTile.bonusType = BonusType.Hammer3;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer3");
         }
-        if (i == 4)
+        else if (i == 4)
         {
             bonusTile.bonusType = BonusType.Thunder;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Thunder");
         }
-        if (i == 5)
+        else if (i == 5)
         {
             bonusTile.bonusType = BonusType.Mountain;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Mountain");
         }
-        if (i == 6)
+        else if (i == 6)
         {
             bonusTile.bonusType = BonusType.Shield1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield1");
         }
-        if (i == 7)
+        else if (i == 7)
         {
             bonusTile.bonusType = BonusType.Shield2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield2");
@@ -167,25 +169,36 @@ public class Bonus_Malus : MonoBehaviour
 
     void hammer()
     {
-        if(bonusTile.bonusType == BonusType.Hammer1) {
+        if(bonusTile.bonusType == BonusType.Hammer1)
+        {
+            this.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade++;
+            tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 1f);
+
         }
-        if (bonusTile.bonusType == BonusType.Hammer2)
+        else if (bonusTile.bonusType == BonusType.Hammer2)
         {
+            this.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade += 2;
+            tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 2f);
         }
-        if (bonusTile.bonusType == BonusType.Hammer3)
+        else if (bonusTile.bonusType == BonusType.Hammer3)
         {
+            this.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade += 3;
+            tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 3f);
         }
         if (tileInfo.houseUpgrade >= 4) {
             tileInfo.houseUpgrade = 4;
             tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+50");
+            tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 4f);
             tileInfo.GetComponent<Animator>().SetTrigger("FullUpgrade");
             score.AddScore(50);
         }
         else {
+            
             tileInfo.GetComponent<Animator>().SetTrigger("Upgrade");
+            tileInfo.GetComponent<Animator>().SetFloat("MergeRace", (int)tileInfo.houseColor);
             tileInfo.GetComponent<Merge>().merging();
         }
 
@@ -203,18 +216,24 @@ public class Bonus_Malus : MonoBehaviour
             isProtected = true;
             if (tileInfo.shieldLvl == 1) {
                 tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp2");
+
+                tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             }
             else if (tileInfo.shieldLvl == 0)
             {
                 tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp1");
+
+                tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             }
         }
         else
         {
             isProtected = false;
             tileInfo.GetComponent<Animator>().SetTrigger("Downgrade");
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             tileInfo.houseUpgrade = 0;
             tileInfo.tileType = TileType.Ground;
+
         }
 
         transform.position = resetPos;

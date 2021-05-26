@@ -20,13 +20,14 @@ public class SliderBar : MonoBehaviour
         score = GetComponent<Score>();
         tempScore = 0;
         haveBonus = false;
+        ChestImage.fillAmount = 0;
     }
     void Update()
     {
         if (!haveBonus)
         {
             backScore = score.currentScore - tempScore;
-            ChestImage.fillAmount = ((backScore* 100.0f) / getBonusValue)/ 100.0f;
+            
         }
         if (backScore >= getBonusValue && haveBonus == false)
         {
@@ -35,6 +36,11 @@ public class SliderBar : MonoBehaviour
             bonusM.getBonus(random);
             haveBonus = true;
             FindObjectOfType<AudioManager>().Play("GetBonus");
+        }
+
+        if (ChestImage.fillAmount < ((backScore * 100.0f / getBonusValue) / 100.0f))
+        {
+            ChestImage.fillAmount += .02f;
         }
     }
 
@@ -45,10 +51,11 @@ public class SliderBar : MonoBehaviour
 
     IEnumerator SetNewScoreValue()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         tempScore = score.currentScore;
         backScore = score.currentScore - tempScore;
         haveBonus = false;
+        ChestImage.fillAmount = 0;
     }
 }
 

@@ -81,18 +81,21 @@ public class Merge : MonoBehaviour
 
         if (combo >= 2) {
             comboValue(tempHouseUpgrade);
+            this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
         }
         else if(tileInfo.houseUpgrade >= 4 && combo < 2)
         {
             score.AddScore(50);
             bonusScore = 50;
             tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+" + bonusScore);
+            this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
         }
 
         if (tileInfo.houseUpgrade >= 4)
         {
             tileInfo.houseUpgrade = 4;
             tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+" + bonusScore);
+            this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
             return true;
@@ -104,6 +107,7 @@ public class Merge : MonoBehaviour
             {
                 this.GetComponent<Animator>().SetFloat("MergeLevel",tempHouseUpgrade);
                 this.GetComponent<Animator>().SetFloat("MergeRace",(int)tileInfo.houseColor);
+                this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
                 FindObjectOfType<AudioManager>().Play("Merge");
             }
