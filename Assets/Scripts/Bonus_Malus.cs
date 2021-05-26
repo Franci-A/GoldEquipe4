@@ -171,20 +171,20 @@ public class Bonus_Malus : MonoBehaviour
     {
         if(bonusTile.bonusType == BonusType.Hammer1)
         {
-            this.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
+            tileInfo.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade++;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 1f);
 
         }
         else if (bonusTile.bonusType == BonusType.Hammer2)
         {
-            this.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
+            tileInfo.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade += 2;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 2f);
         }
         else if (bonusTile.bonusType == BonusType.Hammer3)
         {
-            this.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
+            tileInfo.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade += 3;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 3f);
         }

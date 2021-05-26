@@ -11,7 +11,6 @@ public class SliderBar : MonoBehaviour
     private Score score;
     private int backScore;
     private int random;
-    private int i = 1;
     public int tempScore;
     public bool haveBonus;
 

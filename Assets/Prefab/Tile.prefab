@@ -5049,7 +5049,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6857143, y: 1.3754464}
+  m_Size: {x: 0.6857143, y: 1.3741071}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -5153,6 +5153,7 @@ GameObject:
   - component: {fileID: 655024920389331529}
   - component: {fileID: 3685946137244941157}
   - component: {fileID: 784270411967696582}
+  - component: {fileID: 3733672879992414574}
   m_Layer: 6
   m_Name: Tile
   m_TagString: Tile
@@ -5344,3 +5345,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteLibraryAsset: {fileID: 11400000, guid: fe8f6e05c5c95dc4d8317a0ffa21d567, type: 2}
+--- !u!114 &3733672879992414574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697326908566153922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ae762cb4eab13419860898bcd06574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

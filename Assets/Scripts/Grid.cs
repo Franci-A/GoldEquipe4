@@ -15,6 +15,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private float cellSize;
     public Vector3 drawOffset;
     private SpriteLibrary sprites;
+    [SerializeField] PlayerPieceManager playerPieceManager;
 
 
     private void Start()
@@ -88,6 +89,7 @@ public class Grid : MonoBehaviour
             else if (randomGen)
             {
                 float k = Random.Range(0, 1f);
+                obj.GetComponent<EnvironmentChanges>().NextTurnEvent = playerPieceManager.nextTurnEvent;
                 if ( maxWaterTiles > 0 && ((x == mountainX && y == mountainY ) || k < waterTileSpawnChance ))
                 {
                     obj.tileType = TileType.Water;

@@ -5,7 +5,7 @@ using UnityEngine.Experimental.U2D.Animation;
 
 public class PlayerPieceManager : MonoBehaviour
 {
-    private int currentTurn;
+    private int currentTurn =1;
     [Header("Grids")]
     public List<Tile> grid;
     [SerializeField] private List<Tile> nextHand;
@@ -30,6 +30,7 @@ public class PlayerPieceManager : MonoBehaviour
 
 
     [SerializeField] private SpriteLibrary sprites;
+    public UnityEngine.Events.UnityEvent nextTurnEvent;
 
     private void Start()
     {
@@ -129,6 +130,7 @@ public class PlayerPieceManager : MonoBehaviour
         }
         //update currentTurn
         currentTurn++;
+        nextTurnEvent.Invoke();
 
         if (currentColorLevel< turnToLevelUpColors.Count && currentTurn > turnToLevelUpColors[currentColorLevel])
         {
