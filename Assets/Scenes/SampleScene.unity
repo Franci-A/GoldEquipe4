@@ -374,7 +374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2675, y: 0.25444442}
   m_AnchorMax: {x: 0.7325, y: 0.30848148}
-  m_AnchoredPosition: {x: -0.4477234, y: -1.843689}
+  m_AnchoredPosition: {x: -0.4477234, y: -1.84375}
   m_SizeDelta: {x: 0.3500061, y: -6.1839905}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21405921
@@ -2143,9 +2143,9 @@ MonoBehaviour:
   - {fileID: 1348582373}
   - {fileID: 1823536432}
   - {fileID: 545282283}
-  turnToLevelUpColors: 140000003c0000005a000000
+  turnToLevelUpColors: 140000003c00000050000000
   maxNumOfColors: 1
-  turnToLevelUpHouses: 0a000000230000003c0000005a000000
+  turnToLevelUpHouses: 0a00000028000000410000005a000000
   maxNumOfHouses: 1
   turnToLevelUpX: 05000000
   maxNumOfX: 0
@@ -4758,7 +4758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.39375, y: 0.6272223}
   m_AnchorMax: {x: 0.64875007, y: 0.7658148}
-  m_AnchoredPosition: {x: 0.0002975464, y: 2.416504}
+  m_AnchoredPosition: {x: 0.00030517578, y: 2.416504}
   m_SizeDelta: {x: -0.0005188, y: -4.833}
   m_Pivot: {x: 0.5214583, y: 0.49999994}
 --- !u!114 &1590602007
