@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour
     public int tileNum;
     public int lineNum;
     public SpriteLibrary sprites;
-    public TextMeshProUGUI scorePopup;
+    public SpriteRenderer scorePopup;
     public ParticleSystem destroyParticles;
     public SpriteRenderer shieldSprite;
 
@@ -49,6 +49,8 @@ public class Tile : MonoBehaviour
                 destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
                 destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
                 destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
+                destroyParticles.textureSheetAnimation.SetSprite(3, sprites.GetSprite("Particles", houseColor.ToString() + 4));
+                destroyParticles.textureSheetAnimation.SetSprite(4, sprites.GetSprite("Particles", houseColor.ToString() + 5));
                 break;
             case TileType.LevelUp:
                 obj.sprite = sprites.GetSprite("Bonus", "Hammer1");
@@ -57,10 +59,13 @@ public class Tile : MonoBehaviour
                 obj.sprite = sprites.GetSprite("Bonus", "Thunder");
                 break;
             case TileType.Water:
-                obj.sprite = sprites.GetSprite("Tiles", "Water");
-                destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
-                destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
-                destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
+                int i = UnityEngine.Random.Range(1, 4);
+                obj.sprite = sprites.GetSprite("Tiles", "Water" + i);
+                destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", "Mountain1"));
+                destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", "Mountain2"));
+                destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", "Mountain3"));
+                destroyParticles.textureSheetAnimation.SetSprite(3, sprites.GetSprite("Particles", "Mountain4"));
+                destroyParticles.textureSheetAnimation.SetSprite(4, sprites.GetSprite("Particles", "Mountain5"));
                 break;
             default:
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");

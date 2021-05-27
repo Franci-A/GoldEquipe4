@@ -5,16 +5,20 @@ using UnityEngine.Experimental.U2D.Animation;
 
 public class PlayerPieceManager : MonoBehaviour
 {
-    private int currentTurn;
+    private int currentTurn =1;
     [Header("Grids")]
     public List<Tile> grid;
     [SerializeField] private List<Tile> nextHand;
 
-    [Header("House colors")]
+    [Header("Faction")]
     [SerializeField] private List<int> turnToLevelUpColors;
     [SerializeField] private int maxNumOfColors = 1;
-    [SerializeField] private int maxNumOfHouses = 1;
     private int currentColorLevel = 0;
+    
+    [Header("Houses")]
+    [SerializeField] private List<int> turnToLevelUpHouses;
+    [SerializeField] private int maxNumOfHouses = 1;
+    private int currentHouses = 0;
 
     [Header("Downgrade")]
     [SerializeField] private List<int> turnToLevelUpX;
@@ -22,14 +26,9 @@ public class PlayerPieceManager : MonoBehaviour
     [SerializeField] private float ChanceToGetX;
     private int currentXLevel = 0;
 
-    [Header("Level up")]
-    [SerializeField] private List<int> turnToLevelUpHammer;
-    [SerializeField] private float ChanceToGetLevelUp;
-    [SerializeField] private int maxNumOfLevelUp = 1;
-    private int currentLevelUp = 0;
-
 
     [SerializeField] private SpriteLibrary sprites;
+    public UnityEngine.Events.UnityEvent nextTurnEvent;
 
     private void Start()
     {
@@ -62,31 +61,20 @@ public class PlayerPieceManager : MonoBehaviour
             type.Add(0);
         }
 
-        List<int> maxValues = new List<int>();
-        maxValues.Add(maxNumOfHouses);
-        maxValues.Add(maxNumOfX);
-        maxValues.Add(maxNumOfLevelUp);
 
 
-        for (int b = 1; b < 3; b++) // get position for each object to be placed later on the new grid
+        for (int b = 1; b < 2; b++) // get position for each object to be placed later on the new grid
         {
             int numOfObj = 0;
             if (b == 2)
             {
                 float l = Random.Range(0, 1f);
                 if( l < ChanceToGetX) { 
-                    numOfObj = Random.Range(0, maxValues[b - 1] + 1);
-                }
-            }else if (b == 3)
-            {
-                float l = Random.Range(0, 1f);
-                if (l < ChanceToGetLevelUp)
-                {
-                    numOfObj = Random.Range(0, maxValues[b - 1] + 1);
+                    numOfObj = Random.Range(0, maxNumOfX + 1);
                 }
             }
             else { 
-                numOfObj = Random.Range(1, maxValues[b - 1] + 1);
+                numOfObj =maxNumOfHouses/*Random.Range(1, maxValues[b - 1] + 1)*/;
             }
 
             for (int j = 0; j < numOfObj; j++)
@@ -129,11 +117,11 @@ public class PlayerPieceManager : MonoBehaviour
         }
         //update currentTurn
         currentTurn++;
+        nextTurnEvent.Invoke();
 
         if (currentColorLevel< turnToLevelUpColors.Count && currentTurn > turnToLevelUpColors[currentColorLevel])
         {
             maxNumOfColors++;
-            maxNumOfHouses++;
             currentColorLevel++;
         }
 
@@ -143,10 +131,10 @@ public class PlayerPieceManager : MonoBehaviour
             currentXLevel++;
         }
         
-        if(currentLevelUp < turnToLevelUpHammer.Count && currentTurn > turnToLevelUpX[currentLevelUp])
+        if(currentHouses < turnToLevelUpHouses.Count && currentTurn > turnToLevelUpHouses[currentHouses])
         {
-            maxNumOfLevelUp++;
-            currentLevelUp++;
+            maxNumOfHouses++;
+            currentHouses++;
         }
     }
 

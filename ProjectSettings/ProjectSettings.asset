@@ -8,12 +8,12 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Team4
-  productName: GoldProjet
+  productName: Summum
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -53,7 +53,7 @@ PlayerSettings:
   numberOfMipsStripped: 0
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
-  androidShowActivityIndicatorOnLoading: -1
+  androidShowActivityIndicatorOnLoading: 2
   iosUseCustomAppBackgroundBehavior: 0
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
@@ -127,7 +127,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.121.260521
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -145,13 +145,14 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.Team4.Summum
   buildNumber:
     Standalone: 0
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -234,18 +235,18 @@ PlayerSettings:
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 1
+  AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: F:/School_Projects/Gold/Summum.keystore
+  AndroidKeyaliasName: summum
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 0
+  androidUseCustomKeystore: 1
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -256,10 +257,77 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 9aa8d5b305628424eb783767e1ca0959, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
+    - m_Textures: []
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 1
+      m_SubKind: 
     - m_Textures: []
       m_Width: 432
       m_Height: 432
@@ -289,66 +357,6 @@ PlayerSettings:
       m_Width: 81
       m_Height: 81
       m_Kind: 2
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 192
-      m_Height: 192
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 144
-      m_Height: 144
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 96
-      m_Height: 96
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 72
-      m_Height: 72
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 36
-      m_Height: 36
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 192
-      m_Height: 192
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 144
-      m_Height: 144
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 96
-      m_Height: 96
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 72
-      m_Height: 72
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 36
-      m_Height: 36
-      m_Kind: 1
       m_SubKind: 
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsJobs:
@@ -395,7 +403,9 @@ PlayerSettings:
     Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupLightmapEncodingQuality:
+  - m_BuildTarget: Android
+    m_EncodingQuality: 1
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetNormalMapEncoding: []
   playModeTestRunnerEnabled: 0
@@ -643,7 +653,8 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

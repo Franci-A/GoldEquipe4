@@ -45,11 +45,12 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         if (!GameManager.Instance.gameOver)
         {
+
             isInHand = true;
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
             foreach (Tile tile in playerHand.grid)
             {
-                tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
+                tile.GetComponent<Animator>().SetBool("TileInHand", true);
             }
         }
     }
@@ -57,8 +58,8 @@ public class PIckUpAndPlace : MonoBehaviour
     private void OnMouseUp()
     {
         isInHand = false;
-        
-        if(canBePlaced && hasPos)
+        outline.GetComponent<SpriteRenderer>().sprite = playerHand.grid[0].GetComponent<Tile>().sprites.GetSprite("Outline", "White");
+        if (canBePlaced && hasPos)
         {
             //Handheld.Vibrate();
             PlaceTiles();
@@ -69,7 +70,7 @@ public class PIckUpAndPlace : MonoBehaviour
         snapImage.transform.position = transform.position;
         foreach (Tile tile in playerHand.grid)
         {
-            tile.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            tile.GetComponent<Animator>().SetBool("TileInHand",false);
         }
     }
 
@@ -83,11 +84,11 @@ public class PIckUpAndPlace : MonoBehaviour
             CheckPlacement();
             if (canBePlaced)
             {
-                outline.GetComponent<SpriteRenderer>().color = Color.white;
+                outline.GetComponent<SpriteRenderer>().sprite = collision.GetComponent<Tile>().sprites.GetSprite("Outline", "White");
             }
             else
             {
-                outline.GetComponent<SpriteRenderer>().color = Color.red;
+                outline.GetComponent<SpriteRenderer>().sprite = collision.GetComponent<Tile>().sprites.GetSprite("Outline", "Red");
             }
         }
     }
@@ -183,6 +184,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
                                 score.AddScore(-10);
                             }else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
                             {
@@ -200,10 +202,11 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                             }
                             break;
 
-                        case TileType.LevelUp:
+                       /* case TileType.LevelUp:
                             if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
@@ -213,7 +216,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 }
                                 tileWithHouse.Add(y * currentGrid.gridWidth + x);
                             }
-                            break;
+                            break;*/
                     }
                 }
                 x++;
@@ -286,14 +289,17 @@ public class PIckUpAndPlace : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         foreach (int position in positions)
         {
-            currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
-            currentGrid.grid[position].GetComponent<Merge>().merging();
-            
-            if (!CheckPosibilities())
+            if (currentGrid.grid[position].tileType == TileType.House)
             {
-                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
+                currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
+                currentGrid.grid[position].GetComponent<Merge>().merging();
             }
+            
         }
 
+        if (!CheckPosibilities())
+        {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
+        }
     }
 }

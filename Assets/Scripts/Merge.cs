@@ -37,6 +37,7 @@ public class Merge : MonoBehaviour
         if (rightTile.tileType == TileType.House && rightTile.houseColor == tileInfo.houseColor && rightTile.houseUpgrade == tempHouseUpgrade)
         {
             rightTile.GetComponent<Animator>().SetTrigger("OnRight");
+            rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
             rightTile.shieldLvl = 0;
             rightTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
@@ -48,6 +49,7 @@ public class Merge : MonoBehaviour
         if (leftTile.tileType == TileType.House && leftTile.houseColor == tileInfo.houseColor && leftTile.houseUpgrade == tempHouseUpgrade)
         {
             leftTile.GetComponent<Animator>().SetTrigger("OnLeft");
+            rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
             leftTile.shieldLvl = 0;
             leftTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
@@ -59,6 +61,7 @@ public class Merge : MonoBehaviour
         if (upTile.tileType == TileType.House && upTile.houseColor == tileInfo.houseColor && upTile.houseUpgrade == tempHouseUpgrade)
         {
             upTile.GetComponent<Animator>().SetTrigger("OnTop");
+            rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
             upTile.shieldLvl = 0;
             upTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
@@ -70,6 +73,7 @@ public class Merge : MonoBehaviour
         if (downTile.tileType == TileType.House && downTile.houseColor == tileInfo.houseColor && downTile.houseUpgrade == tempHouseUpgrade)
         {
             downTile.GetComponent<Animator>().SetTrigger("OnBottom");
+            rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
             downTile.shieldLvl = 0;
             downTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
@@ -81,17 +85,21 @@ public class Merge : MonoBehaviour
 
         if (combo >= 2) {
             comboValue(tempHouseUpgrade);
+            this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
         }
         else if(tileInfo.houseUpgrade >= 4 && combo < 2)
         {
             score.AddScore(50);
             bonusScore = 50;
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+" + bonusScore);
+            this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
         }
 
         if (tileInfo.houseUpgrade >= 4)
         {
             tileInfo.houseUpgrade = 4;
-            tileInfo.scorePopup.text = "+ " + bonusScore;
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+" + bonusScore);
+            this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
             return true;
@@ -103,6 +111,7 @@ public class Merge : MonoBehaviour
             {
                 this.GetComponent<Animator>().SetFloat("MergeLevel",tempHouseUpgrade);
                 this.GetComponent<Animator>().SetFloat("MergeRace",(int)tileInfo.houseColor);
+                this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
                 FindObjectOfType<AudioManager>().Play("Merge");
             }
@@ -159,7 +168,7 @@ public class Merge : MonoBehaviour
         score.AddScore(bonusScore);
     }
 
-    public void PLayParticles()
+    public void PlayParticles()
     {
         GetComponentInChildren<ParticleSystem>().Play();
     }

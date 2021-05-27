@@ -23,7 +23,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SignInToGooglePlayServices();
+        
         gameOver = false;
+    }
+    private void Update()
+    {
+
     }
 
     public void SignInToGooglePlayServices()

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sprites/Assets/Score/+40.png.meta
+guid: dc6d298b78cb19045a33dcf142676bf8
+=======
 guid: 8cf3fdd51dc3fa14bad83d13da284650
+>>>>>>> main:Assets/Sprites/Assets/Décor et autres/Tiles animées/DécorEclair-Sheet.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

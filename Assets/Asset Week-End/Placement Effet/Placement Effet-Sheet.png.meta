@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: fe16ce797fd56434b88f9c4aea737eb1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5907722976565419217
+    second: Placement Effet-Sheet_0
+  - first:
+      213: -7392583597021817732
+    second: Placement Effet-Sheet_1
+  - first:
+      213: 605495104430362654
+    second: Placement Effet-Sheet_2
+  - first:
+      213: 5377372292662649856
+    second: Placement Effet-Sheet_3
+  - first:
+      213: 2727644942778828755
+    second: Placement Effet-Sheet_4
+  - first:
+      213: 8080637215446083166
+    second: Placement Effet-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +59,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +93,159 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Placement Effet-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23a766d04d830ea0800000000000000
+      internalID: -5907722976565419217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placement Effet-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c749227d264486990800000000000000
+      internalID: -7392583597021817732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placement Effet-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e105fc4e696276800800000000000000
+      internalID: 605495104430362654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placement Effet-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0046f211c9340aa40800000000000000
+      internalID: 5377372292662649856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placement Effet-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d709bfaf9a8ad520800000000000000
+      internalID: 2727644942778828755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placement Effet-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5627710cb0342070800000000000000
+      internalID: 8080637215446083166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

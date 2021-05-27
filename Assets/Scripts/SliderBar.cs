@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class SliderBar : MonoBehaviour
 {
     public Bonus_Malus bonusM;
-    public Slider ScoreBar;
-    public Score score;
-    public int backScore;
-    public int random;
-    public int i = 1;
+    public Image ChestImage;
+    public int getBonusValue;
+    private Score score;
+    private int backScore;
+    private int random;
     public int tempScore;
     public bool haveBonus;
 
@@ -19,21 +19,43 @@ public class SliderBar : MonoBehaviour
         score = GetComponent<Score>();
         tempScore = 0;
         haveBonus = false;
+        ChestImage.fillAmount = 0;
     }
     void Update()
     {
         if (!haveBonus)
         {
             backScore = score.currentScore - tempScore;
-            ScoreBar.value = backScore;
+            
         }
-        if (backScore >= (ScoreBar.maxValue) && haveBonus == false)
+        if (backScore >= getBonusValue && haveBonus == false)
         {
-            random = Random.Range(4, 8);
+            ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Open");
+            random = Random.Range(1, 8);
             bonusM.getBonus(random);
             haveBonus = true;
             FindObjectOfType<AudioManager>().Play("GetBonus");
         }
+
+        if (ChestImage.fillAmount < ((backScore * 100.0f / getBonusValue) / 100.0f))
+        {
+            ChestImage.fillAmount += .02f;
+        }
+    }
+
+    public void WaitToUpdateScore()
+    {
+        StartCoroutine(SetNewScoreValue());
+    }
+
+    IEnumerator SetNewScoreValue()
+    {
+        yield return new WaitForSeconds(.5f);
+        tempScore = score.currentScore;
+        backScore = score.currentScore - tempScore;
+        haveBonus = false;
+        ChestImage.fillAmount = 0;
     }
 }
+
 

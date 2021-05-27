@@ -15,6 +15,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private float cellSize;
     public Vector3 drawOffset;
     private SpriteLibrary sprites;
+    [SerializeField] PlayerPieceManager playerPieceManager;
 
 
     private void Start()
@@ -23,9 +24,14 @@ public class Grid : MonoBehaviour
         sprites = GetComponent<SpriteLibrary>();
         gridHeight += 2;
         gridWidth += 2;
+
         if (grid.Count == 0)
         {
             InstanciateGrid();
+            while (Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x > grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 4)
+            {
+                Camera.main.orthographicSize += .1f;
+            }
         }
         else
         {
@@ -78,11 +84,12 @@ public class Grid : MonoBehaviour
             obj.tileNum = x;
             obj.GetComponent<SpriteRenderer>().sortingOrder = y;
             obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = y + 9;
-            if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1)
+            if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1) // outer ring instantiate to empty tile
                 obj.tileType = TileType.Empty;
             else if (randomGen)
             {
                 float k = Random.Range(0, 1f);
+                obj.GetComponent<EnvironmentChanges>().NextTurnEvent = playerPieceManager.nextTurnEvent;
                 if ( maxWaterTiles > 0 && ((x == mountainX && y == mountainY ) || k < waterTileSpawnChance ))
                 {
                     obj.tileType = TileType.Water;
@@ -101,7 +108,8 @@ public class Grid : MonoBehaviour
 
                 case TileType.Water:
                     obj.GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
-                    obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water");
+                    int j = Random.Range(1, 3);
+                    obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water" +j);
                     obj.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
                     break;
 
