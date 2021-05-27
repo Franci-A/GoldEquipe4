@@ -18,6 +18,7 @@ public class Dragon : MonoBehaviour
     public int dragonChances = 20;
     public int targetNbr = 5;
     [SerializeField] private Animator animator;
+    [SerializeField] private Animator timerAnimator;
 
     public UnityEvent NextTurnEvent;
 
@@ -57,6 +58,7 @@ public class Dragon : MonoBehaviour
     {
         if(dragonSpawned == true)
         {
+            timerAnimator.SetTrigger("NextStep");
             turnBeforeAttack = turnBeforeAttack - 1;
             Debug.Log(turnBeforeAttack);
             if(turnBeforeAttack == 0)

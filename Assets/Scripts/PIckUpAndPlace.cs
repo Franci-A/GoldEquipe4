@@ -16,6 +16,7 @@ public class PIckUpAndPlace : MonoBehaviour
     public Grid currentGrid;
     private bool canBePlaced;
     private Vector2 offset;
+    public bool blockHand;
 
 
     private void Start()
@@ -43,7 +44,7 @@ public class PIckUpAndPlace : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!GameManager.Instance.gameOver)
+        if (!GameManager.Instance.gameOver && !blockHand)
         {
 
             isInHand = true;
@@ -207,10 +208,11 @@ public class PIckUpAndPlace : MonoBehaviour
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                             }
-                            else
+                            else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 AudioManager.instance.soundName = "None";
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                             }
                             break;
 
