@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public static AudioManager instance;
 
+    public string soundName;
+
     void Awake()
     {
         if (instance == null) {
@@ -41,6 +43,17 @@ public class AudioManager : MonoBehaviour
         if (s == null)
         {
             Debug.Log("Sound " + name + " not found!");
+            return;
+        }
+        s.source.Play();
+    }
+    
+    public void PlayWithoutStr ()
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        if (s == null)
+        {
+            Debug.Log("Sound " + soundName + " not found!");
             return;
         }
         s.source.Play();

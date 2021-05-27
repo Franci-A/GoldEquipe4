@@ -16,6 +16,7 @@ public class Dragon : MonoBehaviour
     public int minTurn = 15;
     public int dragonChances = 20;
     public int targetNbr = 5;
+    [SerializeField] private Animator animator;
 
     public UnityEvent NextTurnEvent;
 
@@ -29,7 +30,7 @@ public class Dragon : MonoBehaviour
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Dragon", "None");
     }
 
-    void SpawnDragon()
+    public void SpawnDragon()
     {
         nbrTurn++;
         if (nbrTurn >= minTurn)
@@ -38,7 +39,7 @@ public class Dragon : MonoBehaviour
 
             if (random == 1)
             {
-                snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Dragon", "Dragon");
+                animator.SetTrigger("Arrive");
                 dragonSpawned = true;
 
                 for (int i = 0; i < targetNbr; i++)
@@ -46,7 +47,6 @@ public class Dragon : MonoBehaviour
                     int randomLineNum = Random.Range(1, 7);
                     int randomTileNum = Random.Range(1, 7);
                     targetedTiles.Add(grid.grid[grid.gridWidth * randomLineNum + randomTileNum]);
-                    targetedTiles[i].targeted.sprite = spriteLib.GetSprite("Target", "Target");
                 }
             }
         }
@@ -60,24 +60,26 @@ public class Dragon : MonoBehaviour
             Debug.Log(turnBeforeAttack);
             if(turnBeforeAttack == 0)
             {
-                DragonAttack();
+                animator.SetTrigger("Attack");
             }
         }
     }
-    void DragonAttack()
+    public void DragonAttack()
     {
-        foreach(Tile tiles in targetedTiles)
+
+        foreach (Tile tiles in targetedTiles)
         {
-            tiles.targeted.sprite = spriteLib.GetSprite("Target", "None");
             if (tiles.tileType == TileType.House) {
                 if(tiles.shieldLvl == 2) {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop2");
                     tiles.shieldLvl--;
+                    AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
                 }
                 if (tiles.shieldLvl == 1)
                 {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop1");
                     tiles.shieldLvl--;
+                    AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
                 }
                 else
                 {
@@ -99,5 +101,6 @@ public class Dragon : MonoBehaviour
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Dragon", "None");
         turnBeforeAttack = 6;
         dragonSpawned = false;
+        targetedTiles.Clear();
     }
 }

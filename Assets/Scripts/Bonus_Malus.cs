@@ -284,7 +284,7 @@ public class Bonus_Malus : MonoBehaviour
         else
         {
             isProtected = false;
-            tileInfo.GetComponent<Animator>().SetTrigger("Downgrade");
+            tileInfo.GetComponent<Animator>().SetTrigger("Thunder");
             tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             tileInfo.houseUpgrade = 0;
             tileInfo.tileType = TileType.Ground;

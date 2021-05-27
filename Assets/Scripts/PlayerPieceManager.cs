@@ -127,7 +127,6 @@ public class PlayerPieceManager : MonoBehaviour
             if (currentColorLevel == 1)
             {
                 AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAw"); // reach elfs
-                //currentcolorlevel == 1 => achievement unlock
             }else if(currentColorLevel == 2)
             {
                 AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBA"); //reach dwarfs
