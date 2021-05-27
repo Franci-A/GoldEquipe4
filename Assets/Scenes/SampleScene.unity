@@ -959,6 +959,9 @@ MonoBehaviour:
   snapImage: {fileID: 567961255}
   spriteLib: {fileID: 177854006}
   grid: {fileID: 1573509823}
+  minTurn: 15
+  dragonChances: 16
+  targetNbr: 5
   NextTurnEvent:
     m_PersistentCalls:
       m_Calls: []
