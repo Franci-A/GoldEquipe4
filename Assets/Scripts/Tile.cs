@@ -36,7 +36,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer scorePopup;
     public ParticleSystem destroyParticles;
     public SpriteRenderer shieldSprite;
-    public SpriteRenderer targeted;
+    public Animator targeted;
 
     public void UpdateVisual()
     {
