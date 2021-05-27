@@ -30,7 +30,7 @@ public class Bonus_Malus : MonoBehaviour
         bonusTile = GetComponent<BonusTile>(); 
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
-        resetPos = transform.position;
+        resetPos = new Vector3(0,0,0);
     }
 
     void Update()
@@ -107,8 +107,8 @@ public class Bonus_Malus : MonoBehaviour
         }
 
         bonusHeld = false;
-        transform.position = resetPos;
-        snapImage.transform.position = resetPos;
+        transform.localPosition = resetPos;
+        snapImage.transform.localPosition = resetPos;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -202,8 +202,8 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.GetComponent<Merge>().merging();
         }
 
-        transform.position = resetPos;
-        snapImage.transform.position = resetPos;
+        transform.localPosition = resetPos;
+        snapImage.transform.localPosition = resetPos;
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     }
@@ -236,8 +236,8 @@ public class Bonus_Malus : MonoBehaviour
 
         }
 
-        transform.position = resetPos;
-        snapImage.transform.position = resetPos;
+        transform.localPosition = resetPos;
+        snapImage.transform.localPosition = resetPos;
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     }
@@ -247,8 +247,8 @@ public class Bonus_Malus : MonoBehaviour
         tileInfo.houseUpgrade = 0;
         tileInfo.tileType = TileType.Water;
         tileInfo.GetComponent<Animator>().SetTrigger("Mountain");
-        transform.position = resetPos;
-        snapImage.transform.position = resetPos;
+        transform.localPosition = resetPos;
+        snapImage.transform.localPosition = resetPos;
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     } 
@@ -276,8 +276,8 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp1");
         }
 
-        transform.position = resetPos;
-        snapImage.transform.position = resetPos;
+        transform.localPosition = resetPos;
+        snapImage.transform.localPosition = resetPos;
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
     }

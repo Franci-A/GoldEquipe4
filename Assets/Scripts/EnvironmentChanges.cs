@@ -32,7 +32,12 @@ public class EnvironmentChanges : MonoBehaviour
         {
             turnsEmpty++;
             float i = Random.Range(0f, 1f);
-            switch (turnsEmpty)
+            if (turnsEmpty > 5 && i < .05f)
+            {
+                animator.SetTrigger("NextStage");
+                hasTrees = true;
+            }
+            /*switch (turnsEmpty)
             {
                 case 5:
                     if(i < .025f)
@@ -73,8 +78,9 @@ public class EnvironmentChanges : MonoBehaviour
                     turnsEmpty = 0;
                     break;
 
-            }
-        }else if(parentTile.tileType == TileType.Ground && hasTrees)
+            }*/
+        }
+        else if(parentTile.tileType == TileType.Ground && hasTrees)
         {
             float i = Random.Range(0f, 1f);
             if ( i < .1f)
@@ -88,6 +94,6 @@ public class EnvironmentChanges : MonoBehaviour
     {
         turnsEmpty = 0;
         int i = Random.Range(0, 6);
-        sprite.sprite = GetComponent<SpriteLibrary>().GetSprite("Grass", i.ToString());
+        GetComponent<Animator>().SetFloat("GrassLevel", i);
     }
 }
