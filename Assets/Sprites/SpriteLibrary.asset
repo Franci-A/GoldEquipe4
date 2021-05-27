@@ -280,3 +280,21 @@ MonoBehaviour:
     - m_Name: 5
       m_Hash: -2068763730
       m_Sprite: {fileID: 21300000, guid: 8e72d4f265076a94a9e22a785f3739d0, type: 3}
+  - m_Name: Dragon
+    m_Hash: 544484482
+    m_CategoryList:
+    - m_Name: None
+      m_Hash: -542986255
+      m_Sprite: {fileID: 0}
+    - m_Name: Dragon
+      m_Hash: 544484482
+      m_Sprite: {fileID: -8294074338760349072, guid: ea92e110aaeab1d4eb0eb3bb60d154e7, type: 3}
+  - m_Name: Target
+    m_Hash: 1103309514
+    m_CategoryList:
+    - m_Name: None
+      m_Hash: -542986255
+      m_Sprite: {fileID: 0}
+    - m_Name: Target
+      m_Hash: 1103309514
+      m_Sprite: {fileID: 8411185175945113909, guid: 4d767d6d9be483346b1f1318377e2bf5, type: 3}

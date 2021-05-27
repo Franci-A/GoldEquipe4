@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: ea92e110aaeab1d4eb0eb3bb60d154e7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 932786225919236868
+    second: DragonMalus-Sheet_0
+  - first:
+      213: -8294074338760349072
+    second: DragonMalus-Sheet_1
+  - first:
+      213: 3660276091765623497
+    second: DragonMalus-Sheet_2
+  - first:
+      213: -1665473048295261549
+    second: DragonMalus-Sheet_3
+  - first:
+      213: 1846356124835909367
+    second: DragonMalus-Sheet_4
+  - first:
+      213: 838528657822370242
+    second: DragonMalus-Sheet_5
+  - first:
+      213: 2420521789332998598
+    second: DragonMalus-Sheet_6
+  - first:
+      213: 938441977759677627
+    second: DragonMalus-Sheet_7
+  - first:
+      213: -364399121433786990
+    second: DragonMalus-Sheet_8
+  - first:
+      213: 4244103674562929597
+    second: DragonMalus-Sheet_9
+  - first:
+      213: -6491787071812496919
+    second: DragonMalus-Sheet_10
+  - first:
+      213: 2339654278724803028
+    second: DragonMalus-Sheet_11
+  - first:
+      213: -7111569235417946643
+    second: DragonMalus-Sheet_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +80,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +114,306 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b1b4f512ce1fc00800000000000000
+      internalID: 932786225919236868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07aa181355785ec80800000000000000
+      internalID: -8294074338760349072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca8b8566b9ebc230800000000000000
+      internalID: 3660276091765623497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39abf5d261d03e8e0800000000000000
+      internalID: -1665473048295261549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe06b5fc139f9910800000000000000
+      internalID: 1846356124835909367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9cc7f1f5d03ab00800000000000000
+      internalID: 838528657822370242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c949403ebb679120800000000000000
+      internalID: 2420521789332998598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc3ea6b104060d00800000000000000
+      internalID: 938441977759677627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29589720ee461faf0800000000000000
+      internalID: -364399121433786990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3e0484ec516ea30800000000000000
+      internalID: 4244103674562929597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1942b9d0a88e5a0800000000000000
+      internalID: -6491787071812496919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2948
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d95d94ab2f187020800000000000000
+      internalID: 2339654278724803028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DragonMalus-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3216
+        y: 0
+        width: 268
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de521578571ae4d90800000000000000
+      internalID: -7111569235417946643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
