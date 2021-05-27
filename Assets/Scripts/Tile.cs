@@ -70,6 +70,11 @@ public class Tile : MonoBehaviour
                 break;
             default:
                 obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");
+                destroyParticles.textureSheetAnimation.SetSprite(0, null);
+                destroyParticles.textureSheetAnimation.SetSprite(1, null);
+                destroyParticles.textureSheetAnimation.SetSprite(2, null);
+                destroyParticles.textureSheetAnimation.SetSprite(3, null);
+                destroyParticles.textureSheetAnimation.SetSprite(4, null);
                 break;
 
         }
