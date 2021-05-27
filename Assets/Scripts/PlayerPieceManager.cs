@@ -63,18 +63,18 @@ public class PlayerPieceManager : MonoBehaviour
 
 
 
-        for (int b = 1; b < 2; b++) // get position for each object to be placed later on the new grid
+        for (int b = 1; b < 3; b++) // get position for each object to be placed later on the new grid
         {
             int numOfObj = 0;
             if (b == 2)
             {
                 float l = Random.Range(0, 1f);
                 if( l < ChanceToGetX) { 
-                    numOfObj = Random.Range(0, maxNumOfX + 1);
+                    numOfObj = Random.Range(currentXLevel, maxNumOfX + 1);
                 }
             }
             else { 
-                numOfObj =maxNumOfHouses/*Random.Range(1, maxValues[b - 1] + 1)*/;
+                numOfObj =Random.Range(1, maxNumOfHouses + 1);
             }
 
             for (int j = 0; j < numOfObj; j++)

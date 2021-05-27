@@ -165,6 +165,15 @@ public class Merge : MonoBehaviour
                 }
                 break;
         }
+        switch (tileInfo.houseColor)
+        {
+            case HouseColor.Yellow:
+                bonusScore = (int)(bonusScore *1.5f);
+                break;
+            case HouseColor.Red:
+                bonusScore *= 2;
+                break;
+        }
         score.AddScore(bonusScore);
     }
 
