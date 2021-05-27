@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Dragon : MonoBehaviour
+{
+    [SerializeField] private GameObject snapImage;
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        
+    }
+}
