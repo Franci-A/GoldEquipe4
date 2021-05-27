@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6620829062663339151}
   - component: {fileID: 4096993733221745696}
+  - component: {fileID: 6619365819379127950}
   m_Layer: 6
   m_Name: Targeted
   m_TagString: Untagged
@@ -76,12 +77,31 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.14285715, y: 0.15714286}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6619365819379127950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110707352842273081}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ec34e699fd95d0468d7bd51b8c38fcb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3480609882465710002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5383,7 +5403,7 @@ MonoBehaviour:
   scorePopup: {fileID: 6904204411799695531}
   destroyParticles: {fileID: 3765217825791265053}
   shieldSprite: {fileID: 1721820549659335156}
-  targeted: {fileID: 4096993733221745696}
+  targeted: {fileID: 6619365819379127950}
 --- !u!114 &655024920389331529
 MonoBehaviour:
   m_ObjectHideFlags: 0

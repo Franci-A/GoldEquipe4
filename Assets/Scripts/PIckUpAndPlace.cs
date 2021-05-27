@@ -183,7 +183,8 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                               // AudioManager.instance.soundName =
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
                                 score.AddScore(-10);
                             }else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
@@ -202,8 +203,12 @@ public class PIckUpAndPlace : MonoBehaviour
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
+                            }
+                            else
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                             }
                             break;
 

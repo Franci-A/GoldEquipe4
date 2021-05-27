@@ -449,6 +449,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: playSound
+    data: Woosh
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.98333335
     functionName: UpdateVisual
     data: 
@@ -459,6 +466,13 @@ AnimationClip:
   - time: 0.98333335
     functionName: PlayParticles
     data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.98333335
+    functionName: playSound
+    data: Zap
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
