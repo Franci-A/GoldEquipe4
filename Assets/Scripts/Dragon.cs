@@ -9,6 +9,7 @@ public class Dragon : MonoBehaviour
     [SerializeField] private GameObject snapImage;
     public SpriteLibrary spriteLib;
     private Tile tileInfo;
+    private Score score;
     public Grid grid;
     bool dragonSpawned;
     int nbrTurn;
@@ -86,6 +87,7 @@ public class Dragon : MonoBehaviour
                 }
                 if(tiles.houseUpgrade == 0) {
                     tiles.tileType = TileType.Ground;
+                    score.AddScore(-10);
                 }
             }
 
