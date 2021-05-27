@@ -9,7 +9,7 @@ public class Dragon : MonoBehaviour
     [SerializeField] private GameObject snapImage;
     public SpriteLibrary spriteLib;
     private Tile tileInfo;
-    private Score score;
+    public Score score;
     public Grid grid;
     bool dragonSpawned;
     int nbrTurn;
@@ -19,6 +19,7 @@ public class Dragon : MonoBehaviour
     public int targetNbr = 5;
     [SerializeField] private Animator animator;
     [SerializeField] private Animator timerAnimator;
+    [SerializeField] private PIckUpAndPlace playerHand;
 
     public UnityEvent NextTurnEvent;
 
@@ -63,6 +64,7 @@ public class Dragon : MonoBehaviour
             Debug.Log(turnBeforeAttack);
             if(turnBeforeAttack == 0)
             {
+                playerHand.BlockHandForSec(2.0f);
                 animator.SetTrigger("Attack");
             }
         }

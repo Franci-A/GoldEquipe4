@@ -310,4 +310,16 @@ public class PIckUpAndPlace : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
         }
     }
+
+    public void BlockHandForSec(float secondsToBlock)
+    {
+        blockHand = true;
+        StartCoroutine(BlockCurrentHand(secondsToBlock));
+    }
+
+    IEnumerator BlockCurrentHand(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        blockHand = false;
+    }
 }
