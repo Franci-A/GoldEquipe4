@@ -183,11 +183,12 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                               // AudioManager.instance.soundName =
+                                AudioManager.instance.soundName = "Destruction";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
                                 score.AddScore(-10);
-                            }else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
+                            }
+                            else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
                             {
                                 if(currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
                                 {
@@ -209,6 +210,7 @@ public class PIckUpAndPlace : MonoBehaviour
                             else
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                                AudioManager.instance.soundName = "None";
                             }
                             break;
 

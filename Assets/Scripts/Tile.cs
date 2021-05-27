@@ -87,4 +87,8 @@ public class Tile : MonoBehaviour
         FindObjectOfType<AudioManager>().Play(name);
     }
 
+    public void playSoundWithoutStr()
+    {
+        FindObjectOfType<AudioManager>().PlayWithoutStr();
+    }
 }

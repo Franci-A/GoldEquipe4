@@ -284,11 +284,12 @@ public class Bonus_Malus : MonoBehaviour
         else
         {
             isProtected = false;
+            AudioManager.instance.soundName = "Destruction";
             tileInfo.GetComponent<Animator>().SetTrigger("Thunder");
-            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
+            tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "-10");
+            score.AddScore(-10);
             tileInfo.houseUpgrade = 0;
             tileInfo.tileType = TileType.Ground;
-
         }
 
         transform.localPosition = resetPos;
