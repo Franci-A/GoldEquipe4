@@ -87,7 +87,7 @@ public class EnvironmentChanges : MonoBehaviour
     public void EmptyTile()
     {
         turnsEmpty = 0;
-        int i = Random.Range(0, 5);
+        int i = Random.Range(0, 6);
         sprite.sprite = GetComponent<SpriteLibrary>().GetSprite("Grass", i.ToString());
     }
 }
