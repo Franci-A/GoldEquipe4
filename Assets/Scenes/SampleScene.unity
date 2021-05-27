@@ -858,6 +858,7 @@ GameObject:
   - component: {fileID: 177854002}
   - component: {fileID: 177854003}
   - component: {fileID: 177854004}
+  - component: {fileID: 177854005}
   m_Layer: 0
   m_Name: PlayerHandManager
   m_TagString: Player
@@ -929,6 +930,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextGrid: {fileID: 274797615}
   bonusChest: {fileID: 2103012954}
+--- !u!114 &177854005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177854000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39783067eab6834ba571b34386b987e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &180102947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1053,7 @@ MonoBehaviour:
   snapImage: {fileID: 350273453}
   sliderBar: {fileID: 177854003}
   spriteLib: {fileID: 180102949}
+  bonusesUsed: 
 --- !u!114 &180102953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,12 +1461,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253395102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7916, z: 0}
-  m_LocalScale: {x: 6.2928, y: 5.944424, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0141, y: 1.352, z: 0}
+  m_LocalScale: {x: 6.251897, y: 5.944424, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1573509822}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &274797615
 GameObject:
@@ -4350,6 +4364,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5c39564e4ad534980f9afbd12f10b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1369593061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369593062}
+  - component: {fileID: 1369593063}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369593062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369593061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369593063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369593061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ac6054f5d415c43ab75d44dfab4bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1382301728
 GameObject:
   m_ObjectHideFlags: 0
@@ -4360,6 +4417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1382301729}
   - component: {fileID: 1382301730}
+  - component: {fileID: 1382301731}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -4395,6 +4453,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isConnectedToGooglePlayServices: 0
   gameOver: 0
+--- !u!114 &1382301731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382301728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39783067eab6834ba571b34386b987e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1414649364 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
@@ -4685,6 +4755,7 @@ Transform:
   m_Children:
   - {fileID: 1161394119}
   - {fileID: 1734954948}
+  - {fileID: 253395104}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

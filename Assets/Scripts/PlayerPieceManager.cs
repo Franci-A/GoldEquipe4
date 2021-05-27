@@ -123,9 +123,21 @@ public class PlayerPieceManager : MonoBehaviour
         {
             maxNumOfColors++;
             currentColorLevel++;
+
+            if (currentColorLevel == 1)
+            {
+                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAw"); // reach elfs
+                //currentcolorlevel == 1 => achievement unlock
+            }else if(currentColorLevel == 2)
+            {
+                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBA"); //reach dwarfs
+            }else if(currentColorLevel == 3)
+            {
+                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAg"); //reach orcs
+            }
         }
 
-        if(currentXLevel < turnToLevelUpX.Count && currentTurn > turnToLevelUpX[currentXLevel])
+        if (currentXLevel < turnToLevelUpX.Count && currentTurn > turnToLevelUpX[currentXLevel])
         {
             maxNumOfX++;
             currentXLevel++;

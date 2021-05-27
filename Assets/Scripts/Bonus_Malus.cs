@@ -24,6 +24,8 @@ public class Bonus_Malus : MonoBehaviour
 
     public SpriteLibrary spriteLib;
 
+    public List<bool> bonusesUsed;
+
     void Start()
     {
         score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
@@ -31,6 +33,13 @@ public class Bonus_Malus : MonoBehaviour
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
         resetPos = new Vector3(0,0,0);
+
+        bonusesUsed = new List<bool>();
+        for (int i = 0; i < 7; i++)
+        {
+            bonusesUsed.Add(false);
+        }
+        
     }
 
     void Update()
@@ -69,6 +78,8 @@ public class Bonus_Malus : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Hammer");
             sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
             sliderBar.WaitToUpdateScore();
+
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAA"); // use a bonus achievement
         }
 
         if (haspos && bonusTile.bonusType == BonusType.Thunder && (tileInfo.tileType == TileType.House || tileInfo.tileType == TileType.Water))
@@ -90,6 +101,8 @@ public class Bonus_Malus : MonoBehaviour
                 tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "-10");
                 score.AddScore(-10);
             }
+
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBQ"); // use a malus achievement
         }
 
         if (haspos && bonusTile.bonusType == BonusType.Mountain && tileInfo.tileType == TileType.Ground) {
@@ -97,6 +110,8 @@ public class Bonus_Malus : MonoBehaviour
             mountain();
             sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
             sliderBar.WaitToUpdateScore();
+
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBQ"); // use a malus achievement
         } 
 
         if (haspos && (bonusTile.bonusType == BonusType.Shield1 || bonusTile.bonusType == BonusType.Shield2) && tileInfo.tileType == TileType.House && tileInfo.shieldLvl < 2) {
@@ -104,11 +119,49 @@ public class Bonus_Malus : MonoBehaviour
             shield();
             sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
             sliderBar.WaitToUpdateScore();
+
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAA"); // use a bonus achievement
         }
 
         bonusHeld = false;
         transform.localPosition = resetPos;
         snapImage.transform.localPosition = resetPos;
+        bool canGetAchievement = true;
+        foreach (bool item in bonusesUsed)
+        {
+            if (!item)
+            {
+                canGetAchievement = false;
+                break;
+            }
+        }
+
+        if (canGetAchievement)
+        {
+            Debug.Log("achievement");
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCQ"); //catch em all bonuses
+        }
+        canGetAchievement = true;
+        foreach (bool item in bonusesUsed)
+        {
+            if (item)
+            {
+                canGetAchievement = false;
+                break;
+            }
+        }
+        if(canGetAchievement && Score.Instance.currentScore >= 250 )
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCg"); // score achievement
+        }
+        else if(canGetAchievement && Score.Instance.currentScore >= 500)
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCw"); // score achievement
+        }
+        else if(canGetAchievement && Score.Instance.currentScore >= 750)
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDA"); // score achievement
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -165,6 +218,7 @@ public class Bonus_Malus : MonoBehaviour
             bonusTile.bonusType = BonusType.Shield2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield2");
         }
+        bonusesUsed[i-1] = true;
     }
 
     void hammer()
@@ -214,6 +268,7 @@ public class Bonus_Malus : MonoBehaviour
         {
             tileInfo.shieldLvl -= 1;
             isProtected = true;
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
             if (tileInfo.shieldLvl == 1) {
                 tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp2");
 

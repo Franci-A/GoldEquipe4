@@ -197,6 +197,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                     currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop2");
                                 }
                                 currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
+                                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
                             {
