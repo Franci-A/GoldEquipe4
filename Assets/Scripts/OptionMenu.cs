@@ -2,21 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
     public GameObject optionMenuUI;
     private bool isOpen = false;
-    private bool isMuted;
+    private bool isSound;
     private bool isVibration;
     [SerializeField] private LeftyFlip leftyFlip;
+
+    public GameObject vibrationOn;
+    public GameObject vibrationOff;
+
+    public GameObject soundOn;
+    public GameObject soundOff;
+
+    public GameObject musicOn;
+    public GameObject musicOff;
+
 
     private void Start()
     {
         optionMenuUI.SetActive(isOpen);
-        isMuted = PlayerPrefs.GetInt("MUTED") == 1;
-        AudioListener.pause = isMuted;
+        isSound = PlayerPrefs.GetInt("MUTED") == 1;
+        AudioListener.pause = isSound;
+
         isVibration = PlayerPrefs.GetInt("VIBRATION") == 1;
+        if (isVibration == false)
+        {
+            vibrationOn.SetActive(false);
+            vibrationOff.SetActive(true);
+        }
     }
 
     public void Option()
@@ -36,20 +53,54 @@ public class OptionMenu : MonoBehaviour
     {
         optionMenuUI.SetActive(false);
         SceneManager.LoadScene("SampleScene");
-        AudioListener.pause = isMuted;
+        AudioListener.pause = isSound;
     }
-    public void Mute()
+
+
+
+    public void SoundOn()
     {
-        isMuted = !isMuted;
-        AudioListener.pause = isMuted;
-        PlayerPrefs.SetInt("MUTED", isMuted ? 1 : 0);
+        isSound = !isSound;
+        AudioListener.pause = isSound;
+        PlayerPrefs.SetInt("MUTED", isSound ? 1 : 0);
+        soundOn.SetActive(false);
+        soundOff.SetActive(true);
+        PlayerPrefs.Save();
     }
-    public void Vibration()
+    public void SoundOff()
+    {
+        isSound = !isSound;
+        AudioListener.pause = isSound;
+        PlayerPrefs.SetInt("MUTED", isSound ? 1 : 0);
+        soundOff.SetActive(false);
+        soundOn.SetActive(true);
+        PlayerPrefs.Save();
+    }
+
+
+
+    public void VibrationOn()
     {
         isVibration = !isVibration;
         Debug.Log(isVibration);
         PlayerPrefs.SetInt("VIBRATION", isVibration ? 1 : 0);
+        vibrationOn.SetActive(false);
+        vibrationOff.SetActive(true);
+        PlayerPrefs.Save();
+
     }
+    public void VibrationOff()
+    {
+        isVibration = !isVibration;
+        Debug.Log(isVibration);
+        PlayerPrefs.SetInt("VIBRATION", isVibration ? 1 : 0);
+        vibrationOff.SetActive(false);
+        vibrationOn.SetActive(true);
+        PlayerPrefs.Save();
+    }
+
+
+
 
     public void FlipLeft()
     {

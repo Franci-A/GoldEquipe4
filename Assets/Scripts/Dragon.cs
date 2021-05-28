@@ -11,10 +11,14 @@ public class Dragon : MonoBehaviour
     private Tile tileInfo;
     public Score score;
     public Grid grid;
+    public Merge merge;
     bool dragonSpawned;
+    bool dragonAttacked = true;
     int nbrTurn;
+    int lastAttack = 0;
     int turnBeforeAttack = 6;
     public int minTurn = 15;
+    public int minTurnNextAttack = 10;
     public int dragonChances = 20;
     public int targetNbr = 5;
     [SerializeField] private Animator animator;
@@ -36,11 +40,17 @@ public class Dragon : MonoBehaviour
     public void SpawnDragon()
     {
         nbrTurn++;
-        if (nbrTurn >= minTurn)
+        Debug.Log(lastAttack);
+        if (dragonAttacked) {
+            lastAttack++;
+        }
+
+        if (nbrTurn >= minTurn && lastAttack >= minTurnNextAttack)
         {
+            dragonAttacked = false;
             int random = Random.Range(1, dragonChances);
 
-            if (random == 1)
+            if (random == 1 && !dragonSpawned)
             {
                 animator.SetTrigger("Arrive");
                 dragonSpawned = true;
@@ -61,7 +71,6 @@ public class Dragon : MonoBehaviour
         {
             timerAnimator.SetTrigger("NextStep");
             turnBeforeAttack = turnBeforeAttack - 1;
-            Debug.Log(turnBeforeAttack);
             if(turnBeforeAttack == 0)
             {
                 playerHand.BlockHandForSec(2.0f);
@@ -71,7 +80,6 @@ public class Dragon : MonoBehaviour
     }
     public void DragonAttack()
     {
-
         foreach (Tile tiles in targetedTiles)
         {
             if (tiles.tileType == TileType.House) {
@@ -107,6 +115,8 @@ public class Dragon : MonoBehaviour
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Dragon", "None");
         turnBeforeAttack = 6;
         dragonSpawned = false;
+        dragonAttacked = true;
+        lastAttack = 0;
         targetedTiles.Clear();
     }
 }
