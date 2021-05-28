@@ -193,14 +193,12 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 if (currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
                                 {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop1");
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl1");
                                 }
                                 else
                                 {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop2");
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
                                 }
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
-                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
                                 AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
                             }
@@ -313,7 +311,7 @@ public class PIckUpAndPlace : MonoBehaviour
             }
             
         }
-
+        yield return new WaitForSeconds(.5f);
         if (!CheckPosibilities())
         {
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
