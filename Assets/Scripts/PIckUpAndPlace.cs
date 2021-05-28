@@ -205,6 +205,7 @@ public class PIckUpAndPlace : MonoBehaviour
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                                AudioManager.instance.soundName = "Destruction";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                             }

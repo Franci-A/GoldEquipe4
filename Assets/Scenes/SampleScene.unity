@@ -929,7 +929,9 @@ MonoBehaviour:
   spriteLib: {fileID: 177854006}
   score: {fileID: 177854002}
   grid: {fileID: 1573509823}
+  merge: {fileID: 0}
   minTurn: 15
+  minTurnNextAttack: 10
   dragonChances: 20
   targetNbr: 5
   animator: {fileID: 567961258}
