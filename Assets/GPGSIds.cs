@@ -24,8 +24,22 @@
 
 public static class GPGSIds
 {
-        public const string leaderboard_high_score = "CgkIp7jc_LgZEAIQAQ"; // <GPGSID>
+        public const string achievement_250_without_bonus = "CgkIp7jc_LgZEAIQCg"; // <GPGSID>
+        public const string achievement_for_the_horde = "CgkIp7jc_LgZEAIQAg"; // <GPGSID>
+        public const string achievement_for_the_gold = "CgkIp7jc_LgZEAIQBA"; // <GPGSID>
+        public const string achievement_counter_the_devil = "CgkIp7jc_LgZEAIQDg"; // <GPGSID>
         public const string achievement_lucky_you = "CgkIp7jc_LgZEAIQAA"; // <GPGSID>
+        public const string leaderboard_high_score = "CgkIp7jc_LgZEAIQAQ"; // <GPGSID>
+        public const string achievement_wombo_combos = "CgkIp7jc_LgZEAIQDQ"; // <GPGSID>
+        public const string achievement_for_the_forest = "CgkIp7jc_LgZEAIQAw"; // <GPGSID>
+        public const string achievement_poor_you = "CgkIp7jc_LgZEAIQBQ"; // <GPGSID>
+        public const string achievement_750 = "CgkIp7jc_LgZEAIQCA"; // <GPGSID>
+        public const string achievement_750_without_bonus = "CgkIp7jc_LgZEAIQDA"; // <GPGSID>
+        public const string achievement_500 = "CgkIp7jc_LgZEAIQBw"; // <GPGSID>
+        public const string achievement_250 = "CgkIp7jc_LgZEAIQBg"; // <GPGSID>
+        public const string achievement_catch_em_all = "CgkIp7jc_LgZEAIQCQ"; // <GPGSID>
+        public const string achievement_500_without_bonus = "CgkIp7jc_LgZEAIQCw"; // <GPGSID>
+        public const string achievement_200_volts = "CgkIp7jc_LgZEAIQDw"; // <GPGSID>
 
 }
 
