@@ -9,6 +9,7 @@ public class OptionMenu : MonoBehaviour
     public GameObject optionMenuUI;
     private bool isOpen = false;
     private bool isSound;
+    private bool isMusic;
     private bool isVibration;
     [SerializeField] private LeftyFlip leftyFlip;
 
@@ -30,6 +31,13 @@ public class OptionMenu : MonoBehaviour
         {
             soundOn.SetActive(false);
             soundOff.SetActive(true);
+        }
+
+        isMusic = PlayerPrefs.GetInt("MUSIQUE") == 1;
+        if(isMusic == false)
+        {
+            musicOn.SetActive(false);
+            musicOff.SetActive(true);
         }
 
         isVibration = PlayerPrefs.GetInt("VIBRATION") == 1;
@@ -81,7 +89,24 @@ public class OptionMenu : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-
+    public void MusicOn()
+    {
+        isMusic = false;
+        Debug.Log(isMusic);
+        PlayerPrefs.SetInt("MUSIQUE", isMusic ? 1 : 0);
+        musicOn.SetActive(false);
+        musicOff.SetActive(true);
+        PlayerPrefs.Save();
+    }    
+    public void MusicOff()
+    {
+        isMusic = true;
+        Debug.Log(isMusic);
+        PlayerPrefs.SetInt("MUSIQUE", isMusic ? 1 : 0);
+        musicOff.SetActive(false);
+        musicOn.SetActive(true);
+        PlayerPrefs.Save();
+    }
 
     public void VibrationOn()
     {
