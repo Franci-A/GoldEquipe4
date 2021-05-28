@@ -16,6 +16,8 @@ public class Merge : MonoBehaviour
     int combo;
     int bonusScore;
 
+    private List<bool> womboCombo;
+
     void Start()
     {
         score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
@@ -26,6 +28,11 @@ public class Merge : MonoBehaviour
             leftTile = grid.grid[grid.gridWidth * tileInfo.lineNum + tileInfo.tileNum - 1].GetComponent<Tile>();
             upTile = grid.grid[grid.gridWidth * (tileInfo.lineNum - 1) + tileInfo.tileNum].GetComponent<Tile>();
             downTile = grid.grid[grid.gridWidth * (tileInfo.lineNum + 1) + tileInfo.tileNum].GetComponent<Tile>();
+        }
+        womboCombo = new List<bool>();
+        for (int i = 0; i < 8; i++)
+        {
+            womboCombo.Add(false);
         }
     }
     public bool merging()
@@ -86,6 +93,21 @@ public class Merge : MonoBehaviour
         if (combo >= 2) {
             comboValue(tempHouseUpgrade);
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
+
+            bool canGetAchievement = true;
+            foreach (bool item in womboCombo)
+            {
+                if (!item)
+                {
+                    canGetAchievement = false;
+                    break;
+                }
+            }
+
+            if (canGetAchievement)
+            {
+                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDQ"); //womboCombo achievement
+            }
         }
         else if(tileInfo.houseUpgrade >= 4 && combo < 2)
         {
@@ -117,6 +139,7 @@ public class Merge : MonoBehaviour
             }
             return true;
         }
+
         return false;
 
     }
@@ -131,37 +154,45 @@ public class Merge : MonoBehaviour
                 }
                 if (combo == 3) {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL1)._value;
+                    womboCombo[0] = true;
                 }
                 else if (combo == 4) {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL1)._value;
+                    womboCombo[1] = true;
                 }
                 break;
             case 2:
                 if (combo == 2)
                 {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.TRIPLE_LVL2)._value;
+                    womboCombo[2] = true;
                 }
                 else if (combo == 3)
                 {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL2)._value;
+                    womboCombo[3] = true;
                 }
                 else if (combo == 4)
                 {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL2)._value;
+                    womboCombo[4] = true;
                 }
                 break;
             case 3:
                 if (combo == 2)
                 {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.TRIPLE_LVL3)._value;
+                    womboCombo[5] = true;
                 }
                 else if (combo == 3)
                 {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUAD_LVL3)._value;
+                    womboCombo[6] = true;
                 }
                 else if (combo == 4)
                 {
                     bonusScore = comboData._comboConfig.Find(x => x._typeCombo == Combo_DB.COMBO_TYPE.QUINT_LVL3)._value;
+                    womboCombo[7] = true;
                 }
                 break;
         }

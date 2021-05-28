@@ -16,6 +16,8 @@ public class PIckUpAndPlace : MonoBehaviour
     public Grid currentGrid;
     private bool canBePlaced;
     private Vector2 offset;
+    public bool blockHand;
+
 
 
     private void Start()
@@ -43,7 +45,7 @@ public class PIckUpAndPlace : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!GameManager.Instance.gameOver)
+        if (!GameManager.Instance.gameOver && !blockHand)
         {
 
             isInHand = true;
@@ -61,7 +63,6 @@ public class PIckUpAndPlace : MonoBehaviour
         outline.GetComponent<SpriteRenderer>().sprite = playerHand.grid[0].GetComponent<Tile>().sprites.GetSprite("Outline", "White");
         if (canBePlaced && hasPos)
         {
-            //Handheld.Vibrate();
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
         }
@@ -183,12 +184,14 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                                AudioManager.instance.soundName = "Destruction";
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
                                 score.AddScore(-10);
-                            }else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
+                            }
+                            else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
                             {
-                                if(currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
+                                if (currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
                                 {
                                     currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop1");
                                 }
@@ -196,12 +199,26 @@ public class PIckUpAndPlace : MonoBehaviour
                                 {
                                     currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop2");
                                 }
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
+                                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
                             {
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Downgrade");
+                                AudioManager.instance.soundName = "Destruction";
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
+                            }
+                            else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].destroyParticles.textureSheetAnimation.SetSprite(i, null);
+                                }
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                                AudioManager.instance.soundName = "None";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                             }
                             break;
@@ -301,5 +318,17 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
         }
+    }
+
+    public void BlockHandForSec(float secondsToBlock)
+    {
+        blockHand = true;
+        StartCoroutine(BlockCurrentHand(secondsToBlock));
+    }
+
+    IEnumerator BlockCurrentHand(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        blockHand = false;
     }
 }

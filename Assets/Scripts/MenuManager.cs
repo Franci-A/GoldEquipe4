@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class MenuManager : MonoBehaviour
 {
@@ -17,7 +19,28 @@ public class MenuManager : MonoBehaviour
     }
     public void Leaderboard()
     {
-
+        if (GameManager.Instance.isConnectedToGooglePlayServices)
+        {
+            Social.ShowLeaderboardUI();
+        }
+        else
+        {
+            GameManager.Instance.SignInToGooglePlayServices();
+            Social.ShowLeaderboardUI();
+        }
+    }
+    
+    public void Achievementboard()
+    {
+        if (GameManager.Instance.isConnectedToGooglePlayServices)
+        {
+            Social.ShowAchievementsUI();
+        }
+        else
+        {
+            Social.ShowAchievementsUI();
+            GameManager.Instance.SignInToGooglePlayServices();
+        }
     }
     public void BackCredits()
     {

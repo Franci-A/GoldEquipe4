@@ -23,6 +23,19 @@ public class Score : MonoBehaviour
         if (currentScore < 0)
             currentScore = 0;
         scoreDisplay.text = "" + currentScore;
+
+        if(currentScore >= 250)
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBg"); // score achievement
+        }
+        else if(currentScore >= 500)
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBw"); // score achievement
+        }
+        else if(currentScore >= 750)
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCA"); // score achievement
+        }
     }
 
     public void CheckHighScore()

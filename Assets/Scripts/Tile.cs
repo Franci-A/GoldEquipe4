@@ -36,6 +36,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer scorePopup;
     public ParticleSystem destroyParticles;
     public SpriteRenderer shieldSprite;
+    public Animator targeted;
 
     public void UpdateVisual()
     {
@@ -86,4 +87,8 @@ public class Tile : MonoBehaviour
         FindObjectOfType<AudioManager>().Play(name);
     }
 
+    public void playSoundWithoutStr()
+    {
+        FindObjectOfType<AudioManager>().PlayWithoutStr();
+    }
 }
