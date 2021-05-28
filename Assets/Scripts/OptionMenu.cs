@@ -8,9 +8,9 @@ public class OptionMenu : MonoBehaviour
 {
     public GameObject optionMenuUI;
     private bool isOpen = false;
-    private bool isSound;
-    private bool isMusic;
-    private bool isVibration;
+    private bool isSound = true;
+    private bool isMusic = true;
+    private bool isVibration = true;
     [SerializeField] private LeftyFlip leftyFlip;
 
     public GameObject vibrationOn;
@@ -25,22 +25,28 @@ public class OptionMenu : MonoBehaviour
     private void Start()
     {
         optionMenuUI.SetActive(isOpen);
-        isSound = PlayerPrefs.GetInt("MUTED") == 1;
-        AudioListener.pause = isSound;
-        if(isSound == false)
+        soundOn.SetActive(true);
+        soundOff.SetActive(false);
+        musicOn.SetActive(true);
+        musicOff.SetActive(false);
+        vibrationOn.SetActive(true);
+        vibrationOff.SetActive(false);
+
+        //isSound = PlayerPrefs.GetInt("MUTED") == 1;
+        if (isSound == false)
         {
             soundOn.SetActive(false);
             soundOff.SetActive(true);
         }
 
-        isMusic = PlayerPrefs.GetInt("MUSIQUE") == 1;
+        //isMusic = PlayerPrefs.GetInt("MUSIQUE") == 1;
         if(isMusic == false)
         {
             musicOn.SetActive(false);
             musicOff.SetActive(true);
         }
 
-        isVibration = PlayerPrefs.GetInt("VIBRATION") == 1;
+        //isVibration = PlayerPrefs.GetInt("VIBRATION") == 1;
         if (isVibration == false)
         {
             vibrationOn.SetActive(false);
@@ -52,7 +58,7 @@ public class OptionMenu : MonoBehaviour
     {
         isOpen = !isOpen;
         optionMenuUI.SetActive(isOpen);
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
     }
 
     public void LoadMenu()
@@ -65,67 +71,65 @@ public class OptionMenu : MonoBehaviour
     {
         optionMenuUI.SetActive(false);
         SceneManager.LoadScene("SampleScene");
-        AudioListener.pause = isSound;
     }
 
 
 
     public void SoundOn()
     {
-        isSound = false;
-        AudioListener.pause = isSound;
-        PlayerPrefs.SetInt("MUTED", isSound ? 1 : 0);
-        soundOn.SetActive(false);
-        soundOff.SetActive(true);
-        PlayerPrefs.Save();
+        isSound = true;
+        FindObjectOfType<AudioManager>().Sfx("Music", true);
+        //PlayerPrefs.SetInt("MUTED", isSound ? 1 : 0);
+        soundOn.SetActive(true);
+        soundOff.SetActive(false);
+        //PlayerPrefs.Save();
     }
     public void SoundOff()
     {
-        isSound = true;
-        AudioListener.pause = isSound;
-        PlayerPrefs.SetInt("MUTED", isSound ? 1 : 0);
-        soundOff.SetActive(false);
-        soundOn.SetActive(true);
-        PlayerPrefs.Save();
+        isSound = false;
+        FindObjectOfType<AudioManager>().Sfx("Music", false);
+        //PlayerPrefs.SetInt("MUTED", isSound ? 1 : 0);
+        soundOff.SetActive(true);
+        soundOn.SetActive(false);
+        //PlayerPrefs.Save();
     }
 
     public void MusicOn()
     {
-        isMusic = false;
-        Debug.Log(isMusic);
-        PlayerPrefs.SetInt("MUSIQUE", isMusic ? 1 : 0);
-        musicOn.SetActive(false);
-        musicOff.SetActive(true);
-        PlayerPrefs.Save();
+        isMusic = true;
+        FindObjectOfType<AudioManager>().Music("Music", "UnPause");
+        //PlayerPrefs.SetInt("MUSIQUE", isMusic ? 1 : 0);
+        musicOn.SetActive(true);
+        musicOff.SetActive(false);
+        //PlayerPrefs.Save();
     }    
     public void MusicOff()
     {
-        isMusic = true;
-        Debug.Log(isMusic);
-        PlayerPrefs.SetInt("MUSIQUE", isMusic ? 1 : 0);
-        musicOff.SetActive(false);
-        musicOn.SetActive(true);
-        PlayerPrefs.Save();
+        isMusic = false;
+        FindObjectOfType<AudioManager>().Music("Music", "Pause");
+        //PlayerPrefs.SetInt("MUSIQUE", isMusic ? 1 : 0);
+        musicOff.SetActive(true);
+        musicOn.SetActive(false);
+        //PlayerPrefs.Save();
     }
 
     public void VibrationOn()
     {
         isVibration = false;
         Debug.Log(isVibration);
-        PlayerPrefs.SetInt("VIBRATION", isVibration ? 1 : 0);
+        //PlayerPrefs.SetInt("VIBRATION", isVibration ? 1 : 0);
         vibrationOn.SetActive(false);
         vibrationOff.SetActive(true);
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
 
     }
     public void VibrationOff()
     {
         isVibration = true;
-        Debug.Log(isVibration);
-        PlayerPrefs.SetInt("VIBRATION", isVibration ? 1 : 0);
+        //PlayerPrefs.SetInt("VIBRATION", isVibration ? 1 : 0);
         vibrationOff.SetActive(false);
         vibrationOn.SetActive(true);
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
     }
 
 
@@ -133,8 +137,8 @@ public class OptionMenu : MonoBehaviour
 
     public void FlipLeft()
     {
-        PlayerPrefs.SetInt("LeftFlip", PlayerPrefs.GetInt("LeftFlip") == 0 ? 1 : 0);
+        //PlayerPrefs.SetInt("LeftFlip", PlayerPrefs.GetInt("LeftFlip") == 0 ? 1 : 0);
         leftyFlip.FlipItems();
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
     }
 }

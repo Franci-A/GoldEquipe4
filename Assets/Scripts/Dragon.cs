@@ -88,7 +88,7 @@ public class Dragon : MonoBehaviour
                     tiles.shieldLvl--;
                     AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
                 }
-                if (tiles.shieldLvl == 1)
+                else if (tiles.shieldLvl == 1)
                 {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop1");
                     tiles.shieldLvl--;

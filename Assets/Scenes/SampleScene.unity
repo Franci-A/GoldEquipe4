@@ -1290,7 +1290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &246020792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 7889686867392082686, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
+    m_PressedSprite: {fileID: 2870953111307307347, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1337,7 +1337,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144241517}
         m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
-        m_MethodName: SoundOn
+        m_MethodName: SoundOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5139913053652279875, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
+  m_Sprite: {fileID: -5575491584031077287, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2259,7 +2259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &547795331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2309,7 +2309,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 2870953111307307347, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
+    m_PressedSprite: {fileID: 7889686867392082686, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2325,7 +2325,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144241517}
         m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
-        m_MethodName: SoundOff
+        m_MethodName: SoundOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2355,7 +2355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5575491584031077287, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
+  m_Sprite: {fileID: -5139913053652279875, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2671,7 +2671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &610479992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2737,7 +2737,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144241517}
         m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
-        m_MethodName: MusicOff
+        m_MethodName: MusicOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2814,7 +2814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &635968503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3866,7 +3866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1035257748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,7 +3913,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 144241517}
         m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
-        m_MethodName: MusicOn
+        m_MethodName: MusicOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6371,7 +6371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1935291540
 MonoBehaviour:
   m_ObjectHideFlags: 0
