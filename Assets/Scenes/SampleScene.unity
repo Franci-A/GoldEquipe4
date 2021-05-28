@@ -664,10 +664,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1648297052}
   - {fileID: 1126055540}
   - {fileID: 2077834043}
-  - {fileID: 1126055540}
   m_Father: {fileID: 177854001}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -753,8 +751,8 @@ MonoBehaviour:
   leftyFlip: {fileID: 177854004}
   vibrationOn: {fileID: 635968502}
   vibrationOff: {fileID: 1935291539}
-  soundOn: {fileID: 635968502}
-  soundOff: {fileID: 1935291539}
+  soundOn: {fileID: 547795330}
+  soundOff: {fileID: 246020791}
   musicOn: {fileID: 0}
   musicOff: {fileID: 0}
 --- !u!114 &149055312 stripped
@@ -1287,7 +1285,7 @@ GameObject:
   - component: {fileID: 246020793}
   - component: {fileID: 246020792}
   m_Layer: 0
-  m_Name: SoundOff
+  m_Name: SoundOn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1321,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 7889686867392082686, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
+    m_PressedSprite: {fileID: 2870953111307307347, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1369,7 +1367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5139913053652279875, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
+  m_Sprite: {fileID: -5575491584031077287, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2256,7 +2254,7 @@ GameObject:
   - component: {fileID: 547795333}
   - component: {fileID: 547795332}
   m_Layer: 0
-  m_Name: SoundOn
+  m_Name: SoundOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2311,7 +2309,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 2870953111307307347, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
+    m_PressedSprite: {fileID: 7889686867392082686, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2357,7 +2355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5575491584031077287, guid: fb333abe5712cc641bfa10ec6c90b8b3, type: 3}
+  m_Sprite: {fileID: -5139913053652279875, guid: 7520b1622064a2e42b64faa3fafc47ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4242,7 +4240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1126055540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4264,7 +4262,7 @@ RectTransform:
   - {fileID: 635968503}
   - {fileID: 1935291543}
   m_Father: {fileID: 144241513}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6626,7 +6624,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 144241513}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8425001, y: 0.91300005}
   m_AnchorMax: {x: 0.94000006, y: 0.9655927}
