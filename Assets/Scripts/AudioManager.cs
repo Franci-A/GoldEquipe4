@@ -58,4 +58,38 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
+
+    public void Music(string name, string status)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) {
+            Debug.Log("Sound " + name + " not found!");
+            return;
+        }
+
+        if (status == "Pause") {
+            s.source.Pause();
+        }
+
+        else if (status == "UnPause") {
+            s.source.UnPause();
+        }
+    }
+
+    public void Sfx(string name, bool On)
+    {
+        Sound[] s = Array.FindAll(sounds, sound => sound.name != name);
+
+        if (On) {
+            foreach (Sound sound in s) {
+                sound.source.volume = 75;
+            }
+        }
+        
+        else {
+            foreach (Sound sound in s) {
+                sound.source.volume = 0;
+            }
+        }
+    }
 }
