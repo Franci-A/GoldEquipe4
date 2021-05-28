@@ -557,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142588813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0, z: 0}
+  m_LocalPosition: {x: 1.2, y: -0.861, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 567961257}
@@ -627,7 +627,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.44285715, y: 0.48653737}
+  m_Size: {x: 0.66, y: 0.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   spriteLib: {fileID: 177854006}
   score: {fileID: 177854002}
   grid: {fileID: 1573509823}
-  minTurn: 15
+  minTurn: 2
   dragonChances: 20
   targetNbr: 5
   animator: {fileID: 567961258}
@@ -2292,7 +2292,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 932786225919236868, guid: ea92e110aaeab1d4eb0eb3bb60d154e7, type: 3}
+  m_Sprite: {fileID: 2133904887243174876, guid: 4cd799a1444f12144be3f9e48bfec810, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2311,7 +2311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567961255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 5.05, z: 0}
+  m_LocalPosition: {x: 1, y: 5.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 142588814}
