@@ -19,6 +19,7 @@ public class PIckUpAndPlace : MonoBehaviour
     public bool blockHand;
 
 
+
     private void Start()
     {
         score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
@@ -62,7 +63,6 @@ public class PIckUpAndPlace : MonoBehaviour
         outline.GetComponent<SpriteRenderer>().sprite = playerHand.grid[0].GetComponent<Tile>().sprites.GetSprite("Outline", "White");
         if (canBePlaced && hasPos)
         {
-            //Handheld.Vibrate();
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
         }
@@ -191,7 +191,7 @@ public class PIckUpAndPlace : MonoBehaviour
                             }
                             else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
                             {
-                                if(currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
+                                if (currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
                                 {
                                     currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop1");
                                 }
@@ -199,6 +199,8 @@ public class PIckUpAndPlace : MonoBehaviour
                                 {
                                     currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop2");
                                 }
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
                                 AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
                             }

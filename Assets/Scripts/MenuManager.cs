@@ -19,12 +19,28 @@ public class MenuManager : MonoBehaviour
     }
     public void Leaderboard()
     {
-        Social.ShowLeaderboardUI();
+        if (GameManager.Instance.isConnectedToGooglePlayServices)
+        {
+            Social.ShowLeaderboardUI();
+        }
+        else
+        {
+            GameManager.Instance.SignInToGooglePlayServices();
+            Social.ShowLeaderboardUI();
+        }
     }
     
     public void Achievementboard()
     {
-        Social.ShowAchievementsUI();
+        if (GameManager.Instance.isConnectedToGooglePlayServices)
+        {
+            Social.ShowAchievementsUI();
+        }
+        else
+        {
+            Social.ShowAchievementsUI();
+            GameManager.Instance.SignInToGooglePlayServices();
+        }
     }
     public void BackCredits()
     {

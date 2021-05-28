@@ -2563,7 +2563,7 @@ MonoBehaviour:
   - {fileID: 545282283}
   turnToLevelUpColors: 140000003c00000050000000
   maxNumOfColors: 1
-  turnToLevelUpHouses: 0f0000002d0000005a000000
+  turnToLevelUpHouses: 0a0000002d000000
   maxNumOfHouses: 1
   turnToLevelUpX: 05000000
   maxNumOfX: 0

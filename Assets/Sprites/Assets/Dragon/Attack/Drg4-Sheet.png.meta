@@ -1,40 +1,22 @@
 fileFormatVersion: 2
-guid: 7cf61d10b4e8aeb42ad46cb85b1db7a1
+guid: cc2eb8c45c816814594004a5bb982fca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2871433562965105782
-    second: DragonMalusAttack1-Sheet_0
+      213: -5996958770550332702
+    second: Drg4-Sheet_0
   - first:
-      213: -6022466231702060677
-    second: DragonMalusAttack1-Sheet_1
+      213: -4221752895499505794
+    second: Drg4-Sheet_1
   - first:
-      213: 3447023759665656538
-    second: DragonMalusAttack1-Sheet_2
+      213: 4592895099104333687
+    second: Drg4-Sheet_2
   - first:
-      213: 2957743879706831153
-    second: DragonMalusAttack1-Sheet_3
+      213: 5466604528213401885
+    second: Drg4-Sheet_3
   - first:
-      213: -2506870700905318271
-    second: DragonMalusAttack1-Sheet_4
-  - first:
-      213: 8212800831450413189
-    second: DragonMalusAttack1-Sheet_5
-  - first:
-      213: -1496168604278790682
-    second: DragonMalusAttack1-Sheet_6
-  - first:
-      213: -5390155210772316950
-    second: DragonMalusAttack1-Sheet_7
-  - first:
-      213: 8254876271896609783
-    second: DragonMalusAttack1-Sheet_8
-  - first:
-      213: 4323284638264958129
-    second: DragonMalusAttack1-Sheet_9
-  - first:
-      213: 6320493933000495729
-    second: DragonMalusAttack1-Sheet_10
+      213: -5801188425680198722
+    second: Drg4-Sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +118,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_0
+      name: Drg4-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a83a453536e9628d0800000000000000
-      internalID: -2871433562965105782
+      spriteID: 2e22fac75c586cca0800000000000000
+      internalID: -5996958770550332702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_1
+      name: Drg4-Sheet_1
       rect:
         serializedVersion: 2
         x: 388
@@ -171,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b710d93eed6eb6ca0800000000000000
-      internalID: -6022466231702060677
+      spriteID: e7f664efb125965c0800000000000000
+      internalID: -4221752895499505794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_2
+      name: Drg4-Sheet_2
       rect:
         serializedVersion: 2
         x: 776
@@ -192,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2f337a8d946df20800000000000000
-      internalID: 3447023759665656538
+      spriteID: 77f0fb822cd3dbf30800000000000000
+      internalID: 4592895099104333687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_3
+      name: Drg4-Sheet_3
       rect:
         serializedVersion: 2
         x: 1164
@@ -213,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 139e28643640c0920800000000000000
-      internalID: 2957743879706831153
+      spriteID: d11a3b7ead74ddb40800000000000000
+      internalID: 5466604528213401885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_4
+      name: Drg4-Sheet_4
       rect:
         serializedVersion: 2
         x: 1552
@@ -234,134 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18834b6216ec53dd0800000000000000
-      internalID: -2506870700905318271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1940
-        y: 0
-        width: 388
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58872a9c7dab9f170800000000000000
-      internalID: 8212800831450413189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 2328
-        y: 0
-        width: 388
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e5eed9d49a8c3be0800000000000000
-      internalID: -1496168604278790682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 2716
-        y: 0
-        width: 388
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aecf1b1e4625235b0800000000000000
-      internalID: -5390155210772316950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 3104
-        y: 0
-        width: 388
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f3c23bab363f8270800000000000000
-      internalID: 8254876271896609783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 3492
-        y: 0
-        width: 388
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bc9fa609746ffb30800000000000000
-      internalID: 4323284638264958129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DragonMalusAttack1-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 3880
-        y: 0
-        width: 388
-        height: 254
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1729181aeb7e6b750800000000000000
-      internalID: 6320493933000495729
+      spriteID: eb36934ecd90e7fa0800000000000000
+      internalID: -5801188425680198722
       vertices: []
       indices: 
       edges: []
