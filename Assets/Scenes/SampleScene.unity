@@ -664,7 +664,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1648297052}
   - {fileID: 1126055540}
   - {fileID: 2077834043}
   m_Father: {fileID: 177854001}
@@ -2562,7 +2561,7 @@ MonoBehaviour:
   - {fileID: 545282283}
   turnToLevelUpColors: 140000003c00000050000000
   maxNumOfColors: 1
-  turnToLevelUpHouses: 0a0000002d000000410000005a000000
+  turnToLevelUpHouses: 0f0000002d0000005a000000
   maxNumOfHouses: 1
   turnToLevelUpX: 05000000
   maxNumOfX: 0
@@ -4239,7 +4238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126055540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4261,7 +4260,7 @@ RectTransform:
   - {fileID: 635968503}
   - {fileID: 1935291543}
   m_Father: {fileID: 144241513}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6757,7 +6756,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 144241513}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8425001, y: 0.91300005}
   m_AnchorMax: {x: 0.94000006, y: 0.9655927}

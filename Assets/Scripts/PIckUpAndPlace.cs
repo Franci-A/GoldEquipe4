@@ -210,6 +210,10 @@ public class PIckUpAndPlace : MonoBehaviour
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
                             {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].destroyParticles.textureSheetAnimation.SetSprite(i, null);
+                                }
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 AudioManager.instance.soundName = "None";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
