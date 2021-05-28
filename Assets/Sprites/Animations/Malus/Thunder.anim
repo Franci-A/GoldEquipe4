@@ -457,7 +457,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.98333335
-    functionName: UpdateVisual
+    functionName: playSoundWithoutStr
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -471,15 +471,15 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.98333335
-    functionName: playSound
-    data: Zap
+    functionName: UpdateVisual
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.98333335
-    functionName: playSoundWithoutStr
-    data: 
+    functionName: playSound
+    data: Zap
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

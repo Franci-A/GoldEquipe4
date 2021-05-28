@@ -266,17 +266,18 @@ public class Bonus_Malus : MonoBehaviour
     {
         if (tileInfo.shieldLvl > 0)
         {
+
             tileInfo.shieldLvl -= 1;
             isProtected = true;
             AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
             if (tileInfo.shieldLvl == 1) {
-                tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp2");
+                tileInfo.GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
 
                 tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             }
             else if (tileInfo.shieldLvl == 0)
             {
-                tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp1");
+                tileInfo.GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl1");
 
                 tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             }

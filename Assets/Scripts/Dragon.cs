@@ -100,6 +100,7 @@ public class Dragon : MonoBehaviour
                     tiles.GetComponent<Animator>().SetTrigger("Downgrade");
                 }
                 if(tiles.houseUpgrade == 0) {
+                    tiles.scorePopup.sprite = spriteLib.GetSprite("Score", "-10");
                     tiles.tileType = TileType.Ground;
                     score.AddScore(-10);
                 }

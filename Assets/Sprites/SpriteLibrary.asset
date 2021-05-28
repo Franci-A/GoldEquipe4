@@ -256,6 +256,18 @@ MonoBehaviour:
     - m_Name: +90
       m_Hash: -486224635
       m_Sprite: {fileID: 21300000, guid: 94c0b7d196091b94db9b490a8bac2772, type: 3}
+    - m_Name: +15
+      m_Hash: 1538765698
+      m_Sprite: {fileID: 21300000, guid: 868cea12eb37ac54d8bb8622b0a8432a, type: 3}
+    - m_Name: +45
+      m_Hash: 650135495
+      m_Sprite: {fileID: 21300000, guid: b2926899d340a7e4dad32f0d9e7d7b85, type: 3}
+    - m_Name: +75
+      m_Hash: 233640964
+      m_Sprite: {fileID: 21300000, guid: f81c3ffd44a937743bb354a74c52895c, type: 3}
+    - m_Name: +100
+      m_Hash: -1975419173
+      m_Sprite: {fileID: 21300000, guid: 2384a08a05a76814e9ea3e12657fe007, type: 3}
     - m_Name: -10
       m_Hash: 793787327
       m_Sprite: {fileID: 21300000, guid: 25732f3fa009c754aa0bcba2d23603ee, type: 3}
