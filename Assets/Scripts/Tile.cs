@@ -91,4 +91,11 @@ public class Tile : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().PlayWithoutStr();
     }
+
+    public void playDestruction()
+    {
+        if (houseUpgrade == 0) {
+            FindObjectOfType<AudioManager>().Play("Destruction");
+        }
+    }
 }
