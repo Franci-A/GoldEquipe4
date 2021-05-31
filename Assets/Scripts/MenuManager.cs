@@ -46,4 +46,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void OpenTwitter()
+    {
+        Application.OpenURL("https://twitter.com/Summum_TheGame");
+    }
 }

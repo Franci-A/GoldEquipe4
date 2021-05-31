@@ -18,7 +18,9 @@ public class PlayerPieceManager : MonoBehaviour
     [Header("Houses")]
     [SerializeField] private List<int> turnToLevelUpHouses;
     [SerializeField] private int maxNumOfHouses = 1;
+    [SerializeField] private int chanceToGetThirdHouse;
     private int currentHouses = 0;
+    private bool hadThreeHouses;
 
     [Header("Downgrade")]
     [SerializeField] private List<int> turnToLevelUpX;
@@ -74,8 +76,21 @@ public class PlayerPieceManager : MonoBehaviour
                 }
             }
             else {
-                int m = Random.Range(-1, 0);
-                numOfObj =Random.Range(1, maxNumOfHouses -m );
+
+                int m =-1;
+                int p = Random.Range(0, 100);
+                if (!hadThreeHouses && p < chanceToGetThirdHouse)
+                {
+                    m = Random.Range(-1, 0);
+                }
+                
+                numOfObj =Random.Range(1, maxNumOfHouses - m );
+                if (numOfObj == 3)
+                {
+                    hadThreeHouses = true;
+                }
+                else
+                    hadThreeHouses = false;
             }
 
             for (int j = 0; j < numOfObj; j++)
