@@ -16,14 +16,28 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+
+        PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
 
     private void Start()
     {
-        SignInToGooglePlayServices();
-        
+        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) =>
+        {
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    isConnectedToGooglePlayServices = true;
+                    break;
+                default:
+                    isConnectedToGooglePlayServices = false;
+                    break;
+            }
+        });
+
         gameOver = false;
     }
     private void Update()
@@ -33,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void SignInToGooglePlayServices()
     {
-        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) =>
+        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptAlways, (result) =>
         {
             switch (result)
             {

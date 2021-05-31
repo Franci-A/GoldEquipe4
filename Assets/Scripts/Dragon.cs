@@ -40,7 +40,6 @@ public class Dragon : MonoBehaviour
     public void SpawnDragon()
     {
         nbrTurn++;
-        Debug.Log(lastAttack);
         if (dragonAttacked) {
             lastAttack++;
         }
@@ -88,7 +87,7 @@ public class Dragon : MonoBehaviour
                     tiles.shieldLvl--;
                     AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
                 }
-                if (tiles.shieldLvl == 1)
+                else if (tiles.shieldLvl == 1)
                 {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop1");
                     tiles.shieldLvl--;
@@ -97,9 +96,11 @@ public class Dragon : MonoBehaviour
                 else
                 {
                     tiles.houseUpgrade--;
+                    tiles.scorePopup.sprite = spriteLib.GetSprite("Score", "0");
                     tiles.GetComponent<Animator>().SetTrigger("Downgrade");
                 }
                 if(tiles.houseUpgrade == 0) {
+                    tiles.scorePopup.sprite = spriteLib.GetSprite("Score", "-10");
                     tiles.tileType = TileType.Ground;
                     score.AddScore(-10);
                 }

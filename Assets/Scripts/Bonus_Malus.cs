@@ -184,41 +184,47 @@ public class Bonus_Malus : MonoBehaviour
     }
 
     public void getBonus(int i) {
-        if (i == 1) { 
+        if (i > 0 && i <= 20) { 
             bonusTile.bonusType = BonusType.Hammer1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer1");
+            bonusesUsed[0] = true;
         }
-        else if (i == 2)
+        else if (i > 20 && i <= 35)
         {
             bonusTile.bonusType = BonusType.Hammer2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer2");
+            bonusesUsed[1] = true;
         }
-        else if (i == 3)
+        else if (i > 35 && i <= 45)
         {
             bonusTile.bonusType = BonusType.Hammer3;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer3");
+            bonusesUsed[2] = true;
         }
-        else if (i == 4)
+        else if (i > 45 && i <= 55)
         {
             bonusTile.bonusType = BonusType.Thunder;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Thunder");
+            bonusesUsed[3] = true;
         }
-        else if (i == 5)
+        else if (i > 55 && i <= 70)
         {
             bonusTile.bonusType = BonusType.Mountain;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Mountain");
+            bonusesUsed[4] = true;
         }
-        else if (i == 6)
+        else if (i > 70 && i <= 90)
         {
             bonusTile.bonusType = BonusType.Shield1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield1");
+            bonusesUsed[5] = true;
         }
-        else if (i == 7)
+        else if (i > 90 && i <= 100)
         {
             bonusTile.bonusType = BonusType.Shield2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield2");
+            bonusesUsed[6] = true;
         }
-        bonusesUsed[i-1] = true;
     }
 
     void hammer()
@@ -266,17 +272,18 @@ public class Bonus_Malus : MonoBehaviour
     {
         if (tileInfo.shieldLvl > 0)
         {
+
             tileInfo.shieldLvl -= 1;
             isProtected = true;
             AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
             if (tileInfo.shieldLvl == 1) {
-                tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp2");
+                tileInfo.GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
 
                 tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             }
             else if (tileInfo.shieldLvl == 0)
             {
-                tileInfo.GetComponent<Animator>().SetTrigger("ShieldUp1");
+                tileInfo.GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl1");
 
                 tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "0");
             }

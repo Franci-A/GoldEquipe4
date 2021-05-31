@@ -73,8 +73,9 @@ public class PlayerPieceManager : MonoBehaviour
                     numOfObj = Random.Range(currentXLevel, maxNumOfX + 1);
                 }
             }
-            else { 
-                numOfObj =Random.Range(1, maxNumOfHouses + 1);
+            else {
+                int m = Random.Range(-1, 0);
+                numOfObj =Random.Range(1, maxNumOfHouses -m );
             }
 
             for (int j = 0; j < numOfObj; j++)

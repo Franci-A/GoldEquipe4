@@ -17,7 +17,8 @@ public class PIckUpAndPlace : MonoBehaviour
     private bool canBePlaced;
     private Vector2 offset;
     public bool blockHand;
-
+    private bool hasToCheckGameOver;
+    public int mergesToFinish;
 
 
     private void Start()
@@ -39,6 +40,16 @@ public class PIckUpAndPlace : MonoBehaviour
             else
             {
                 snapImage.transform.position = transform.position;
+            }
+        }
+
+        
+        if(hasToCheckGameOver && mergesToFinish ==0)
+        {
+            hasToCheckGameOver = false;
+            if (!CheckPosibilities())
+            {
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
             }
         }
     }
@@ -193,14 +204,12 @@ public class PIckUpAndPlace : MonoBehaviour
                             {
                                 if (currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
                                 {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop1");
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl1");
                                 }
                                 else
                                 {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldPop2");
+                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
                                 }
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
-                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
                                 AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
                             }
@@ -304,20 +313,18 @@ public class PIckUpAndPlace : MonoBehaviour
     IEnumerator CallMergeAfterAnim(List<int> positions)
     {
         yield return new WaitForSeconds(.2f);
+        mergesToFinish = 0;
         foreach (int position in positions)
         {
             if (currentGrid.grid[position].tileType == TileType.House)
             {
                 currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
-                currentGrid.grid[position].GetComponent<Merge>().merging();
+                currentGrid.grid[position].GetComponent<Merge>().merging(true);
+                mergesToFinish++;
             }
             
         }
-
-        if (!CheckPosibilities())
-        {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
-        }
+        hasToCheckGameOver = true;
     }
 
     public void BlockHandForSec(float secondsToBlock)
