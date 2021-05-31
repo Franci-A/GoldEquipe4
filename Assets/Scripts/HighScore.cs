@@ -11,7 +11,7 @@ public class HighScore : MonoBehaviour
         highscoreText = GetComponent<TextMeshProUGUI>();
         if (PlayerPrefs.GetInt("HighScore") > 0)
         {
-            highscoreText.text = "Best : " + PlayerPrefs.GetInt("HighScore").ToString();
+            highscoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
         }
     }
 }
