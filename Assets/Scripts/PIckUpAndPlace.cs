@@ -17,7 +17,8 @@ public class PIckUpAndPlace : MonoBehaviour
     private bool canBePlaced;
     private Vector2 offset;
     public bool blockHand;
-
+    private bool hasToCheckGameOver;
+    public int mergesToFinish;
 
 
     private void Start()
@@ -39,6 +40,16 @@ public class PIckUpAndPlace : MonoBehaviour
             else
             {
                 snapImage.transform.position = transform.position;
+            }
+        }
+
+        
+        if(hasToCheckGameOver && mergesToFinish ==0)
+        {
+            hasToCheckGameOver = false;
+            if (!CheckPosibilities())
+            {
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
             }
         }
     }
@@ -307,15 +318,12 @@ public class PIckUpAndPlace : MonoBehaviour
             if (currentGrid.grid[position].tileType == TileType.House)
             {
                 currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
-                currentGrid.grid[position].GetComponent<Merge>().merging();
+                currentGrid.grid[position].GetComponent<Merge>().merging(true, this);
+                mergesToFinish++;
             }
             
         }
-        yield return new WaitForSeconds(.5f);
-        if (!CheckPosibilities())
-        {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
-        }
+        hasToCheckGameOver = true;
     }
 
     public void BlockHandForSec(float secondsToBlock)

@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+
+        PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
