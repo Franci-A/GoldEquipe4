@@ -32,19 +32,19 @@ public class OptionMenu : MonoBehaviour
         vibrationOn.SetActive(true);
         vibrationOff.SetActive(false);
 
-        isSound = PlayerPrefs.GetInt("MUTED") == 1;
+        isSound = PlayerPrefs.GetInt("MUTED") == 0;
         if (isSound == false)
         {
             SoundOff();
         }
 
-        isMusic = PlayerPrefs.GetInt("MUSIQUE") == 1;
+        isMusic = PlayerPrefs.GetInt("MUSIQUE") == 0;
         if(isMusic == false)
         {
             MusicOff();
         }
 
-        isVibration = PlayerPrefs.GetInt("VIBRATION") == 1;
+        isVibration = PlayerPrefs.GetInt("VIBRATION") == 0;
         if (isVibration == false)
         {
             VibrationOff();
@@ -76,7 +76,7 @@ public class OptionMenu : MonoBehaviour
     {
         isSound = true;
         FindObjectOfType<AudioManager>().Sfx("Music", true);
-        PlayerPrefs.SetInt("MUTED", 1);
+        PlayerPrefs.SetInt("MUTED", 0);
         soundOn.SetActive(true);
         soundOff.SetActive(false);
         PlayerPrefs.Save();
@@ -85,7 +85,7 @@ public class OptionMenu : MonoBehaviour
     {
         isSound = false;
         FindObjectOfType<AudioManager>().Sfx("Music", false);
-        PlayerPrefs.SetInt("MUTED", 0);
+        PlayerPrefs.SetInt("MUTED", 1);
         soundOff.SetActive(true);
         soundOn.SetActive(false);
         PlayerPrefs.Save();
@@ -95,7 +95,7 @@ public class OptionMenu : MonoBehaviour
     {
         isMusic = true;
         FindObjectOfType<AudioManager>().Music("Music", "UnPause");
-        PlayerPrefs.SetInt("MUSIQUE", 1);
+        PlayerPrefs.SetInt("MUSIQUE", 0);
         musicOn.SetActive(true);
         musicOff.SetActive(false);
         PlayerPrefs.Save();
@@ -104,7 +104,7 @@ public class OptionMenu : MonoBehaviour
     {
         isMusic = false;
         FindObjectOfType<AudioManager>().Music("Music", "Pause");
-        PlayerPrefs.SetInt("MUSIQUE", 0);
+        PlayerPrefs.SetInt("MUSIQUE", 1);
         musicOff.SetActive(true);
         musicOn.SetActive(false);
         PlayerPrefs.Save();
@@ -114,7 +114,7 @@ public class OptionMenu : MonoBehaviour
     {
         isVibration = false;
         Debug.Log(isVibration);
-        PlayerPrefs.SetInt("VIBRATION", 0);
+        PlayerPrefs.SetInt("VIBRATION", 1);
         vibrationOn.SetActive(false);
         vibrationOff.SetActive(true);
         PlayerPrefs.Save();
@@ -123,7 +123,7 @@ public class OptionMenu : MonoBehaviour
     public void VibrationOff()
     {
         isVibration = true;
-        PlayerPrefs.SetInt("VIBRATION", 1);
+        PlayerPrefs.SetInt("VIBRATION", 0);
         vibrationOff.SetActive(false);
         vibrationOn.SetActive(true);
         PlayerPrefs.Save();
