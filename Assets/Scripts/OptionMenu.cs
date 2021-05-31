@@ -31,17 +31,28 @@ public class OptionMenu : MonoBehaviour
         {
             SoundOff();
         }
+        else
+        {
+            SoundOn();
+        }
 
         if(PlayerPrefs.GetInt("MUSIQUE") == 0)
         {
             Debug.Log(PlayerPrefs.GetInt("MUSIQUE") == 0);
             MusicOff();
         }
+        else
+        {
+            MusicOn();
+        }
 
         
         if (PlayerPrefs.GetInt("VIBRATION") == 0)
         {
             VibrationOff();
+        }else
+        {
+            VibrationOn();
         }
     }
 
@@ -107,7 +118,7 @@ public class OptionMenu : MonoBehaviour
     public void VibrationOn()
     {
         isVibration = true;
-        Debug.Log(isVibration);
+        VibrationManager.Instance.vibration = true;
         PlayerPrefs.SetInt("VIBRATION", 1);
         vibrationOn.SetActive(true);
         vibrationOff.SetActive(false);
@@ -117,9 +128,10 @@ public class OptionMenu : MonoBehaviour
     public void VibrationOff()
     {
         isVibration = false;
+        VibrationManager.Instance.vibration = false;
         PlayerPrefs.SetInt("VIBRATION", 0);
-        vibrationOff.SetActive(false);
-        vibrationOn.SetActive(true);
+        vibrationOn.SetActive(false);
+        vibrationOff.SetActive(true);
         PlayerPrefs.Save();
     }
 
