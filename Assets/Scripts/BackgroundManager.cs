@@ -7,7 +7,7 @@ public class BackgroundManager : MonoBehaviour
     [System.Serializable]
     struct Parallax
     {
-        public List<GameObject> gameObjectsInParallax;
+        public GameObject gameObjectsInParallax;
         public float speed;
         public Vector3 StartPos;
         public Vector3 EndPos;
@@ -19,14 +19,12 @@ public class BackgroundManager : MonoBehaviour
     {
         foreach (Parallax item in parallaxes)
         {
-            foreach (GameObject obj in item.gameObjectsInParallax)
+            item.gameObjectsInParallax.transform.Translate(new Vector3(item.EndPos.x * item.speed * Time.deltaTime, 0, 0));
+            if (item.gameObjectsInParallax.transform.position.x >= item.EndPos.x - .2f && item.gameObjectsInParallax.transform.position.x <= item.EndPos.x + .2f)
             {
-                obj.transform.Translate(item.EndPos * item.speed * Time.deltaTime);
-                if (obj.transform.position.x >= item.EndPos.x -.2f && obj.transform.position.x <= item.EndPos.x + .2f)
-                {
-                    obj.transform.position = item.StartPos;
-                }
+                item.gameObjectsInParallax.transform.position = new Vector3(item.StartPos.x, item.gameObjectsInParallax.transform.position.y, 0);
             }
+
         }
     }
 }
