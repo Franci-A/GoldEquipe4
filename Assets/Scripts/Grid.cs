@@ -84,6 +84,7 @@ public class Grid : MonoBehaviour
             obj.lineNum = y;
             obj.tileNum = x;
             obj.GetComponent<SpriteRenderer>().sortingOrder = y;
+            obj.GetComponent<Merge>().pIckUpAndPlace = playerPieceManager.gameObject.GetComponent<PIckUpAndPlace>();
             obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = y + 9;
             if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1) // outer ring instantiate to empty tile
                 obj.tileType = TileType.Empty;

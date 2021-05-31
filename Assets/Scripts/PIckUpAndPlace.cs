@@ -319,7 +319,7 @@ public class PIckUpAndPlace : MonoBehaviour
             if (currentGrid.grid[position].tileType == TileType.House)
             {
                 currentGrid.UpdateTile(position / currentGrid.gridWidth, position % currentGrid.gridWidth);
-                currentGrid.grid[position].GetComponent<Merge>().merging(true, this);
+                currentGrid.grid[position].GetComponent<Merge>().merging(true);
                 mergesToFinish++;
             }
             
