@@ -936,7 +936,7 @@ MonoBehaviour:
   score: {fileID: 177854002}
   grid: {fileID: 1573509823}
   merge: {fileID: 0}
-  minTurn: 2
+  minTurn: 100
   minTurnNextAttack: 10
   dragonChances: 2
   targetNbr: 5
@@ -2661,6 +2661,7 @@ MonoBehaviour:
   playerHand: {fileID: 470857442}
   currentGrid: {fileID: 1573509823}
   blockHand: 0
+  mergesToFinish: 0
 --- !u!114 &595124800
 MonoBehaviour:
   m_ObjectHideFlags: 0

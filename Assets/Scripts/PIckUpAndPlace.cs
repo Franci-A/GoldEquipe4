@@ -313,6 +313,7 @@ public class PIckUpAndPlace : MonoBehaviour
     IEnumerator CallMergeAfterAnim(List<int> positions)
     {
         yield return new WaitForSeconds(.2f);
+        mergesToFinish = 0;
         foreach (int position in positions)
         {
             if (currentGrid.grid[position].tileType == TileType.House)

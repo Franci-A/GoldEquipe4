@@ -216,4 +216,10 @@ public class Merge : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Play();
     }
 
+    IEnumerator MergeFinished(PIckUpAndPlace pIckUpAndPlace)
+    {
+        yield return new WaitForSeconds(1.4f);
+        pIckUpAndPlace.mergesToFinish--;
+    }
+
 }
