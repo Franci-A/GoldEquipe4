@@ -124,6 +124,7 @@ public class Merge : MonoBehaviour
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
+            StartCoroutine(MergeFinished(pIckUpAndPlace));
             return true;
         }
 
