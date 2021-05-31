@@ -936,7 +936,7 @@ MonoBehaviour:
   score: {fileID: 177854002}
   grid: {fileID: 1573509823}
   merge: {fileID: 0}
-  minTurn: 100
+  minTurn: 2
   minTurnNextAttack: 10
   dragonChances: 2
   targetNbr: 5
@@ -7149,7 +7149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
       propertyPath: sounds.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
       propertyPath: sounds.Array.data[1].loop
@@ -7260,6 +7260,14 @@ PrefabInstance:
       value: Fireball
       objectReference: {fileID: 0}
     - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 06546e063821a8447a6839bb0ffadb0d, type: 3}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[14].name
+      value: Firelanded
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
       propertyPath: sounds.Array.data[1].pitch
       value: 1.5
       objectReference: {fileID: 0}
@@ -7316,6 +7324,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[14].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
       propertyPath: sounds.Array.data[1].volume
       value: 0.05
       objectReference: {fileID: 0}
@@ -7365,6 +7377,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
       propertyPath: sounds.Array.data[13].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[14].volume
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
