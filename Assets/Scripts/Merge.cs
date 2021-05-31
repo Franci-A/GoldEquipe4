@@ -15,6 +15,7 @@ public class Merge : MonoBehaviour
     Tile downTile;
     int combo;
     int bonusScore;
+    public PIckUpAndPlace pIckUpAndPlace;
 
     private List<bool> womboCombo;
 
@@ -35,7 +36,13 @@ public class Merge : MonoBehaviour
             womboCombo.Add(false);
         }
     }
-    public bool merging(bool originalCall = false, PIckUpAndPlace pIckUpAndPlace = null)
+
+    public void MergeInAnim()
+    {
+        merging();
+    }
+
+    public bool merging(bool originalCall = false)
     {
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
@@ -124,7 +131,8 @@ public class Merge : MonoBehaviour
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
-            StartCoroutine(MergeFinished(pIckUpAndPlace));
+            if (originalCall)
+                StartCoroutine(MergeFinished());
             return true;
         }
 
@@ -217,7 +225,7 @@ public class Merge : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Play();
     }
 
-    IEnumerator MergeFinished(PIckUpAndPlace pIckUpAndPlace)
+    IEnumerator MergeFinished()
     {
         yield return new WaitForSeconds(1.4f);
         pIckUpAndPlace.mergesToFinish--;
