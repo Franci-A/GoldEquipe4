@@ -197,6 +197,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
                                 AudioManager.instance.soundName = "Destruction";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                                VibrationManager.Instance.isFiled = true;
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
                                 score.AddScore(-10);
                             }
@@ -212,6 +213,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 }
                                 currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
                                 AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
+                                VibrationManager.Instance.isFiled = true;
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
                             {
@@ -219,6 +221,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 AudioManager.instance.soundName = "Destruction";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
+                                VibrationManager.Instance.isFiled = true;
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
                             {
@@ -229,6 +232,7 @@ public class PIckUpAndPlace : MonoBehaviour
                                 currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
                                 AudioManager.instance.soundName = "None";
                                 currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
+                                VibrationManager.Instance.isFiled = false;
                             }
                             break;
 

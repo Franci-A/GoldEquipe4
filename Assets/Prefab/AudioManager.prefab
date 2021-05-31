@@ -54,7 +54,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7fab2ed586db19c468ba5e2d48af9806, type: 3}
     volume: 0.05
     pitch: 1.5
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Merge
     clip: {fileID: 8300000, guid: a3decea6e8c74bb43bcc0b85253b256b, type: 3}
@@ -78,7 +78,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: dfd68804d62195a46a45eab62315e334, type: 3}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: GetBonus
     clip: {fileID: 8300000, guid: 6b575e69fb9179241973a31a9aec2f19, type: 3}
