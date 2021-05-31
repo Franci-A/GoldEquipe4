@@ -46,13 +46,110 @@ MonoBehaviour:
   sounds:
   - name: Hammer
     clip: {fileID: 8300000, guid: a411ee10a88e61446afad1ab5e213f98, type: 3}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Music
     clip: {fileID: 8300000, guid: 7fab2ed586db19c468ba5e2d48af9806, type: 3}
-    volume: 0.1
-    pitch: 1
+    volume: 0.05
+    pitch: 1.5
     loop: 1
     source: {fileID: 0}
+  - name: Merge
+    clip: {fileID: 8300000, guid: a3decea6e8c74bb43bcc0b85253b256b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Montagne
+    clip: {fileID: 8300000, guid: 6e2f6594b774cfa4c97939d43436588e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BrokenShield
+    clip: {fileID: 8300000, guid: 7205e1660c52d2449b7839b3287dfa3f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShieldDroped
+    clip: {fileID: 8300000, guid: dfd68804d62195a46a45eab62315e334, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GetBonus
+    clip: {fileID: 8300000, guid: 6b575e69fb9179241973a31a9aec2f19, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HouseDroped
+    clip: {fileID: 8300000, guid: b6439b9d536f5254cb62242c7c3e2a51, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Woosh
+    clip: {fileID: 8300000, guid: 8c827439ae9c6db44bc4730b515d3705, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zap
+    clip: {fileID: 8300000, guid: f0751e6c839af5644a13ed104895db97, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Destruction
+    clip: {fileID: 8300000, guid: f704f2060524f694598c899afc19b307, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: None
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Wings
+    clip: {fileID: 8300000, guid: f5bba55acc730cb4c9bd1f87d11dbef6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: 837c2c752cc6c7c48a248a79779c91ca, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Firelanded
+    clip: {fileID: 8300000, guid: 06546e063821a8447a6839bb0ffadb0d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop1
+    clip: {fileID: 8300000, guid: 939f3cc1c2d8ba3499e29f20743e2400, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop2
+    clip: {fileID: 8300000, guid: 0846c350c44df2a499387c0a9b2b9251, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pop3
+    clip: {fileID: 8300000, guid: c04e3a7d0dc801f469338f11104e795b, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  soundName: 

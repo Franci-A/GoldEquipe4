@@ -98,4 +98,14 @@ public class Tile : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Destruction");
         }
     }
+
+    public void playThunderVibration()
+    {
+        VibrationManager.Instance.VibrateThunder();
+    }
+
+    public void playMergeVibration()
+    {
+        VibrationManager.Instance.VibrateMerge();
+    }
 }

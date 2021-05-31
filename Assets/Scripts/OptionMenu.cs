@@ -32,6 +32,8 @@ public class OptionMenu : MonoBehaviour
         vibrationOn.SetActive(true);
         vibrationOff.SetActive(false);
 
+        VibrationManager.Instance.vibration = true;
+
         isSound = PlayerPrefs.GetInt("MUTED") == 0;
         if (isSound == false)
         {
@@ -112,6 +114,7 @@ public class OptionMenu : MonoBehaviour
 
     public void VibrationOn()
     {
+        VibrationManager.Instance.vibration = false;
         isVibration = false;
         Debug.Log(isVibration);
         PlayerPrefs.SetInt("VIBRATION", 1);
@@ -122,6 +125,7 @@ public class OptionMenu : MonoBehaviour
     }
     public void VibrationOff()
     {
+        VibrationManager.Instance.vibration = true;
         isVibration = true;
         PlayerPrefs.SetInt("VIBRATION", 0);
         vibrationOff.SetActive(false);

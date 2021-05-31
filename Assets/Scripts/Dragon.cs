@@ -79,10 +79,12 @@ public class Dragon : MonoBehaviour
     }
     public void DragonAttack()
     {
+        int touched = 0;
         foreach (Tile tiles in targetedTiles)
         {
             if (tiles.tileType == TileType.House) {
-                if(tiles.shieldLvl == 2) {
+                touched++;
+                if (tiles.shieldLvl == 2) {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop2");
                     tiles.shieldLvl--;
                     AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
@@ -106,13 +108,22 @@ public class Dragon : MonoBehaviour
                 }
             }
 
-            if (tiles.tileType == TileType.Water)
+            else if (tiles.tileType == TileType.Water)
             {
+                touched++;
                 tiles.tileType = TileType.Ground;
                 tiles.scorePopup.sprite = spriteLib.GetSprite("Score", "0");
                 tiles.GetComponent<Animator>().SetTrigger("Downgrade");
             }
         }
+
+        if (touched > 0) {
+            VibrationManager.Instance.isFiled = true;
+        }
+        else {
+            VibrationManager.Instance.isFiled = false;
+        }
+
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Dragon", "None");
         turnBeforeAttack = 6;
         dragonSpawned = false;

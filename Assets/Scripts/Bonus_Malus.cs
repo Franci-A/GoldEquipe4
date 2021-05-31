@@ -14,6 +14,7 @@ public class Bonus_Malus : MonoBehaviour
     private Tile tileInfo;
     public SliderBar sliderBar;
     private Score score;
+    private Merge merge;
 
     private float startPosX;
     private float startPosY;
@@ -23,6 +24,8 @@ public class Bonus_Malus : MonoBehaviour
     private Vector2 offset;
 
     public SpriteLibrary spriteLib;
+    public bool isHouse = false;
+    public bool isMountain = false;
 
     public List<bool> bonusesUsed;
 
@@ -70,8 +73,6 @@ public class Bonus_Malus : MonoBehaviour
 
     private void OnMouseUp()
     {
-        bool isHouse = false;
-
         if (haspos && tileInfo.tileType == TileType.House && (bonusTile.bonusType == BonusType.Hammer1 || bonusTile.bonusType == BonusType.Hammer2 || bonusTile.bonusType == BonusType.Hammer3)) {
             snapImage.transform.position = snapPos;
             hammer();
@@ -84,6 +85,8 @@ public class Bonus_Malus : MonoBehaviour
 
         if (haspos && bonusTile.bonusType == BonusType.Thunder && (tileInfo.tileType == TileType.House || tileInfo.tileType == TileType.Water))
         {
+            VibrationManager.Instance.isFiled = true;
+
             if(tileInfo.tileType == TileType.House) {
                 isHouse = true;
             }
