@@ -545,7 +545,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069323045}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23750001, y: 0}
   m_AnchorMax: {x: 0.7525001, y: 0.0697026}
@@ -1157,7 +1157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &661415962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,7 +1410,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069323045}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.79051316}
   m_AnchorMax: {x: 0.66, y: 0.9257027}
@@ -2151,7 +2151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2069323041}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: PlayAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2361,7 +2361,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069323045}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29375002, y: 0.24889222}
   m_AnchorMax: {x: 0.68125004, y: 0.59229743}
@@ -2914,11 +2914,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069323045}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1275, y: 0.5972158}
   m_AnchorMax: {x: 0.87000006, y: 0.7405948}
-  m_AnchoredPosition: {x: -0.1829834, y: -0.30999756}
+  m_AnchoredPosition: {x: -0.1829834, y: -6}
   m_SizeDelta: {x: -0.4329834, y: -0.6289978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1940217118
@@ -3075,6 +3075,7 @@ GameObject:
   - component: {fileID: 2069323042}
   - component: {fileID: 2069323041}
   - component: {fileID: 2069323046}
+  - component: {fileID: 2069323047}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3168,10 +3169,10 @@ RectTransform:
   m_Children:
   - {fileID: 1352509773}
   - {fileID: 377090835}
-  - {fileID: 875925100}
-  - {fileID: 1940217117}
   - {fileID: 218157244}
   - {fileID: 1763295954}
+  - {fileID: 875925100}
+  - {fileID: 1940217117}
   - {fileID: 1502681425}
   - {fileID: 1356632211}
   - {fileID: 1725977217}
@@ -3208,3 +3209,22 @@ MonoBehaviour:
   soundOff: {fileID: 240982317}
   musicOn: {fileID: 1885343260}
   musicOff: {fileID: 1891667228}
+--- !u!95 &2069323047
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069323040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e8eb5f775166f24288fbdeb804d3b15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -13,6 +13,12 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+
+    public void PlayAnim()
+    {
+        GetComponent<Animator>().SetTrigger("Play");
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene("CreditScene");
