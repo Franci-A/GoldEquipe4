@@ -40,7 +40,6 @@ public class Dragon : MonoBehaviour
     public void SpawnDragon()
     {
         nbrTurn++;
-        Debug.Log(lastAttack);
         if (dragonAttacked) {
             lastAttack++;
         }
