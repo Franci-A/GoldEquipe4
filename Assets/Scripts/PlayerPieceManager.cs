@@ -77,20 +77,17 @@ public class PlayerPieceManager : MonoBehaviour
             }
             else {
 
-                int m =-1;
                 int p = Random.Range(0, 100);
                 if (!hadThreeHouses && p < chanceToGetThirdHouse)
                 {
-                    m = Random.Range(-1, 0);
-                }
-                
-                numOfObj =Random.Range(1, maxNumOfHouses - m );
-                if (numOfObj == 3)
-                {
+                    numOfObj = maxNumOfHouses;
                     hadThreeHouses = true;
                 }
                 else
+                {
+                    numOfObj = Random.Range(1, maxNumOfHouses);
                     hadThreeHouses = false;
+                }
             }
 
             for (int j = 0; j < numOfObj; j++)

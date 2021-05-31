@@ -21,6 +21,14 @@ public class GameManager : MonoBehaviour
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+
+        if(PlayerPrefs.GetInt("FirstLaunch") == 0)
+        {
+            PlayerPrefs.SetInt("SFX", 1);
+            PlayerPrefs.SetInt("VIBRATION", 1);
+            PlayerPrefs.SetInt("MUSIQUE", 1);
+            PlayerPrefs.SetInt("FirstLaunch", 1);
+        }
     }
 
     private void Start()
