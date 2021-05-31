@@ -29,5 +29,9 @@ public class DragonAnimatorLink : MonoBehaviour
         dragonScript.DragonAttack();
     }
 
+    public void playSound(string name)
+    {
+        FindObjectOfType<AudioManager>().Play(name);
+    }
 
 }
