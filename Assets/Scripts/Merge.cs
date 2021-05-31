@@ -35,7 +35,7 @@ public class Merge : MonoBehaviour
             womboCombo.Add(false);
         }
     }
-    public bool merging()
+    public bool merging(bool originalCall = false, PIckUpAndPlace pIckUpAndPlace = null)
     {
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
@@ -137,9 +137,12 @@ public class Merge : MonoBehaviour
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
                 FindObjectOfType<AudioManager>().Play("Merge");
             }
+            if (originalCall)
+                pIckUpAndPlace.mergesToFinish--;
             return true;
         }
-
+        if (originalCall)
+            pIckUpAndPlace.mergesToFinish--;
         return false;
 
     }
