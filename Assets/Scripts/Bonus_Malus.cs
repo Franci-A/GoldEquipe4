@@ -184,36 +184,36 @@ public class Bonus_Malus : MonoBehaviour
     }
 
     public void getBonus(int i) {
-        if (i > 0 && i <= 20) { 
+        if (i > 0 && i <= 25) { 
             bonusTile.bonusType = BonusType.Hammer1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer1");
             bonusesUsed[0] = true;
         }
-        else if (i > 20 && i <= 35)
+        else if (i > 25 && i <= 40)
         {
             bonusTile.bonusType = BonusType.Hammer2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer2");
             bonusesUsed[1] = true;
         }
-        else if (i > 35 && i <= 45)
+        else if (i > 40 && i <= 50)
         {
             bonusTile.bonusType = BonusType.Hammer3;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer3");
             bonusesUsed[2] = true;
         }
-        else if (i > 45 && i <= 55)
+        else if (i > 50 && i <= 60)
         {
             bonusTile.bonusType = BonusType.Thunder;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Thunder");
             bonusesUsed[3] = true;
         }
-        else if (i > 55 && i <= 70)
+        else if (i > 60 && i <= 75)
         {
             bonusTile.bonusType = BonusType.Mountain;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Mountain");
             bonusesUsed[4] = true;
         }
-        else if (i > 70 && i <= 90)
+        else if (i > 75 && i <= 90)
         {
             bonusTile.bonusType = BonusType.Shield1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield1");
