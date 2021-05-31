@@ -936,7 +936,7 @@ MonoBehaviour:
   score: {fileID: 177854002}
   grid: {fileID: 1573509823}
   merge: {fileID: 0}
-  minTurn: 100
+  minTurn: 15
   minTurnNextAttack: 10
   dragonChances: 2
   targetNbr: 5
