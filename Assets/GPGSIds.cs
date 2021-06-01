@@ -37,6 +37,7 @@ public static class GPGSIds
         public const string achievement_750_without_bonus = "CgkIp7jc_LgZEAIQDA"; // <GPGSID>
         public const string achievement_500 = "CgkIp7jc_LgZEAIQBw"; // <GPGSID>
         public const string achievement_250 = "CgkIp7jc_LgZEAIQBg"; // <GPGSID>
+        public const string achievement_1000 = "CgkIp7jc_LgZEAIQEQ"; // <GPGSID>
         public const string achievement_catch_em_all = "CgkIp7jc_LgZEAIQCQ"; // <GPGSID>
         public const string achievement_500_without_bonus = "CgkIp7jc_LgZEAIQCw"; // <GPGSID>
         public const string achievement_200_volts = "CgkIp7jc_LgZEAIQDw"; // <GPGSID>

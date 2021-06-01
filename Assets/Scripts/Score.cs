@@ -35,6 +35,9 @@ public class Score : MonoBehaviour
         else if(currentScore >= 750)
         {
             AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCA"); // score achievement
+        }else if(currentScore >= 1000)
+        {
+            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQEQ");
         }
     }
 
