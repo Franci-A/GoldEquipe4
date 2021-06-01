@@ -57,7 +57,7 @@ public class MenuManager : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Play");
 
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSecondsRealtime(1.2f);
 
         SceneManager.LoadScene(index);
     }
