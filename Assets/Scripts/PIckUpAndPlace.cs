@@ -50,6 +50,7 @@ public class PIckUpAndPlace : MonoBehaviour
             if (!CheckPosibilities())
             {
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GameOver();
+                FindObjectOfType<AudioManager>().Play("Victory");
             }
         }
     }
