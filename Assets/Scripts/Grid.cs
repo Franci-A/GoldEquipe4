@@ -9,6 +9,7 @@ public class Grid : MonoBehaviour
     public int gridHeight;
     public int gridWidth;
     public bool randomGen;
+    public bool existingGrid;
     [SerializeField] private float waterTileSpawnChance;
     [SerializeField] private int maxWaterTiles;
     [SerializeField] private GameObject tilePrefab;
@@ -33,7 +34,7 @@ public class Grid : MonoBehaviour
                 Camera.main.orthographicSize += .1f;
             }
         }
-        else
+        else if (!existingGrid)
         {
             int x = 0;
             int y = 0;
@@ -42,7 +43,7 @@ public class Grid : MonoBehaviour
                 tile.gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
                 tile.lineNum = y;
                 tile.tileNum = x;
-                UpdateTile(tile.lineNum, tile.tileNum);
+                tile.UpdateVisual();
                 x++;
                 if (x == gridWidth)
                 {
@@ -50,6 +51,9 @@ public class Grid : MonoBehaviour
                     y++;
                 }
             }
+        }else if (existingGrid)
+        {
+            UpdateCurrentGrid();
         }
     }
 
@@ -58,14 +62,8 @@ public class Grid : MonoBehaviour
         SpriteRenderer obj = grid[gridWidth * line + tile].transform.GetChild(0).GetComponent<SpriteRenderer>();
         Tile objTile = obj.gameObject.GetComponentInParent<Tile>();
         obj.sprite = sprites.GetSprite("House", "level" + grid[gridWidth * line + tile].houseUpgrade.ToString());
-        if (grid[gridWidth * line + tile].houseUpgrade == 0)
-        {
-            obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level0");
-        }
-        else
-        {
-            obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
-        }
+        obj.sprite = sprites.GetSprite(objTile.houseColor.ToString(), "level" + objTile.houseUpgrade.ToString());
+
     }
 
     //Create grid 
@@ -126,6 +124,52 @@ public class Grid : MonoBehaviour
                 x = 0;
             }
         }
+    }
+
+
+    public void UpdateCurrentGrid()
+    {
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < (gridHeight) * (gridWidth); i++)
+        {
+            grid[i].lineNum = y;
+            grid[i].tileNum = x;
+            grid[i].GetComponent<SpriteRenderer>().sortingOrder = y;
+            grid[i].GetComponent<Merge>().pIckUpAndPlace = playerPieceManager.gameObject.GetComponent<PIckUpAndPlace>();
+            grid[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = y + 9;
+            if (y == 0 || y == gridHeight - 1 || x == 0 || x == gridWidth - 1) // outer ring instantiate to empty tile
+                grid[i].tileType = TileType.Empty;
+            switch (grid[i].tileType)
+            {
+                case TileType.Ground:
+                    grid[i].GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
+                    break;
+
+                case TileType.Water:
+                    grid[i].GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Ground");
+                    int j = Random.Range(1, 3);
+                    grid[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprites.GetSprite("Tiles", "Water" + j);
+                    grid[i].transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
+                    break;
+
+                case TileType.Empty:
+                    grid[i].GetComponent<SpriteRenderer>().color = Color.clear;
+                    break;
+            }
+            x++;
+            if (x >= gridWidth)
+            {
+                y++;
+                x = 0;
+            }
+            grid[i].UpdateVisual();
+        }
+        for (int i = 0; i < (gridHeight) * (gridWidth); i++)
+        {
+            grid[i].GetComponent<Merge>().UpdateTiles();
+        }
+
     }
     
 }

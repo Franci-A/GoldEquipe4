@@ -56,12 +56,6 @@ public class OptionMenu : MonoBehaviour
         }
     }
 
-    public void Option()
-    {
-        isOpen = !isOpen;
-        optionMenuUI.SetActive(isOpen);
-        PlayerPrefs.Save();
-    }
 
     public void LoadMenu()
     {
@@ -74,8 +68,6 @@ public class OptionMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         SceneManager.LoadScene("SampleScene");
     }
-
-
 
     public void SoundOn()
     {

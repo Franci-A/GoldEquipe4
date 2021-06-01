@@ -24,12 +24,7 @@ public class Merge : MonoBehaviour
         score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
         grid = GetComponentInParent<Grid>();
         tileInfo = GetComponent<Tile>();
-        if (tileInfo.tileType != TileType.Empty) {
-            rightTile = grid.grid[grid.gridWidth * tileInfo.lineNum + tileInfo.tileNum + 1].GetComponent<Tile>();
-            leftTile = grid.grid[grid.gridWidth * tileInfo.lineNum + tileInfo.tileNum - 1].GetComponent<Tile>();
-            upTile = grid.grid[grid.gridWidth * (tileInfo.lineNum - 1) + tileInfo.tileNum].GetComponent<Tile>();
-            downTile = grid.grid[grid.gridWidth * (tileInfo.lineNum + 1) + tileInfo.tileNum].GetComponent<Tile>();
-        }
+        UpdateTiles();
         womboCombo = new List<bool>();
         for (int i = 0; i < 8; i++)
         {
@@ -131,8 +126,8 @@ public class Merge : MonoBehaviour
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
-            if (originalCall)
-                StartCoroutine(MergeFinished());
+            pIckUpAndPlace.mergesToFinish++;
+            StartCoroutine(MergeFinished());
             return true;
         }
 
@@ -231,4 +226,15 @@ public class Merge : MonoBehaviour
         pIckUpAndPlace.mergesToFinish--;
     }
 
+    public void UpdateTiles()
+    {
+        if (tileInfo.tileType != TileType.Empty)
+        {
+            rightTile = grid.grid[grid.gridWidth * tileInfo.lineNum + tileInfo.tileNum + 1].GetComponent<Tile>();
+            leftTile = grid.grid[grid.gridWidth * tileInfo.lineNum + tileInfo.tileNum - 1].GetComponent<Tile>();
+            upTile = grid.grid[grid.gridWidth * (tileInfo.lineNum - 1) + tileInfo.tileNum].GetComponent<Tile>();
+            downTile = grid.grid[grid.gridWidth * (tileInfo.lineNum + 1) + tileInfo.tileNum].GetComponent<Tile>();
+        }
+
+    }
 }
