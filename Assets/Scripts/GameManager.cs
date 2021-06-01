@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) =>
         {
             switch (result)
@@ -74,7 +75,6 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         Score.Instance.CheckHighScore();
-
+        Time.timeScale = 0;
     }
-
 }

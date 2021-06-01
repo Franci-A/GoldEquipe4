@@ -11,6 +11,8 @@ public class EnvironmentChanges : MonoBehaviour
     private Tile parentTile;
     private bool hasTrees;
     private int randomTrees;
+    public bool lightningStrike;
+    public int lightningStrikeLvl;
     [SerializeField] private SpriteRenderer sprite;
 
     public UnityEvent NextTurnEvent;
@@ -28,7 +30,16 @@ public class EnvironmentChanges : MonoBehaviour
 
     private void UpdateTurn()
     {
-        if(parentTile.tileType == TileType.Ground && !hasTrees)
+        if (lightningStrike)
+        {
+            lightningStrikeLvl++;
+            StartCoroutine(LightningMark());
+        }
+        else if(!lightningStrike)
+        {
+            parentTile.lightningMark.sprite = parentTile.sprites.GetSprite("Thunder", "Level0");
+        }
+        else if(parentTile.tileType == TileType.Ground && !hasTrees)
         {
             turnsEmpty++;
             float i = Random.Range(0f, 1f);
@@ -37,48 +48,6 @@ public class EnvironmentChanges : MonoBehaviour
                 animator.SetTrigger("NextStage");
                 hasTrees = true;
             }
-            /*switch (turnsEmpty)
-            {
-                case 5:
-                    if(i < .025f)
-                    {
-                        animator.SetTrigger("NextStage");
-                        hasTrees = true;
-                    }
-                    break;
-                case 6: 
-                    if (i< .05f)
-                    {
-                        animator.SetTrigger("NextStage");
-                        hasTrees = true;
-                    }
-                    break;
-                case 7: 
-                    if (i< .075f)
-                    {
-                        animator.SetTrigger("NextStage");
-                        hasTrees = true;
-                    }
-                    break;
-                case 8: 
-                    if (i< .1f)
-                    {
-                        animator.SetTrigger("NextStage");
-                        hasTrees = true;
-                    }
-                    break;
-                case 9:
-                    if (i < .125f)
-                    {
-                        animator.SetTrigger("NextStage");
-                        hasTrees = true;
-                    }
-                    break;
-                case 10:
-                    turnsEmpty = 0;
-                    break;
-
-            }*/
         }
         else if(parentTile.tileType == TileType.Ground && hasTrees)
         {
@@ -95,5 +64,17 @@ public class EnvironmentChanges : MonoBehaviour
         turnsEmpty = 0;
         int i = Random.Range(0, 6);
         GetComponent<Animator>().SetFloat("GrassLevel", i);
+    }
+
+    IEnumerator LightningMark()
+    {
+        yield return new WaitForSeconds(1f);
+
+        parentTile.lightningMark.sprite = parentTile.sprites.GetSprite("Thunder", "Level" + lightningStrikeLvl.ToString());
+        if (lightningStrikeLvl == 5)
+        {
+            lightningStrike = false;
+            lightningStrikeLvl = 0;
+        }
     }
 }
