@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverScore : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI currentScore;
+    [SerializeField] Text currentScore;
     [SerializeField] TextMeshProUGUI highScore;
 
     // Start is called before the first frame update
@@ -15,9 +16,4 @@ public class GameOverScore : MonoBehaviour
         highScore.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

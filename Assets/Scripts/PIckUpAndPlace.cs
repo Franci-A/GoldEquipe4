@@ -19,6 +19,10 @@ public class PIckUpAndPlace : MonoBehaviour
     public bool blockHand;
     private bool hasToCheckGameOver;
     public int mergesToFinish;
+    public bool isTuto;
+    public List<int> tutoX;
+    public List<int> tutoY;
+    private int currentTutoStep;
 
 
     private void Start()
@@ -77,6 +81,10 @@ public class PIckUpAndPlace : MonoBehaviour
         {
             PlaceTiles();
             GetComponent<PlayerPieceManager>().NextTurn();
+            if (isTuto) {
+                currentTutoStep++;
+                Tutoriel.Instance.animator.SetTrigger("NextStep");
+            }
         }
 
         transform.position = startPos;
@@ -94,7 +102,15 @@ public class PIckUpAndPlace : MonoBehaviour
             hasPos = true;
             snapPos = collision.transform.position;
             currentCenterTile = collision.gameObject;
-            CheckPlacement();
+            if (!isTuto)
+            {
+                CheckPlacement();
+            }
+            else
+            {
+                TutoCheckPlacement();
+            }
+
             if (canBePlaced)
             {
                 outline.GetComponent<SpriteRenderer>().sprite = collision.GetComponent<Tile>().sprites.GetSprite("Outline", "White");
@@ -163,111 +179,95 @@ public class PIckUpAndPlace : MonoBehaviour
     public void PlaceTiles()
     {
         mergesToFinish = 0;
-        int x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
-        int y = currentCenterTile.GetComponent<Tile>().lineNum - 1;
+        int x = currentCenterTile.GetComponent<Tile>().tileNum;
+        int y = currentCenterTile.GetComponent<Tile>().lineNum;
         List<int> tileWithHouse = new List<int>();
-        foreach (Tile tile in playerHand.grid)
+        if (y != tutoY[currentTutoStep] || x != tutoX[currentTutoStep]) //tile being checked is outside the grid on y axis
         {
-            if (y < 0 || y >= currentGrid.gridHeight) //tile being checked is outside the grid on y axis
-            {
-                
-                x++;
-                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
-                {
-                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
-                    y++;
-                }
-            }
-            else 
-            {
-                if (x >= 0 && x < currentGrid.gridWidth) //tile being checked is inside the grid on x axis
-                {
-                    switch (tile.tileType)
-                    {
-                        case TileType.House:
-                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Place");
-                            tileWithHouse.Add(y * currentGrid.gridWidth + x);
-                            mergesToFinish++;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = false;
-                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 0;
-                            break;
-
-                        case TileType.X:
-                            if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 0)
-                            {
-                                currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                                AudioManager.instance.soundName = "Destruction";
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
-                                VibrationManager.Instance.isFiled = true;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
-                                score.AddScore(-10);
-                            }
-                            else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
-                            {
-                                if (currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
-                                {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl1");
-                                }
-                                else
-                                {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
-                                }
-                                currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
-                                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
-                                VibrationManager.Instance.isFiled = true;
-                            }
-                            else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
-                            {
-                                currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
-                                AudioManager.instance.soundName = "Destruction";
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
-                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
-                                VibrationManager.Instance.isFiled = true;
-                            }
-                            else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
-                            {
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = true;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 1;
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<SpriteRenderer>().sprite = currentGrid.grid[y * currentGrid.gridWidth + x].sprites.GetSprite("Thunder","Level1");
-                                for (int i = 0; i < 5; i++)
-                                {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].destroyParticles.textureSheetAnimation.SetSprite(i, null);
-                                }
-                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
-                                AudioManager.instance.soundName = "None";
-                                currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
-                                VibrationManager.Instance.isFiled = false;
-                            }
-                            break;
-
-                       /* case TileType.LevelUp:
-                            if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House)
-                            {
-                                currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
-                                if (currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade < 4)
-                                {
-                                    currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Upgrade");
-                                }
-                                tileWithHouse.Add(y * currentGrid.gridWidth + x);
-                            }
-                            break;*/
-                    }
-                }
-                x++;
-
-                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
-                {
-                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
-                    y++;
-                }
-            }
-            
+            canBePlaced = false;
         }
-        StartCoroutine(CallMergeAfterAnim(tileWithHouse));
+        else if (y == tutoY[currentTutoStep] && x == tutoX[currentTutoStep])
+        {
+            x = currentCenterTile.GetComponent<Tile>().tileNum-1;
+            y = currentCenterTile.GetComponent<Tile>().lineNum-1;
+
+            foreach (Tile tile in playerHand.grid)
+            {
+                switch (tile.tileType)
+                {
+                    case TileType.House:
+                        currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.House;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade++;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Place");
+                        tileWithHouse.Add(y * currentGrid.gridWidth + x);
+                        mergesToFinish++;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = false;
+                        currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 0;
+                        break;
+
+                    case TileType.X:
+                        if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 0)
+                        {
+                            currentGrid.grid[y * currentGrid.gridWidth + x].houseUpgrade = 0;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                            AudioManager.instance.soundName = "Destruction";
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = true;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 1;
+                            VibrationManager.Instance.isFiled = true;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "-10");
+                            score.AddScore(-10);
+                        }
+                        else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.House && currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl > 0)
+                        {
+                            if (currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl == 1)
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl1");
+                            }
+                            else
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
+                            }
+                            currentGrid.grid[y * currentGrid.gridWidth + x].shieldLvl--;
+                            VibrationManager.Instance.isFiled = true;
+                        }
+                        else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Water)
+                        {
+                            currentGrid.grid[y * currentGrid.gridWidth + x].tileType = TileType.Ground;
+                            AudioManager.instance.soundName = "Destruction";
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                            currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
+                            VibrationManager.Instance.isFiled = true;
+                        }
+                        else if (currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
+                        {
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = true;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 1;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<SpriteRenderer>().sprite = currentGrid.grid[y * currentGrid.gridWidth + x].sprites.GetSprite("Thunder", "Level1");
+                            for (int i = 0; i < 5; i++)
+                            {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].destroyParticles.textureSheetAnimation.SetSprite(i, null);
+                            }
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Thunder");
+                            AudioManager.instance.soundName = "None";
+                            currentGrid.grid[y * currentGrid.gridWidth + x].scorePopup.sprite = tile.sprites.GetSprite("Score", "0");
+                            VibrationManager.Instance.isFiled = false;
+                        }
+                        break;
+
+                }
+                x++;
+
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+                {
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
+                }
+
+            }
+            StartCoroutine(CallMergeAfterAnim(tileWithHouse));
+        }
     }
 
     public bool CheckPosibilities()
@@ -347,5 +347,46 @@ public class PIckUpAndPlace : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         blockHand = false;
+    }
+
+    private void TutoCheckPlacement()
+    {
+        canBePlaced = true;
+        int x = currentCenterTile.GetComponent<Tile>().tileNum;
+        int y = currentCenterTile.GetComponent<Tile>().lineNum;
+        if (x == tutoX[currentTutoStep] && y == tutoY[currentTutoStep])
+        {
+            foreach (Tile tile in playerHand.grid)
+            {
+                x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                y = currentCenterTile.GetComponent<Tile>().lineNum - 1;
+
+                if (tile.tileType == TileType.House)
+                {
+
+                    if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
+                    {
+                        canBePlaced = false;
+                    }
+
+                }
+                else if (tile.tileType == TileType.House)
+                {
+                    canBePlaced = false;
+                }
+
+                x++;
+
+                if (x > currentCenterTile.GetComponent<Tile>().tileNum + 1)
+                {
+                    x = currentCenterTile.GetComponent<Tile>().tileNum - 1;
+                    y++;
+                }
+            }
+        }
+        else
+        {
+            canBePlaced = false;
+        }
     }
 }
