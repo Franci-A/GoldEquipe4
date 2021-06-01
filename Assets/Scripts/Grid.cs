@@ -164,6 +164,8 @@ public class Grid : MonoBehaviour
                 x = 0;
             }
             grid[i].UpdateVisual();
+            grid[i].GetComponent<Merge>().tileInfo = grid[i];
+            grid[i].GetComponent<Merge>().grid = this;
         }
         for (int i = 0; i < (gridHeight) * (gridWidth); i++)
         {

@@ -6,9 +6,9 @@ using UnityEngine;
 public class Merge : MonoBehaviour
 {
     [SerializeField] private Combo_DB comboData;
-    private Grid grid;
+    public Grid grid;
     private Score score;
-    private Tile tileInfo;
+    public Tile tileInfo;
     Tile rightTile;
     Tile leftTile;
     Tile upTile;
@@ -24,7 +24,8 @@ public class Merge : MonoBehaviour
         score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
         grid = GetComponentInParent<Grid>();
         tileInfo = GetComponent<Tile>();
-        UpdateTiles();
+        if (!pIckUpAndPlace.isTuto)
+            UpdateTiles();
         womboCombo = new List<bool>();
         for (int i = 0; i < 8; i++)
         {
