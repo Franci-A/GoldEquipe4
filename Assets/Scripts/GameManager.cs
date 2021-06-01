@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("SFX", 1);
             PlayerPrefs.SetInt("VIBRATION", 1);
             PlayerPrefs.SetInt("MUSIQUE", 1);
-            PlayerPrefs.SetInt("FirstLaunch", 1);
         }
     }
 
@@ -48,10 +47,6 @@ public class GameManager : MonoBehaviour
         });
 
         gameOver = false;
-    }
-    private void Update()
-    {
-
     }
 
     public void SignInToGooglePlayServices()

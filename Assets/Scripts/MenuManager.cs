@@ -59,6 +59,14 @@ public class MenuManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.2f);
 
-        SceneManager.LoadScene(index);
+        if (PlayerPrefs.GetInt("FirstLaunch") == 0)
+        {
+            PlayerPrefs.SetInt("FirstLaunch", 1);
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            SceneManager.LoadScene(index);
+        }
     }
 }

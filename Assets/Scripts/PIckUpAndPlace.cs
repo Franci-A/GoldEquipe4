@@ -86,6 +86,7 @@ public class PIckUpAndPlace : MonoBehaviour
                 Tutoriel.Instance.animator.SetTrigger("NextStep");
                 if(currentTutoStep >= tutoX.Count)
                 {
+                    isTuto = false;
                     blockHand = true;
                 }
             }

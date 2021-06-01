@@ -35,10 +35,6 @@ public class EnvironmentChanges : MonoBehaviour
             lightningStrikeLvl++;
             StartCoroutine(LightningMark());
         }
-        else if(!lightningStrike)
-        {
-            parentTile.lightningMark.sprite = parentTile.sprites.GetSprite("Thunder", "Level0");
-        }
         else if(parentTile.tileType == TileType.Ground && !hasTrees)
         {
             turnsEmpty++;
@@ -56,6 +52,10 @@ public class EnvironmentChanges : MonoBehaviour
             {
                 animator.SetTrigger("NextStage");
             }
+        }
+        else if (!lightningStrike)
+        {
+            parentTile.lightningMark.sprite = parentTile.sprites.GetSprite("Thunder", "Level0");
         }
     }
 
