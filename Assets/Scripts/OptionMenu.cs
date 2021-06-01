@@ -80,7 +80,7 @@ public class OptionMenu : MonoBehaviour
     public void SoundOn()
     {
         isSound = true;
-        FindObjectOfType<AudioManager>().Sfx("Music", true);
+        AudioManager.instance.Sfx("Music", true);
         PlayerPrefs.SetInt("SFX", 1);
         soundOn.SetActive(true);
         soundOff.SetActive(false);
@@ -89,7 +89,7 @@ public class OptionMenu : MonoBehaviour
     public void SoundOff()
     {
         isSound = false;
-        FindObjectOfType<AudioManager>().Sfx("Music", false);
+        AudioManager.instance.Sfx("Music", false);
         PlayerPrefs.SetInt("SFX", 0);
         soundOff.SetActive(true);
         soundOn.SetActive(false);
@@ -99,7 +99,7 @@ public class OptionMenu : MonoBehaviour
     public void MusicOn()
     {
         isMusic = true;
-        FindObjectOfType<AudioManager>().Music("Music", "UnPause");
+        AudioManager.instance.Music("Music", "UnPause");
         PlayerPrefs.SetInt("MUSIQUE", 1);
         musicOn.SetActive(true);
         musicOff.SetActive(false);
@@ -108,7 +108,7 @@ public class OptionMenu : MonoBehaviour
     public void MusicOff()
     {
         isMusic = false;
-        FindObjectOfType<AudioManager>().Music("Music", "Pause");
+        AudioManager.instance.Music("Music", "Pause");
         PlayerPrefs.SetInt("MUSIQUE", 0);
         musicOff.SetActive(true);
         musicOn.SetActive(false);

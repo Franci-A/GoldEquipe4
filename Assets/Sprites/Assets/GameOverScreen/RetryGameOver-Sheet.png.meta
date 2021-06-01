@@ -114,8 +114,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 180
-        height: 138
+        width: 172
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,10 +133,10 @@ TextureImporter:
       name: RetryGameOver-Sheet_1
       rect:
         serializedVersion: 2
-        x: 180
+        x: 172
         y: 0
-        width: 180
-        height: 138
+        width: 172
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

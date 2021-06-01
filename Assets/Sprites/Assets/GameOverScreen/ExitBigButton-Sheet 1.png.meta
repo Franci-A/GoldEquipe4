@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 543790473926792412
     second: ExitBigButton-Sheet_1
+  - first:
+      213: -7910132995634405661
+    second: ExitBigButton-Sheet 1_0
+  - first:
+      213: -5579646176215574300
+    second: ExitBigButton-Sheet 1_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,12 +115,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExitBigButton-Sheet_0
+      name: ExitBigButton-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 122
+        width: 144
         height: 154
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -123,19 +129,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 704e6d468dbcedc00800000000000000
-      internalID: 927402703550080007
+      spriteID: 3ee5d1d33ff893290800000000000000
+      internalID: -7910132995634405661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitBigButton-Sheet_1
+      name: ExitBigButton-Sheet 1_1
       rect:
         serializedVersion: 2
-        x: 122
+        x: 144
         y: 0
-        width: 122
+        width: 144
         height: 154
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd4d5ae0e8eeb8700800000000000000
-      internalID: 543790473926792412
+      spriteID: 4e8dd4e6d5d1192b0800000000000000
+      internalID: -5579646176215574300
       vertices: []
       indices: 
       edges: []
