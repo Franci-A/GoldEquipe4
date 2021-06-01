@@ -190,43 +190,36 @@ public class Bonus_Malus : MonoBehaviour
         if (i > 0 && i <= 25) { 
             bonusTile.bonusType = BonusType.Hammer1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer1");
-            bonusesUsed[0] = true;
         }
         else if (i > 25 && i <= 40)
         {
             bonusTile.bonusType = BonusType.Hammer2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer2");
-            bonusesUsed[1] = true;
         }
         else if (i > 40 && i <= 50)
         {
             bonusTile.bonusType = BonusType.Hammer3;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Hammer3");
-            bonusesUsed[2] = true;
         }
         else if (i > 50 && i <= 60)
         {
             bonusTile.bonusType = BonusType.Thunder;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Thunder");
-            bonusesUsed[3] = true;
         }
         else if (i > 60 && i <= 75)
         {
             bonusTile.bonusType = BonusType.Mountain;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Mountain");
-            bonusesUsed[4] = true;
         }
         else if (i > 75 && i <= 90)
         {
             bonusTile.bonusType = BonusType.Shield1;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield1");
-            bonusesUsed[5] = true;
         }
         else if (i > 90 && i <= 100)
         {
             bonusTile.bonusType = BonusType.Shield2;
             snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Shield2");
-            bonusesUsed[6] = true;
         }
     }
 
@@ -237,6 +230,7 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade++;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 1f);
+            bonusesUsed[0] = true;
 
         }
         else if (bonusTile.bonusType == BonusType.Hammer2)
@@ -244,12 +238,14 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade += 2;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 2f);
+            bonusesUsed[1] = true;
         }
         else if (bonusTile.bonusType == BonusType.Hammer3)
         {
             tileInfo.GetComponent<Animator>().SetFloat("MergeLevel", tileInfo.houseUpgrade);
             tileInfo.houseUpgrade += 3;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 3f);
+            bonusesUsed[2] = true;
         }
         if (tileInfo.houseUpgrade >= 4) {
             tileInfo.houseUpgrade = 4;
@@ -307,10 +303,12 @@ public class Bonus_Malus : MonoBehaviour
         snapImage.transform.localPosition = resetPos;
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
+        bonusesUsed[3] = true;
     }
 
     void mountain()
     {
+        bonusesUsed[4] = true;
         tileInfo.houseUpgrade = 0;
         tileInfo.tileType = TileType.Water;
         tileInfo.GetComponent<Animator>().SetTrigger("Mountain");
@@ -325,10 +323,12 @@ public class Bonus_Malus : MonoBehaviour
         if (bonusTile.bonusType == BonusType.Shield1)
         {
             tileInfo.shieldLvl += 1;
+            bonusesUsed[5] = true;
         }
         else if (bonusTile.bonusType == BonusType.Shield2)
         {
             tileInfo.shieldLvl += 2;
+            bonusesUsed[6] = true;
         }
         if (tileInfo.shieldLvl > 2) 
         { 

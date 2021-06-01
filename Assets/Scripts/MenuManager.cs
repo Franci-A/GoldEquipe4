@@ -8,9 +8,9 @@ using UnityEngine.SocialPlatforms;
 public class MenuManager : MonoBehaviour
 {
 
-    public void Play(string levelName)
+    public void Play(int index)
     {
-        StartCoroutine(LoadLevel(levelName));
+        StartCoroutine(LoadLevel(index));
     }
 
 
@@ -53,12 +53,12 @@ public class MenuManager : MonoBehaviour
         Application.OpenURL("https://twitter.com/Summum_TheGame");
     }
 
-    IEnumerator LoadLevel(string levelName)
+    IEnumerator LoadLevel(int index)
     {
         GetComponent<Animator>().SetTrigger("Play");
 
         yield return new WaitForSeconds(1.2f);
 
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene(index);
     }
 }

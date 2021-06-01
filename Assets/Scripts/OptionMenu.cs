@@ -65,8 +65,7 @@ public class OptionMenu : MonoBehaviour
 
     public void Retry()
     {
-        optionMenuUI.SetActive(false);
-        SceneManager.LoadScene("SampleScene");
+        StartCoroutine(LoadLevel());
     }
 
     public void SoundOn()
@@ -132,5 +131,14 @@ public class OptionMenu : MonoBehaviour
         PlayerPrefs.SetInt("LeftFlip", PlayerPrefs.GetInt("LeftFlip") == 0 ? 1 : 0);
         leftyFlip.FlipItems();
         PlayerPrefs.Save();
+    }
+
+    IEnumerator LoadLevel()
+    {
+        GetComponent<Animator>().SetTrigger("Play");
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(1);
     }
 }
