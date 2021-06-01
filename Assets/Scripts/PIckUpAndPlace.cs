@@ -189,6 +189,8 @@ public class PIckUpAndPlace : MonoBehaviour
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
                             currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Place");
                             tileWithHouse.Add(y * currentGrid.gridWidth + x);
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = false;
+                            currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 0;
                             break;
 
                         case TileType.X:
@@ -226,6 +228,9 @@ public class PIckUpAndPlace : MonoBehaviour
                             }
                             else if(currentGrid.grid[y * currentGrid.gridWidth + x].tileType == TileType.Ground)
                             {
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = true;
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 1;
+                                currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<SpriteRenderer>().sprite = currentGrid.grid[y * currentGrid.gridWidth + x].sprites.GetSprite("Thunder","Level1");
                                 for (int i = 0; i < 5; i++)
                                 {
                                     currentGrid.grid[y * currentGrid.gridWidth + x].destroyParticles.textureSheetAnimation.SetSprite(i, null);

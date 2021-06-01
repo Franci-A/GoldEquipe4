@@ -10,13 +10,7 @@ public class MenuManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("SampleScene");
-    }
-
-
-    public void PlayAnim()
-    {
-        GetComponent<Animator>().SetTrigger("Play");
+        StartCoroutine(LoadLevel());
     }
 
     public void Credits()
@@ -56,5 +50,14 @@ public class MenuManager : MonoBehaviour
     public void OpenTwitter()
     {
         Application.OpenURL("https://twitter.com/Summum_TheGame");
+    }
+
+    IEnumerator LoadLevel()
+    {
+        GetComponent<Animator>().SetTrigger("Play");
+
+        yield return new WaitForSeconds(1.2f);
+
+        SceneManager.LoadScene("SampleScene");
     }
 }

@@ -37,6 +37,7 @@ public class Tile : MonoBehaviour
     public ParticleSystem destroyParticles;
     public SpriteRenderer shieldSprite;
     public Animator targeted;
+    public SpriteRenderer lightningMark;
 
     public void UpdateVisual()
     {

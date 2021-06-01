@@ -310,3 +310,21 @@ MonoBehaviour:
     - m_Name: Target
       m_Hash: 1103309514
       m_Sprite: {fileID: 8411185175945113909, guid: 4d767d6d9be483346b1f1318377e2bf5, type: 3}
+  - m_Name: Thunder
+    m_Hash: -1379558292
+    m_CategoryList:
+    - m_Name: Level1
+      m_Hash: 5521811
+      m_Sprite: {fileID: -1650852147064531977, guid: f94f9f704bb886743b216adc55289c7e, type: 3}
+    - m_Name: Level2
+      m_Hash: -1721954263
+      m_Sprite: {fileID: 5408469326633007983, guid: f94f9f704bb886743b216adc55289c7e, type: 3}
+    - m_Name: Level3
+      m_Hash: -296083265
+      m_Sprite: {fileID: -6633195255357737662, guid: f94f9f704bb886743b216adc55289c7e, type: 3}
+    - m_Name: Level4
+      m_Hash: 1883157788
+      m_Sprite: {fileID: -8421658564444521451, guid: f94f9f704bb886743b216adc55289c7e, type: 3}
+    - m_Name: Level5
+      m_Hash: 121210250
+      m_Sprite: {fileID: 3269515480358784070, guid: f94f9f704bb886743b216adc55289c7e, type: 3}
