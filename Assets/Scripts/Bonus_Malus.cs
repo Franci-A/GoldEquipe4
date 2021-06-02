@@ -80,7 +80,7 @@ public class Bonus_Malus : MonoBehaviour
             sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
             sliderBar.WaitToUpdateScore();
 
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAA"); // use a bonus achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_lucky_you); // use a bonus achievement
         }
 
         if (haspos && bonusTile.bonusType == BonusType.Thunder && (tileInfo.tileType == TileType.House || tileInfo.tileType == TileType.Water))
@@ -105,7 +105,7 @@ public class Bonus_Malus : MonoBehaviour
                 score.AddScore(-10);
             }
 
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBQ"); // use a malus achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_poor_you); // use a malus achievement
         }
 
         if (haspos && bonusTile.bonusType == BonusType.Mountain && tileInfo.tileType == TileType.Ground) {
@@ -114,7 +114,7 @@ public class Bonus_Malus : MonoBehaviour
             sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
             sliderBar.WaitToUpdateScore();
 
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBQ"); // use a malus achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_poor_you); // use a malus achievement
         } 
 
         if (haspos && (bonusTile.bonusType == BonusType.Shield1 || bonusTile.bonusType == BonusType.Shield2) && tileInfo.tileType == TileType.House && tileInfo.shieldLvl < 2) {
@@ -123,7 +123,7 @@ public class Bonus_Malus : MonoBehaviour
             sliderBar.ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Close");
             sliderBar.WaitToUpdateScore();
 
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQAA"); // use a bonus achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_lucky_you); // use a bonus achievement
         }
 
         bonusHeld = false;
@@ -142,7 +142,7 @@ public class Bonus_Malus : MonoBehaviour
         if (canGetAchievement)
         {
             Debug.Log("achievement");
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCQ"); //catch em all bonuses
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_catch_em_all); //catch em all bonuses
         }
         canGetAchievement = true;
         foreach (bool item in bonusesUsed)
@@ -155,15 +155,15 @@ public class Bonus_Malus : MonoBehaviour
         }
         if(canGetAchievement && Score.Instance.currentScore >= 250 )
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCg"); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250_without_bonus); // score achievement
         }
         else if(canGetAchievement && Score.Instance.currentScore >= 500)
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCw"); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500_without_bonus); // score achievement
         }
         else if(canGetAchievement && Score.Instance.currentScore >= 750)
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDA"); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750_without_bonus); // score achievement
         }
     }
 
@@ -274,7 +274,7 @@ public class Bonus_Malus : MonoBehaviour
 
             tileInfo.shieldLvl -= 1;
             isProtected = true;
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDw"); //200 volts achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_200_volts); //200 volts achievement
             if (tileInfo.shieldLvl == 1) {
                 tileInfo.GetComponent<Animator>().SetTrigger("ShieldWithThunderLvl2");
 

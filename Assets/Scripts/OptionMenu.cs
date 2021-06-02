@@ -38,7 +38,7 @@ public class OptionMenu : MonoBehaviour
 
         if(PlayerPrefs.GetInt("MUSIQUE") == 0)
         {
-            Debug.Log(PlayerPrefs.GetInt("MUSIQUE") == 0);
+            Debug.Log(PlayerPrefs.GetInt("MUSIQUE"));
             MusicOff();
         }
         else

@@ -26,18 +26,18 @@ public class Score : MonoBehaviour
 
         if(currentScore >= 250)
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBg"); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250); // score achievement
         }
         else if(currentScore >= 500)
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQBw"); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500); // score achievement
         }
         else if(currentScore >= 750)
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQCA"); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750); // score achievement
         }else if(currentScore >= 1000)
         {
-            AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQEQ");
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_1000);
         }
     }
 

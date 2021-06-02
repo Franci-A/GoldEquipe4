@@ -96,13 +96,13 @@ public class Dragon : MonoBehaviour
                 if (tiles.shieldLvl == 2) {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop2");
                     tiles.shieldLvl--;
-                    AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
+                    AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_counter_the_devil);
                 }
                 else if (tiles.shieldLvl == 1)
                 {
                     tiles.GetComponent<Animator>().SetTrigger("ShieldPop1");
                     tiles.shieldLvl--;
-                    AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDg");
+                    AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_counter_the_devil);
                 }
                 else
                 {

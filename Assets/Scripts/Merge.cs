@@ -109,7 +109,7 @@ public class Merge : MonoBehaviour
 
             if (canGetAchievement)
             {
-                AchievementManager.Instance.UnlockAchievement("CgkIp7jc_LgZEAIQDQ"); //womboCombo achievement
+                AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_wombo_combos); //womboCombo achievement
             }
         }
         else if(tileInfo.houseUpgrade >= 4 && combo < 2)
