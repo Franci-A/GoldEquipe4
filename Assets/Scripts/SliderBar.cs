@@ -33,7 +33,6 @@ public class SliderBar : MonoBehaviour
             haveBonus = true;
             ChestImage.gameObject.GetComponent<Animator>().SetTrigger("Open");
             random = Random.Range(1, 101);
-            Debug.Log("random " + random);
             bonusM.getBonus(random);
             FindObjectOfType<AudioManager>().Play("GetBonus");
         }

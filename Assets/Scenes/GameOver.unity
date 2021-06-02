@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36400002, y: 0.30616632}
   m_AnchorMax: {x: 0.66157556, y: 0.38470846}
-  m_AnchoredPosition: {x: -0.04386902, y: -108.28493}
+  m_AnchoredPosition: {x: 0.7187195, y: 0.76677704}
   m_SizeDelta: {x: -1.4374695, y: -1.5335999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131783244
@@ -439,7 +439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19881338, y: 0.2317084}
   m_AnchorMax: {x: 0.814505, y: 0.30616632}
-  m_AnchoredPosition: {x: -4.1350555, y: -134.49083}
+  m_AnchoredPosition: {x: -0.11705017, y: -0.52731323}
   m_SizeDelta: {x: 0.21754456, y: -1.0546875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605675548
@@ -756,7 +756,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2047624274}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: Play
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -8,7 +8,6 @@ public class Dragon : MonoBehaviour
 {
     [SerializeField] private GameObject snapImage;
     public SpriteLibrary spriteLib;
-    private Tile tileInfo;
     public Score score;
     public Grid grid;
     public Merge merge;
@@ -58,7 +57,17 @@ public class Dragon : MonoBehaviour
                 {
                     int randomLineNum = Random.Range(1, 7);
                     int randomTileNum = Random.Range(1, 7);
-                    targetedTiles.Add(grid.grid[grid.gridWidth * randomLineNum + randomTileNum]);
+                    bool alreadyInList = false;
+                    foreach(Tile tile in targetedTiles)
+                    {
+                        if(grid.grid[grid.gridWidth * randomLineNum + randomTileNum] == tile)
+                        {
+                            alreadyInList = true;
+                            break;
+                        }
+                    }
+                    if(!alreadyInList)
+                        targetedTiles.Add(grid.grid[grid.gridWidth * randomLineNum + randomTileNum]);
                 }
             }
         }
