@@ -93,7 +93,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Woosh
-    clip: {fileID: 8300000, guid: 8c827439ae9c6db44bc4730b515d3705, type: 3}
+    clip: {fileID: 8300000, guid: 8edbfb15e1b910d4db85f075d776511e, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -166,6 +166,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Bouton
     clip: {fileID: 8300000, guid: 292e23dd4af13bc42a0f03e108bbbf8f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WooshTransition
+    clip: {fileID: 8300000, guid: 8edbfb15e1b910d4db85f075d776511e, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
