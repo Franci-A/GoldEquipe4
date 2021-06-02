@@ -8513,6 +8513,7 @@ GameObject:
   - component: {fileID: 1615001654}
   - component: {fileID: 1615001653}
   - component: {fileID: 1615001652}
+  - component: {fileID: 1615001657}
   m_Layer: 5
   m_Name: OpeningClouds
   m_TagString: Untagged
@@ -8620,6 +8621,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1615001657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615001651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1665994126 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
@@ -11025,6 +11038,26 @@ PrefabInstance:
     - target: {fileID: 9207693027515176700, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8edbfb15e1b910d4db85f075d776511e, type: 3}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[21].name
+      value: WooshTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[21].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207693027515176701, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
+      propertyPath: sounds.Array.data[21].volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f4073181d1066479e32c47b665edb5, type: 3}
