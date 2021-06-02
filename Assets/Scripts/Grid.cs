@@ -54,6 +54,10 @@ public class Grid : MonoBehaviour
         }else if (existingGrid)
         {
             UpdateCurrentGrid();
+            while (Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x > grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 4)
+            {
+                Camera.main.orthographicSize += .1f;
+            }
         }
     }
 
