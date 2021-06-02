@@ -176,4 +176,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: KnockKnock
+    clip: {fileID: 8300000, guid: 26f1086f9029c204e9b4cd93e87f4f8f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   soundName: 
