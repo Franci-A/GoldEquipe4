@@ -127,7 +127,8 @@ public class Merge : MonoBehaviour
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
-            pIckUpAndPlace.mergesToFinish++;
+            if(tempHouseUpgrade !=1)
+                pIckUpAndPlace.mergesToFinish++;
             StartCoroutine(MergeFinished());
             return true;
         }
@@ -142,13 +143,16 @@ public class Merge : MonoBehaviour
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
                 FindObjectOfType<AudioManager>().Play("Merge");
             }
-            if (originalCall)
+            if (originalCall) {
                 pIckUpAndPlace.mergesToFinish--;
+            }
             return true;
         }
         if (originalCall)
+        {
             pIckUpAndPlace.mergesToFinish--;
-        return false;
+        }
+            return false;
 
     }
     void comboValue(int tempHouseUpgrade)

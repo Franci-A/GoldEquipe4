@@ -18,5 +18,12 @@ public class Tutoriel : MonoBehaviour
     public void NextStep()
     {
         animator.SetTrigger("NextStep");
+        FindObjectOfType<Bonus_Malus>().blockHand = false;
+    }
+
+    public void GetBonusTuto()
+    {
+        FindObjectOfType<Bonus_Malus>().getBonus(30);
+        FindObjectOfType<Bonus_Malus>().blockHand = true; 
     }
 }

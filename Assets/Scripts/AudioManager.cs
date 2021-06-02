@@ -35,6 +35,8 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Play("Music");
+        if (PlayerPrefs.GetInt("MUSIQUE") == 0)
+            Music("Music", "Pause");
     }
 
     public void Play (string name)

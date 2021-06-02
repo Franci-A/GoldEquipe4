@@ -29,6 +29,8 @@ public class Bonus_Malus : MonoBehaviour
 
     public List<bool> bonusesUsed;
 
+    public bool blockHand = false;
+
     void Start()
     {
         score = GameObject.FindGameObjectWithTag("Player").GetComponent<Score>();
@@ -64,7 +66,7 @@ public class Bonus_Malus : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (bonusTile.bonusType != BonusType.Chest && !GameManager.Instance.gameOver)
+        if (bonusTile.bonusType != BonusType.Chest && !GameManager.Instance.gameOver && !blockHand)
         {
             bonusHeld = true;
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
@@ -231,7 +233,6 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.houseUpgrade++;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 1f);
             bonusesUsed[0] = true;
-
         }
         else if (bonusTile.bonusType == BonusType.Hammer2)
         {
@@ -239,6 +240,10 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.houseUpgrade += 2;
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 2f);
             bonusesUsed[1] = true;
+            if (Tutoriel.Instance != null)
+            {
+                Tutoriel.Instance.NextStep();
+            }
         }
         else if (bonusTile.bonusType == BonusType.Hammer3)
         {

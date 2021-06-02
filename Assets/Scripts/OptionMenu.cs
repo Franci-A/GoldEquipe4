@@ -90,6 +90,7 @@ public class OptionMenu : MonoBehaviour
     {
         isMusic = true;
         AudioManager.instance.Music("Music", "UnPause");
+        Debug.Log("music paused");
         PlayerPrefs.SetInt("MUSIQUE", 1);
         musicOn.SetActive(true);
         musicOff.SetActive(false);

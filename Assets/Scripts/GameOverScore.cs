@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameOverScore : MonoBehaviour
 {
-    [SerializeField] Text currentScore;
+    [SerializeField] TextMeshProUGUI currentScore;
     [SerializeField] TextMeshProUGUI highScore;
 
     // Start is called before the first frame update
