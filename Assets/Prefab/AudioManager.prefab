@@ -164,4 +164,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Bouton
+    clip: {fileID: 8300000, guid: 292e23dd4af13bc42a0f03e108bbbf8f, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   soundName: 

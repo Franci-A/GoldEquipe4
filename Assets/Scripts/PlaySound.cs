@@ -9,4 +9,9 @@ public class PlaySound : MonoBehaviour
         VibrationManager.Instance.VibrateThunder();
         FindObjectOfType<AudioManager>().Play(name);
     }
+
+    public void playSoundWithoutVibration(string name)
+    {
+        FindObjectOfType<AudioManager>().Play(name);
+    }
 }

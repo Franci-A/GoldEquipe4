@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 54710115}
   - component: {fileID: 54710114}
   - component: {fileID: 54710113}
+  - component: {fileID: 54710116}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -515,6 +516,18 @@ MonoBehaviour:
           m_StringArgument: Next
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54710116}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &54710114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +566,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54710111}
   m_CullTransparentMesh: 1
+--- !u!114 &54710116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54710111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &76456653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1781,7 @@ GameObject:
   - component: {fileID: 246020794}
   - component: {fileID: 246020793}
   - component: {fileID: 246020792}
+  - component: {fileID: 246020796}
   m_Layer: 0
   m_Name: SoundOn
   m_TagString: Untagged
@@ -1819,6 +1845,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 246020796}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Vibration
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &246020793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,6 +1914,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0.104644775, y: 0.6070099}
   m_SizeDelta: {x: 2.5965004, y: 0.20759583}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &246020796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246020791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &252875838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1938,7 @@ GameObject:
   - component: {fileID: 252875842}
   - component: {fileID: 252875841}
   - component: {fileID: 252875840}
+  - component: {fileID: 252875843}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -1970,6 +2021,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 252875843}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &252875841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2008,6 +2071,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252875838}
   m_CullTransparentMesh: 1
+--- !u!114 &252875843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252875838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253395102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,6 +2515,7 @@ GameObject:
   - component: {fileID: 350494012}
   - component: {fileID: 350494011}
   - component: {fileID: 350494010}
+  - component: {fileID: 350494013}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -2534,6 +2610,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 350494013}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &350494011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2572,6 +2660,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350494008}
   m_CullTransparentMesh: 1
+--- !u!114 &350494013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350494008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &356481148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2766,7 @@ GameObject:
   - component: {fileID: 362589523}
   - component: {fileID: 362589522}
   - component: {fileID: 362589521}
+  - component: {fileID: 362589524}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -2760,6 +2861,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 362589524}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &362589522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2798,6 +2911,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362589519}
   m_CullTransparentMesh: 1
+--- !u!114 &362589524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362589519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &365035666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3467,6 +3592,7 @@ GameObject:
   - component: {fileID: 547795334}
   - component: {fileID: 547795333}
   - component: {fileID: 547795332}
+  - component: {fileID: 547795335}
   m_Layer: 0
   m_Name: SoundOff
   m_TagString: Untagged
@@ -3549,6 +3675,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 547795335}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &547795333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3587,6 +3725,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547795330}
   m_CullTransparentMesh: 1
+--- !u!114 &547795335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547795330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &567961255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +4116,7 @@ GameObject:
   - component: {fileID: 610479995}
   - component: {fileID: 610479994}
   - component: {fileID: 610479993}
+  - component: {fileID: 610479996}
   m_Layer: 0
   m_Name: MusicOff
   m_TagString: Untagged
@@ -4048,6 +4199,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 610479996}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &610479994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4086,6 +4249,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610479991}
   m_CullTransparentMesh: 1
+--- !u!114 &610479996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610479991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &622962318 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
@@ -4109,6 +4284,7 @@ GameObject:
   - component: {fileID: 635968506}
   - component: {fileID: 635968505}
   - component: {fileID: 635968504}
+  - component: {fileID: 635968507}
   m_Layer: 0
   m_Name: VibrationOn
   m_TagString: Untagged
@@ -4191,6 +4367,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 635968507}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &635968505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4229,6 +4417,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635968502}
   m_CullTransparentMesh: 1
+--- !u!114 &635968507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635968502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &661809208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5354745377920125114, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}
@@ -4500,6 +4700,7 @@ GameObject:
   - component: {fileID: 743066627}
   - component: {fileID: 743066626}
   - component: {fileID: 743066625}
+  - component: {fileID: 743066628}
   m_Layer: 0
   m_Name: HowToPlay
   m_TagString: Untagged
@@ -4624,6 +4825,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 743066628}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &743066627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4632,6 +4845,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743066623}
   m_CullTransparentMesh: 1
+--- !u!114 &743066628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743066623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &751585560
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,6 +5890,7 @@ GameObject:
   - component: {fileID: 1035257750}
   - component: {fileID: 1035257749}
   - component: {fileID: 1035257748}
+  - component: {fileID: 1035257752}
   m_Layer: 0
   m_Name: MusicOn
   m_TagString: Untagged
@@ -5728,6 +5954,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1035257752}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1035257749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5785,6 +6023,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.50904846, y: 1.0737152}
   m_SizeDelta: {x: -1.3988991, y: 1.151001}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1035257752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035257747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1035676819
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,7 +6458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126055540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6580,6 +6830,7 @@ GameObject:
   - component: {fileID: 1191626538}
   - component: {fileID: 1191626537}
   - component: {fileID: 1191626536}
+  - component: {fileID: 1191626539}
   m_Layer: 0
   m_Name: Retry
   m_TagString: Untagged
@@ -6662,6 +6913,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1191626539}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1191626537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6700,6 +6963,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191626534}
   m_CullTransparentMesh: 1
+--- !u!114 &1191626539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191626534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1203854816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6878,6 +7153,7 @@ GameObject:
   - component: {fileID: 1223055023}
   - component: {fileID: 1223055022}
   - component: {fileID: 1223055021}
+  - component: {fileID: 1223055024}
   m_Layer: 5
   m_Name: Previous
   m_TagString: Untagged
@@ -6960,6 +7236,18 @@ MonoBehaviour:
           m_StringArgument: Previous
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1223055024}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1223055022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6998,6 +7286,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223055019}
   m_CullTransparentMesh: 1
+--- !u!114 &1223055024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223055019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1264480805
 GameObject:
   m_ObjectHideFlags: 0
@@ -8425,6 +8725,7 @@ GameObject:
   - component: {fileID: 1691404491}
   - component: {fileID: 1691404490}
   - component: {fileID: 1691404489}
+  - component: {fileID: 1691404492}
   m_Layer: 0
   m_Name: Left (1)
   m_TagString: Untagged
@@ -8537,6 +8838,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1691404492}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1691404491
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8545,6 +8858,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691404487}
   m_CullTransparentMesh: 1
+--- !u!114 &1691404492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691404487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734954947
 GameObject:
   m_ObjectHideFlags: 0
@@ -9767,6 +10092,7 @@ GameObject:
   - component: {fileID: 1935291542}
   - component: {fileID: 1935291541}
   - component: {fileID: 1935291540}
+  - component: {fileID: 1935291544}
   m_Layer: 0
   m_Name: VibrationOff
   m_TagString: Untagged
@@ -9830,6 +10156,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1935291544}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1935291541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9887,6 +10225,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.94984436, y: 0.82281494}
   m_SizeDelta: {x: 1.0226002, y: 0.4864006}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1935291544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935291539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1939871668
 GameObject:
   m_ObjectHideFlags: 0
@@ -10282,6 +10632,7 @@ GameObject:
   - component: {fileID: 2077834046}
   - component: {fileID: 2077834045}
   - component: {fileID: 2077834044}
+  - component: {fileID: 2077834047}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -10376,6 +10727,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2077834047}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: playSoundWithoutVibration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bouton
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2077834045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10414,6 +10777,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077834042}
   m_CullTransparentMesh: 1
+--- !u!114 &2077834047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077834042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b73a1ecd2487544298081e9f4b06103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2103012954
 GameObject:
   m_ObjectHideFlags: 0
