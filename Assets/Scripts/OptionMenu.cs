@@ -59,8 +59,7 @@ public class OptionMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        optionMenuUI.SetActive(false);
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(LoadMainMenu());
     }
 
     public void Retry()
@@ -140,5 +139,13 @@ public class OptionMenu : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(1);
+    }
+    IEnumerator LoadMainMenu()
+    {
+        GetComponent<Animator>().SetTrigger("Play");
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(0);
     }
 }
