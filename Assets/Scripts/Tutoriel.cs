@@ -8,6 +8,7 @@ public class Tutoriel : MonoBehaviour
     private static Tutoriel instance;
 
     public Animator animator;
+    [SerializeField] private int currentStep = 1;
 
     private void Start()
     {
@@ -18,12 +19,16 @@ public class Tutoriel : MonoBehaviour
     public void NextStep()
     {
         animator.SetTrigger("NextStep");
-        FindObjectOfType<Bonus_Malus>().blockHand = false;
+        currentStep++;
+        switch (currentStep)
+        {
+            case 2:
+                FindObjectOfType<Bonus_Malus>().blockHand = false;
+                break;
+            case 3:
+                FindObjectOfType<Bonus_Malus>().getBonus(30);
+                break;
+        }
     }
 
-    public void GetBonusTuto()
-    {
-        FindObjectOfType<Bonus_Malus>().getBonus(30);
-        FindObjectOfType<Bonus_Malus>().blockHand = true; 
-    }
 }

@@ -68,8 +68,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
+        StartCoroutine(GameOverDelay());
+    }
+
+    IEnumerator GameOverDelay()
+    {
+        yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
-        Score.Instance.CheckHighScore();
+
         Time.timeScale = 0;
     }
 }

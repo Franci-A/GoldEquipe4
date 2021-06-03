@@ -48,11 +48,11 @@ public class Merge : MonoBehaviour
         {
             rightTile.GetComponent<Animator>().SetTrigger("OnRight");
             rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
+            rightTile.tileType = TileType.Ground;
             rightTile.shieldLvl = 0;
             rightTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
-            rightTile.tileType = TileType.Ground;
             merged = true;
         }
 
@@ -60,11 +60,11 @@ public class Merge : MonoBehaviour
         {
             leftTile.GetComponent<Animator>().SetTrigger("OnLeft");
             rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
+            leftTile.tileType = TileType.Ground;
             leftTile.shieldLvl = 0;
             leftTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
-            leftTile.tileType = TileType.Ground;
             merged = true;
         }
 
@@ -72,11 +72,11 @@ public class Merge : MonoBehaviour
         {
             upTile.GetComponent<Animator>().SetTrigger("OnTop");
             rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
+            upTile.tileType = TileType.Ground;
             upTile.shieldLvl = 0;
             upTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
-            upTile.tileType = TileType.Ground;
             merged = true;
         }
 
@@ -84,11 +84,11 @@ public class Merge : MonoBehaviour
         {
             downTile.GetComponent<Animator>().SetTrigger("OnBottom");
             rightTile.gameObject.GetComponent<EnvironmentChanges>().EmptyTile();
+            downTile.tileType = TileType.Ground;
             downTile.shieldLvl = 0;
             downTile.houseUpgrade = 0;
             tileInfo.houseUpgrade++;
             combo++;
-            downTile.tileType = TileType.Ground;
             merged = true;
         }
 
@@ -129,7 +129,7 @@ public class Merge : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Merge");
             if(tempHouseUpgrade !=1)
                 pIckUpAndPlace.mergesToFinish++;
-            StartCoroutine(MergeFinished());
+            //StartCoroutine(MergeFinished());
             return true;
         }
 
@@ -152,7 +152,7 @@ public class Merge : MonoBehaviour
         {
             pIckUpAndPlace.mergesToFinish--;
         }
-            return false;
+        return false;
 
     }
     void comboValue(int tempHouseUpgrade)
@@ -225,9 +225,9 @@ public class Merge : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Play();
     }
 
-    IEnumerator MergeFinished()
+    public void MergeFinished()
     {
-        yield return new WaitForSeconds(1.4f);
+        //yield return new WaitForSeconds(1.4f);
         pIckUpAndPlace.mergesToFinish--;
     }
 

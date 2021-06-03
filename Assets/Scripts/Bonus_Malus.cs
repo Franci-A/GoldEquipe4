@@ -155,17 +155,18 @@ public class Bonus_Malus : MonoBehaviour
                 break;
             }
         }
-        if(canGetAchievement && Score.Instance.currentScore >= 250 )
+
+        if (canGetAchievement && Score.Instance.currentScore >= 750)
         {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250_without_bonus); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750_without_bonus); // score achievement
         }
-        else if(canGetAchievement && Score.Instance.currentScore >= 500)
+        else if (canGetAchievement && Score.Instance.currentScore >= 500)
         {
             AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500_without_bonus); // score achievement
         }
-        else if(canGetAchievement && Score.Instance.currentScore >= 750)
+        else if (canGetAchievement && Score.Instance.currentScore >= 250 )
         {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750_without_bonus); // score achievement
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250_without_bonus); // score achievement
         }
     }
 
@@ -352,5 +353,17 @@ public class Bonus_Malus : MonoBehaviour
         snapImage.transform.localPosition = resetPos;
         bonusTile.bonusType = BonusType.Chest;
         snapImage.GetComponent<SpriteRenderer>().sprite = spriteLib.GetSprite("Bonus", "Chest");
+    }
+
+    public void BlockHand(float waitTime)
+    {
+        blockHand = true;
+        StartCoroutine(BlockHandForSeconds(waitTime));
+    }
+
+    IEnumerator BlockHandForSeconds(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        blockHand = false;
     }
 }

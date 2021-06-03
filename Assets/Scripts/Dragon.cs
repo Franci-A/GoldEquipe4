@@ -23,6 +23,7 @@ public class Dragon : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Animator timerAnimator;
     [SerializeField] private PIckUpAndPlace playerHand;
+    [SerializeField] private Bonus_Malus bonus;
 
     public UnityEvent NextTurnEvent;
 
@@ -82,6 +83,7 @@ public class Dragon : MonoBehaviour
             if(turnBeforeAttack == 0)
             {
                 playerHand.BlockHandForSec(2.0f);
+                bonus.BlockHand(2.0f);
                 animator.SetTrigger("Attack");
             }
         }

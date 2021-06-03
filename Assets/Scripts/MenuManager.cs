@@ -69,4 +69,9 @@ public class MenuManager : MonoBehaviour
             SceneManager.LoadScene(index);
         }
     }
+
+    public void Share()
+    {
+        GameObject.FindWithTag("GameManager").GetComponent<EmptySceneForScreen>().PrepareForShareScreen();
+    }
 }

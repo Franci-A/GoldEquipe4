@@ -1437,6 +1437,7 @@ MonoBehaviour:
   animator: {fileID: 567961258}
   timerAnimator: {fileID: 142588815}
   playerHand: {fileID: 595124799}
+  bonus: {fileID: 180102952}
   NextTurnEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1501,6 +1502,7 @@ Transform:
   m_LocalScale: {x: 196.71819, y: 196.71819, z: 1.9671817}
   m_Children:
   - {fileID: 350273454}
+  - {fileID: 501216907}
   m_Father: {fileID: 1089234895}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3096,6 +3098,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteLibraryAsset: {fileID: 11400000, guid: fe8f6e05c5c95dc4d8317a0ffa21d567, type: 2}
+--- !u!1 &501216906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501216907}
+  - component: {fileID: 501216908}
+  m_Layer: 7
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &501216907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501216906}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 180102948}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &501216908
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501216906}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &503768508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,10 +3237,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 144241517}
-        m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
-        m_MethodName: Option
-        m_Mode: 1
+      - m_Target: {fileID: 1126055539}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3189,6 +3248,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 362589519}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &503768511
 MonoBehaviour:
@@ -3865,7 +3936,7 @@ MonoBehaviour:
   maxNumOfColors: 1
   turnToLevelUpHouses: 0a0000002d000000
   maxNumOfHouses: 1
-  chanceToGetThirdHouse: 20
+  chanceToGetThirdHouse: 10
   turnToLevelUpX: 05000000
   maxNumOfX: 0
   ChanceToGetX: 0.2
@@ -7817,6 +7888,7 @@ GameObject:
   - component: {fileID: 1382301729}
   - component: {fileID: 1382301730}
   - component: {fileID: 1382301731}
+  - component: {fileID: 1382301732}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -7864,6 +7936,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39783067eab6834ba571b34386b987e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1382301732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382301728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54cd67d7df02ba448e66aa5dfa906b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToDisable: []
 --- !u!114 &1414649364 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4615093916622517070, guid: 783643103d25b614daa3ceb5c8c4b48f, type: 3}

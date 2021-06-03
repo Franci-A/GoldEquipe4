@@ -24,24 +24,26 @@ public class Score : MonoBehaviour
             currentScore = 0;
         scoreDisplay.text = "" + currentScore;
 
-        if(currentScore >= 250)
-        {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250); // score achievement
-        }
-        else if(currentScore >= 500)
-        {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500); // score achievement
-        }
-        else if(currentScore >= 750)
-        {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750); // score achievement
-        }else if(currentScore >= 1000)
+
+        if (currentScore >= 1000)
         {
             AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_1000);
         }
+        else if (currentScore >= 750)
+        {
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750); // score achievement
+        }
+        else if (currentScore >= 500)
+        {
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500); // score achievement
+        }
+        else if (currentScore >= 250)
+        {
+            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250); // score achievement
+        }
     }
 
-    public void CheckHighScore()
+    public bool CheckHighScore()
     {
         if (currentScore > PlayerPrefs.GetInt("HighScore"))
         {
@@ -61,7 +63,9 @@ public class Score : MonoBehaviour
                 Debug.Log("Not signed in, unable to report score");
             }
             PlayerPrefs.Save();
+            return true;
         }
+        return false;
     }
 }
 

@@ -23,11 +23,11 @@ public class Grid : MonoBehaviour
     {
         drawOffset = new Vector3(tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x * gridWidth / 2 + tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x / 2, drawOffset.y, 0);
         sprites = GetComponent<SpriteLibrary>();
-        gridHeight += 2;
-        gridWidth += 2;
 
         if (grid.Count == 0)
         {
+            gridHeight += 2;
+            gridWidth += 2;
             InstanciateGrid();
             while (Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x > grid[0].gameObject.transform.position.x - grid[0].GetComponent<SpriteRenderer>().bounds.size.x / 4)
             {

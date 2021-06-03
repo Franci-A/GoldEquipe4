@@ -88,7 +88,7 @@ public class PIckUpAndPlace : MonoBehaviour
                 {
                     isTuto = false;
                     blockHand = true;
-                    Tutoriel.Instance.GetBonusTuto();
+                    Tutoriel.Instance.NextStep();
                 }
             }
         }
