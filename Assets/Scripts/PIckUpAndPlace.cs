@@ -160,7 +160,7 @@ public class PIckUpAndPlace : MonoBehaviour
                 {
                     if (tile.tileType == TileType.House) {
 
-                        if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
+                        if (currentGrid.grid[currentGrid.gridWidth * y + x].GetComponent<Animator>().GetBool("isAnimating") || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Water || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.House || currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Empty)
                         {
                             canBePlaced = false;
                         }
@@ -298,7 +298,7 @@ public class PIckUpAndPlace : MonoBehaviour
         int y = 1;
         for (int i = 0; i < (currentGrid.gridHeight -2) * (currentGrid.gridWidth -2); i++)
         {
-            if(currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)
+            if (currentGrid.grid[currentGrid.gridWidth * y + x].tileType == TileType.Ground)  
             {
                 bool canBePlaced = true ;
                 for (int j = index + 1; j < 9; j++)
@@ -308,7 +308,7 @@ public class PIckUpAndPlace : MonoBehaviour
                         int tempY = j/3 - index/3;
                         int tempX = j%3 - index%3;
                         int currentPos = currentGrid.gridWidth * (y + tempY) + (x +tempX);
-                        if (currentPos < 0 || currentPos >= currentGrid.grid.Count || currentGrid.grid[currentPos].tileType != TileType.Ground)
+                        if ( currentPos < 0 || currentPos >= currentGrid.grid.Count || currentGrid.grid[currentPos].tileType != TileType.Ground)
                         {
                             canBePlaced = false;
                             break;

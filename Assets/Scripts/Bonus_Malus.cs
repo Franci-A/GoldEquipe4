@@ -269,9 +269,10 @@ public class Bonus_Malus : MonoBehaviour
         if (tileInfo.houseUpgrade >= 4) {
             tileInfo.houseUpgrade = 4;
             tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+50");
-            tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 4f);
             tileInfo.GetComponent<Merge>().pIckUpAndPlace.mergesToFinish++;
+            Debug.Log(tileInfo.GetComponent<Merge>().pIckUpAndPlace.mergesToFinish);
             tileInfo.GetComponent<Animator>().SetTrigger("FullUpgrade");
+            tileInfo.GetComponent<Merge>().StartCoroutine("MergeFinished");
             score.AddScore(50);
         }
         else {

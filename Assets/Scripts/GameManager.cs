@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOverDelay()
     {
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSecondsRealtime(1f);
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
 
         Time.timeScale = 0;

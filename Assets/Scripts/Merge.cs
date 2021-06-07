@@ -130,9 +130,7 @@ public class Merge : MonoBehaviour
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
-            //pIckUpAndPlace.mergesToFinish++;
-            //Debug.Log(pIckUpAndPlace.mergesToFinish);
-            //StartCoroutine(MergeFinished());
+            StartCoroutine(MergeFinished());
             return true;
         }
 
@@ -230,9 +228,9 @@ public class Merge : MonoBehaviour
         GetComponentInChildren<ParticleSystem>().Play();
     }
 
-    public void MergeFinished()
+    IEnumerator MergeFinished()
     {
-        //yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.4f);
         pIckUpAndPlace.mergesToFinish--;
         Debug.Log(pIckUpAndPlace.mergesToFinish );
     }

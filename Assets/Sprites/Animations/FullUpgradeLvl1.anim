@@ -677,15 +677,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5833334
-    functionName: PlayParticles
+  - time: 1.5
+    functionName: UpdateVisual
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.5833334
-    functionName: UpdateVisual
+    functionName: PlayParticles
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -701,13 +701,6 @@ AnimationClip:
   - time: 1.5833334
     functionName: playSound
     data: HouseUpgrade4
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.75
-    functionName: MergeFinished
-    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
