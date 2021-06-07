@@ -7,6 +7,7 @@ using UnityEngine.Experimental.U2D.Animation;
 public class EnvironmentChanges : MonoBehaviour
 {
     private Animator animator;
+    [SerializeField] private Animator animalAnimator;
     public int turnsEmpty;
     private Tile parentTile;
     private bool hasTrees;
@@ -14,6 +15,7 @@ public class EnvironmentChanges : MonoBehaviour
     public bool lightningStrike;
     public int lightningStrikeLvl;
     [SerializeField] private SpriteRenderer sprite;
+    private int treeLevel;
 
     public UnityEvent NextTurnEvent;
 
@@ -25,6 +27,7 @@ public class EnvironmentChanges : MonoBehaviour
         NextTurnEvent.AddListener(UpdateTurn);
         randomTrees = Random.Range(0, 8);
         animator.SetFloat("Vegetation", randomTrees);
+        animalAnimator.SetFloat("Animal", randomTrees);
         EmptyTile();
     }
 
@@ -42,6 +45,7 @@ public class EnvironmentChanges : MonoBehaviour
             if (turnsEmpty > 5 && i < .05f)
             {
                 animator.SetTrigger("NextStage");
+                treeLevel = 1;
                 hasTrees = true;
             }
         }
@@ -51,16 +55,29 @@ public class EnvironmentChanges : MonoBehaviour
             if ( i < .1f)
             {
                 animator.SetTrigger("NextStage");
+                treeLevel++;
             }
         }
         else if (!lightningStrike)
         {
             parentTile.lightningMark.sprite = parentTile.sprites.GetSprite("Thunder", "Level0");
         }
+
+        if(treeLevel > 3)
+        {
+            parentTile.animal.SetActive(true);
+            animalAnimator.SetFloat("Animal", randomTrees);
+        }
+        else
+        {
+            parentTile.animal.SetActive(false);
+        }
     }
 
     public void EmptyTile()
     {
+        treeLevel = 0; 
+        parentTile.animal.SetActive(false);
         turnsEmpty = 0;
         int i = Random.Range(0, 6);
         GetComponent<Animator>().SetFloat("GrassLevel", i);

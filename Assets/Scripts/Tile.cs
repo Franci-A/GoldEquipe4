@@ -38,6 +38,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer shieldSprite;
     public Animator targeted;
     public SpriteRenderer lightningMark;
+    public GameObject animal;
 
     public void UpdateVisual()
     {
