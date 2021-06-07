@@ -30,6 +30,7 @@ public class Bonus_Malus : MonoBehaviour
     public List<bool> bonusesUsed;
 
     public bool blockHand = false;
+    int i = 1;
 
     void Start()
     {
@@ -61,6 +62,38 @@ public class Bonus_Malus : MonoBehaviour
             {
                 snapImage.transform.position = transform.position;
             }
+        }
+        if (Score.Instance.currentScore >= 250 * i)
+        {
+            bool canGetAchievement = true;
+            foreach (bool item in bonusesUsed)
+            {
+                if (item)
+                {
+                    canGetAchievement = false;
+                    break;
+                }
+            }
+            if (canGetAchievement && Score.Instance.currentScore >= 750)
+            {
+                AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750_without_bonus); // score achievement
+                i++;
+            }
+            else if (canGetAchievement && Score.Instance.currentScore >= 500)
+            {
+                AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500_without_bonus); // score achievement
+                i++;
+            }
+            else if (canGetAchievement && Score.Instance.currentScore >= 250)
+            {
+                AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250_without_bonus); // score achievement
+                Debug.Log("get achievement");
+                i++;
+            }else if (!canGetAchievement)
+            {
+                i++;
+            }
+            
         }
     }
 
@@ -147,27 +180,7 @@ public class Bonus_Malus : MonoBehaviour
             AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_catch_em_all); //catch em all bonuses
         }
         canGetAchievement = true;
-        foreach (bool item in bonusesUsed)
-        {
-            if (item)
-            {
-                canGetAchievement = false;
-                break;
-            }
-        }
-
-        if (canGetAchievement && Score.Instance.currentScore >= 750)
-        {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_750_without_bonus); // score achievement
-        }
-        else if (canGetAchievement && Score.Instance.currentScore >= 500)
-        {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_500_without_bonus); // score achievement
-        }
-        else if (canGetAchievement && Score.Instance.currentScore >= 250 )
-        {
-            AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250_without_bonus); // score achievement
-        }
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -257,6 +270,7 @@ public class Bonus_Malus : MonoBehaviour
             tileInfo.houseUpgrade = 4;
             tileInfo.scorePopup.sprite = tileInfo.sprites.GetSprite("Score", "+50");
             tileInfo.GetComponent<Animator>().SetFloat("UpgradeNum", 4f);
+            tileInfo.GetComponent<Merge>().pIckUpAndPlace.mergesToFinish++;
             tileInfo.GetComponent<Animator>().SetTrigger("FullUpgrade");
             score.AddScore(50);
         }

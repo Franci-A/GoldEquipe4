@@ -40,6 +40,8 @@ public class Merge : MonoBehaviour
 
     public bool merging(bool originalCall = false)
     {
+        pIckUpAndPlace.mergesToFinish++;
+        Debug.Log(pIckUpAndPlace.mergesToFinish);
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
         combo = 0;
@@ -93,7 +95,8 @@ public class Merge : MonoBehaviour
         }
 
 
-        if (combo >= 2) {
+        if (combo >= 2)
+        {
             comboValue(tempHouseUpgrade);
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
 
@@ -112,7 +115,7 @@ public class Merge : MonoBehaviour
                 AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_wombo_combos); //womboCombo achievement
             }
         }
-        else if(tileInfo.houseUpgrade >= 4 && combo < 2)
+        else if (tileInfo.houseUpgrade >= 4 && combo < 2)
         {
             score.AddScore(50);
             bonusScore = 50;
@@ -127,31 +130,33 @@ public class Merge : MonoBehaviour
             this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
             this.GetComponent<Animator>().SetTrigger("FullUpgrade");
             FindObjectOfType<AudioManager>().Play("Merge");
-            if(tempHouseUpgrade !=1)
-                pIckUpAndPlace.mergesToFinish++;
+            //pIckUpAndPlace.mergesToFinish++;
+            //Debug.Log(pIckUpAndPlace.mergesToFinish);
             //StartCoroutine(MergeFinished());
             return true;
         }
 
         if (merged && tileInfo.houseUpgrade < 4)
         {
+
             if (!merging())
             {
-                this.GetComponent<Animator>().SetFloat("MergeLevel",tempHouseUpgrade);
-                this.GetComponent<Animator>().SetFloat("MergeRace",(int)tileInfo.houseColor);
+                this.GetComponent<Animator>().SetFloat("MergeLevel", tempHouseUpgrade);
+                this.GetComponent<Animator>().SetFloat("MergeRace", (int)tileInfo.houseColor);
                 this.GetComponent<Animator>().SetFloat("UpgradeNum", (float)combo);
                 this.GetComponent<Animator>().SetTrigger("Upgrade");
                 FindObjectOfType<AudioManager>().Play("Merge");
             }
-            if (originalCall) {
-                pIckUpAndPlace.mergesToFinish--;
-            }
+
+            pIckUpAndPlace.mergesToFinish--;
+            Debug.Log(pIckUpAndPlace.mergesToFinish);
+
             return true;
         }
-        if (originalCall)
-        {
-            pIckUpAndPlace.mergesToFinish--;
-        }
+
+        pIckUpAndPlace.mergesToFinish--;
+        Debug.Log(pIckUpAndPlace.mergesToFinish);
+
         return false;
 
     }
@@ -229,6 +234,7 @@ public class Merge : MonoBehaviour
     {
         //yield return new WaitForSeconds(1.4f);
         pIckUpAndPlace.mergesToFinish--;
+        Debug.Log(pIckUpAndPlace.mergesToFinish );
     }
 
     public void UpdateTiles()

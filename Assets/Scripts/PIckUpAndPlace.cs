@@ -184,7 +184,7 @@ public class PIckUpAndPlace : MonoBehaviour
 
     public void PlaceTiles()
     {
-        mergesToFinish = 0;
+        //mergesToFinish = 0;
         int x = currentCenterTile.GetComponent<Tile>().tileNum-1;
         int y = currentCenterTile.GetComponent<Tile>().lineNum-1;
         List<int> tileWithHouse = new List<int>();
@@ -212,7 +212,6 @@ public class PIckUpAndPlace : MonoBehaviour
                             currentGrid.grid[y * currentGrid.gridWidth + x].houseColor = tile.houseColor;
                             currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<Animator>().SetTrigger("Place");
                             tileWithHouse.Add(y * currentGrid.gridWidth + x);
-                            mergesToFinish++;
                             currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrike = false;
                             currentGrid.grid[y * currentGrid.gridWidth + x].GetComponent<EnvironmentChanges>().lightningStrikeLvl = 0;
                             break;
@@ -284,6 +283,7 @@ public class PIckUpAndPlace : MonoBehaviour
 
     public bool CheckPosibilities()
     {
+        Debug.Log("<color=red>Check </color>");
         int index =0;
         for (int i = 0; i < 9; i++)
         {
