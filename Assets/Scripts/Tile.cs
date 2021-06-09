@@ -38,17 +38,16 @@ public class Tile : MonoBehaviour
     public SpriteRenderer shieldSprite;
     public Animator targeted;
     public SpriteRenderer lightningMark;
+    public SpriteRenderer houseSprite;
     public GameObject animal;
 
     public void UpdateVisual()
     {
-        SpriteRenderer obj = transform.GetChild(0).GetComponent<SpriteRenderer>();
-
 
         switch (tileType)
         {
             case TileType.House:
-                obj.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
+                houseSprite.sprite = sprites.GetSprite(houseColor.ToString(), "level" + houseUpgrade.ToString());
                 destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", houseColor.ToString() + 1));
                 destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", houseColor.ToString() + 2));
                 destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", houseColor.ToString() + 3));
@@ -56,14 +55,14 @@ public class Tile : MonoBehaviour
                 destroyParticles.textureSheetAnimation.SetSprite(4, sprites.GetSprite("Particles", houseColor.ToString() + 5));
                 break;
             case TileType.LevelUp:
-                obj.sprite = sprites.GetSprite("Bonus", "Hammer1");
+                houseSprite.sprite = sprites.GetSprite("Bonus", "Hammer1");
                 break;
             case TileType.X:
-                obj.sprite = sprites.GetSprite("Bonus", "Thunder");
+                houseSprite.sprite = sprites.GetSprite("Bonus", "Thunder");
                 break;
             case TileType.Water:
                 int i = UnityEngine.Random.Range(1, 4);
-                obj.sprite = sprites.GetSprite("Tiles", "Water" + i);
+                houseSprite.sprite = sprites.GetSprite("Tiles", "Water" + i);
                 destroyParticles.textureSheetAnimation.SetSprite(0, sprites.GetSprite("Particles", "Mountain1"));
                 destroyParticles.textureSheetAnimation.SetSprite(1, sprites.GetSprite("Particles", "Mountain2"));
                 destroyParticles.textureSheetAnimation.SetSprite(2, sprites.GetSprite("Particles", "Mountain3"));
@@ -71,7 +70,7 @@ public class Tile : MonoBehaviour
                 destroyParticles.textureSheetAnimation.SetSprite(4, sprites.GetSprite("Particles", "Mountain5"));
                 break;
             default:
-                obj.sprite = sprites.GetSprite(houseColor.ToString(), "level0");
+                houseSprite.sprite = sprites.GetSprite(houseColor.ToString(), "level0");
                 break;
 
         }

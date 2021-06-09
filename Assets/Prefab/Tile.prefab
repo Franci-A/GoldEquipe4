@@ -5604,6 +5604,7 @@ MonoBehaviour:
   shieldSprite: {fileID: 1721820549659335156}
   targeted: {fileID: 6619365819379127950}
   lightningMark: {fileID: 4851785017014071370}
+  houseSprite: {fileID: 7161226108901401041}
   animal: {fileID: 5928519558742812759}
 --- !u!114 &655024920389331529
 MonoBehaviour:

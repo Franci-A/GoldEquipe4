@@ -15,9 +15,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3733672879992414574, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3815112475346300683, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928519558742812759, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+      propertyPath: m_Name
+      value: Animals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679558226553242298, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7161226108901401041, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
       propertyPath: m_Color.b
@@ -91,4 +103,5 @@ PrefabInstance:
     - {fileID: 8697326908566153924, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
     - {fileID: 8697326908566153926, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
     - {fileID: 655024920389331529, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
+    - {fileID: 3733672879992414574, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f8095f5dbbaa89c4bb52b1fc6b1f12a5, type: 3}
