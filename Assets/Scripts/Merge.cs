@@ -41,7 +41,7 @@ public class Merge : MonoBehaviour
     public bool merging(bool originalCall = false)
     {
         pIckUpAndPlace.mergesToFinish++;
-        Debug.Log(pIckUpAndPlace.mergesToFinish);
+        //Debug.Log(pIckUpAndPlace.mergesToFinish);
         int tempHouseUpgrade = tileInfo.houseUpgrade;
         bool merged = false;
         combo = 0;
@@ -147,13 +147,13 @@ public class Merge : MonoBehaviour
             }
 
             pIckUpAndPlace.mergesToFinish--;
-            Debug.Log(pIckUpAndPlace.mergesToFinish);
+            //Debug.Log(pIckUpAndPlace.mergesToFinish);
 
             return true;
         }
 
         pIckUpAndPlace.mergesToFinish--;
-        Debug.Log(pIckUpAndPlace.mergesToFinish);
+        //Debug.Log(pIckUpAndPlace.mergesToFinish);
 
         return false;
 
@@ -161,6 +161,7 @@ public class Merge : MonoBehaviour
     void comboValue(int tempHouseUpgrade)
     {
         bonusScore = 0;
+        Debug.Log("comebo : " + combo);
         switch (tempHouseUpgrade) {
             case 1:
                 if (combo == 2)
@@ -232,7 +233,7 @@ public class Merge : MonoBehaviour
     {
         yield return new WaitForSeconds(1.4f);
         pIckUpAndPlace.mergesToFinish--;
-        Debug.Log(pIckUpAndPlace.mergesToFinish );
+        //Debug.Log(pIckUpAndPlace.mergesToFinish );
     }
 
     public void UpdateTiles()

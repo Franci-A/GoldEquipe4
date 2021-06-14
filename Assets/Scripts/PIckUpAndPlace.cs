@@ -283,7 +283,7 @@ public class PIckUpAndPlace : MonoBehaviour
 
     public bool CheckPosibilities()
     {
-        Debug.Log("<color=red>Check </color>");
+        //Debug.Log("<color=red>Check </color>");
         int index =0;
         for (int i = 0; i < 9; i++)
         {

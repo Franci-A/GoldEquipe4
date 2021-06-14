@@ -87,7 +87,7 @@ public class Bonus_Malus : MonoBehaviour
             else if (canGetAchievement && Score.Instance.currentScore >= 250)
             {
                 AchievementManager.Instance.UnlockAchievement(GPGSIds.achievement_250_without_bonus); // score achievement
-                Debug.Log("get achievement");
+
                 i++;
             }else if (!canGetAchievement)
             {
